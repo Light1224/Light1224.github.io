@@ -5,37 +5,32 @@
 		<title>Shamit — Mathematics & Systems</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 
-		<!-- Serif font -->
+		<!-- Academic serif font -->
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/eb-garamond@latest/index.css">
 
-		<!-- Site styles -->
 		<link rel="stylesheet" href="style.css">
 
-		<!-- MathJax -->
+		<!-- MathJax (safe to keep globally) -->
 		<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 	</head>
 
 	<body>
 
 		<header class="topbar">
-			<div class="topbar-inner">
-				<div class="site-title">
-					<a href="/">Shamit</a>
-				</div>
-
+			<div class="container topbar-inner">
+				<div class="site-title">Shamit</div>
 				<nav class="top-nav">
-					<a href="/">Articles</a>
-					<a href="/solutions/">Solutions</a>
+					<a href="/">About</a>
+					<a href="/solutions/">Problems</a>
 					<a href="/projects/">Projects</a>
-					<a href="/about/">About</a>
 					<a href="/cv.pdf" target="_blank" rel="noopener">CV</a>
 				</nav>
 			</div>
 		</header>
 
-		<main>
+		<main class="container">
 
-			<section class="intro">
+			<section class="about">
 				<p>
 					I work on mathematically rigorous problems in
 					<strong>probability, statistics, and algorithms</strong>,
@@ -45,44 +40,25 @@
 				</p>
 
 				<p>
+					My primary interests lie in problem solving at the intersection of
+					theoretical reasoning and practical implementation, with emphasis on
+					probabilistic methods, Monte Carlo techniques, and performance-critical
+					systems.
+				</p>
+
+				<p>
 					This website serves as a curated archive of:
 				</p>
 
 				<ul>
-					<li>Putnam-style problem solutions</li>
-					<li>IMC / quant-style probability problems</li>
+					<li>Putnam- and IMC-style mathematical problems</li>
+					<li>Probability and quant-style reasoning problems</li>
 					<li>Technical projects with experiments and analysis</li>
 				</ul>
 			</section>
-
-			<section>
-				<h2>Recent Articles</h2>
-
-				<article>
-					<div class="meta">Jan 2026 · 10 min read</div>
-					<h3><a href="/articles/monte-carlo.html">
-						Monte Carlo Integration Beyond Toy Examples
-					</a></h3>
-					<p>
-						A rigorous treatment of Monte Carlo integration from first
-						principles, including variance analysis and convergence.
-					</p>
-				</article>
-
-				<article>
-					<div class="meta">Dec 2025 · 12 min read</div>
-					<h3><a href="/articles/linux-cfs.html">
-						Analyzing Linux CFS Under Mixed CPU Workloads
-					</a></h3>
-					<p>
-						Experimental evaluation of Linux’s Completely Fair Scheduler
-						under heterogeneous workloads.
-					</p>
-				</article>
-			</section>
 		</main>
 
-		<footer>
+		<footer class="container footer">
 			<p>
 				Undergraduate · Interested in applied statistics, quant research, and systems
 			</p>

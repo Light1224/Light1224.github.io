@@ -2,82 +2,86 @@
   --text-main: #111;
   --text-muted: #666;
   --border-light: #ddd;
-  --max-width: 820px;
+  --content-width: 760px;
 }
 
 * {
   box-sizing: border-box;
 }
 
+html {
+  font-size: 18px;
+}
+
 body {
   margin: 0;
   font-family: "EB Garamond", Georgia, serif;
-  font-size: 18px;
-  line-height: 1.6;
+  line-height: 1.65;
   color: var(--text-main);
   background: #fff;
 }
 
-/* Top bar */
+/* ===== Shared centered column ===== */
+
+.container {
+  max-width: var(--content-width);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* ===== Topbar ===== */
 
 .topbar {
   border-bottom: 1px solid var(--border-light);
 }
 
 .topbar-inner {
-  max-width: var(--max-width);
-  margin: 0 auto;
-  padding: 1.2rem 1.5rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding-top: 1.4rem;
+  padding-bottom: 1.4rem;
 }
 
-.site-title a {
-  font-size: 1.5rem;
-  font-weight: normal;
-  text-decoration: none;
-  color: #000;
+.site-title {
+  font-size: 1.4rem;
 }
 
 .top-nav a {
-  margin-left: 1.4rem;
+  margin-left: 1.5rem;
   font-size: 0.95rem;
 }
 
-/* Main */
+/* ===== Main content ===== */
 
 main {
-  max-width: var(--max-width);
-  margin: 2.5rem auto;
-  padding: 0 1.5rem;
+  margin-top: 3rem;
 }
 
-.intro {
-  margin-bottom: 3rem;
+.about p {
+  margin-bottom: 1.4rem;
 }
 
-h2 {
-  font-size: 1.4rem;
-  font-weight: normal;
-  margin-bottom: 1.2rem;
+.about ul {
+  margin-top: 0.8rem;
+  padding-left: 1.2rem;
 }
 
-h3 {
-  font-size: 1.2rem;
-  font-weight: normal;
-  margin-bottom: 0.3rem;
+.about li {
+  margin-bottom: 0.4rem;
 }
 
-article {
-  margin-bottom: 2.5rem;
-}
+/* ===== Footer ===== */
 
-.meta {
-  font-size: 0.85rem;
+.footer {
+  margin-top: 4rem;
+  padding-top: 1.2rem;
+  border-top: 1px solid var(--border-light);
+  font-size: 0.9rem;
   color: var(--text-muted);
-  margin-bottom: 0.2rem;
 }
+
+/* ===== Links ===== */
 
 a {
   color: #000;
@@ -89,18 +93,7 @@ a:hover {
   border-bottom-color: #000;
 }
 
-/* Footer */
-
-footer {
-  max-width: var(--max-width);
-  margin: 4rem auto 2rem;
-  padding: 0 1.5rem;
-  font-size: 0.9rem;
-  color: var(--text-muted);
-  border-top: 1px solid var(--border-light);
-}
-
-/* Mobile */
+/* ===== Mobile ===== */
 
 @media (max-width: 600px) {
   .topbar-inner {
@@ -114,7 +107,7 @@ footer {
 
   .top-nav a {
     margin-left: 0;
-    margin-right: 1rem;
+    margin-right: 1.2rem;
   }
 }
 
