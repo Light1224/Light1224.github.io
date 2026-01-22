@@ -8,6 +8,7 @@
 		<!-- Serif font -->
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/eb-garamond@latest/index.css">
 
+		<!-- Site styles -->
 		<link rel="stylesheet" href="style.css">
 
 		<!-- MathJax -->
@@ -16,73 +17,75 @@
 
 	<body>
 
-		<div class="container">
+		<header class="topbar">
+			<div class="topbar-inner">
+				<div class="site-title">
+					<a href="/">Shamit</a>
+				</div>
 
-			<!-- Sidebar -->
-			<aside class="sidebar">
-				<h1>Shamit</h1>
-				<p class="role">
-					Mathematics · Probability · Algorithms · Systems
-				</p>
-
-				<p class="bio">
-					Undergraduate interested in applied statistics,
-					quant research, and systems.
-				</p>
-
-				<nav class="side-nav">
+				<nav class="top-nav">
 					<a href="/">Articles</a>
 					<a href="/solutions/">Solutions</a>
 					<a href="/projects/">Projects</a>
-					<a href="/notes/">Notes</a>
 					<a href="/about/">About</a>
+					<a href="/cv.pdf" target="_blank" rel="noopener">CV</a>
 				</nav>
+			</div>
+		</header>
 
-				<div class="links">
-					<a href="https://github.com/your-username">GitHub</a>
-					<a href="mailto:your-email@example.com">Email</a>
-					<a href="/cv.pdf">CV</a>
-				</div>
-			</aside>
+		<main>
 
-			<!-- Main content -->
-			<main class="content">
+			<section class="intro">
+				<p>
+					I work on mathematically rigorous problems in
+					<strong>probability, statistics, and algorithms</strong>,
+					alongside <strong>systems-level projects</strong>
+					involving
+					performance, scheduling, and simulation.
+				</p>
+
+				<p>
+					This website serves as a curated archive of:
+				</p>
+
+				<ul>
+					<li>Putnam-style problem solutions</li>
+					<li>IMC / quant-style probability problems</li>
+					<li>Technical projects with experiments and analysis</li>
+				</ul>
+			</section>
+
+			<section>
+				<h2>Recent Articles</h2>
 
 				<article>
 					<div class="meta">Jan 2026 · 10 min read</div>
-					<h2>
-						<a href="#">Monte Carlo Integration Beyond Toy Examples</a>
-					</h2>
+					<h3><a href="/articles/monte-carlo.html">
+						Monte Carlo Integration Beyond Toy Examples
+					</a></h3>
 					<p>
-						A rigorous look at Monte Carlo integration from first principles,
-						including variance analysis, convergence guarantees, and
-						practical implementation pitfalls.
+						A rigorous treatment of Monte Carlo integration from first
+						principles, including variance analysis and convergence.
 					</p>
 				</article>
 
 				<article>
 					<div class="meta">Dec 2025 · 12 min read</div>
-					<h2>
-						<a href="#">Analyzing Linux CFS Under Mixed CPU Workloads</a>
-					</h2>
+					<h3><a href="/articles/linux-cfs.html">
+						Analyzing Linux CFS Under Mixed CPU Workloads
+					</a></h3>
 					<p>
-						An experimental study of Linux’s Completely Fair Scheduler under
-						heterogeneous workloads, focusing on latency, fairness,
-						and throughput trade-offs.
+						Experimental evaluation of Linux’s Completely Fair Scheduler
+						under heterogeneous workloads.
 					</p>
 				</article>
+			</section>
+		</main>
 
-				<article>
-					<div class="meta">Nov 2025 · 8 min read</div>
-					<h2>
-						<a href="#">Why Pseudorandomness Works in Practice</a>
-					</h2>
-					<p>
-						An explanation of why deterministic pseudorandom generators are
-						sufficient for Monte Carlo methods, and where they fail.
-					</p>
-				</article>
-			</main>
-		</div>
+		<footer>
+			<p>
+				Undergraduate · Interested in applied statistics, quant research, and systems
+			</p>
+		</footer>
 	</body>
 </html>
