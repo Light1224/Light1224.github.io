@@ -15,4 +15,21 @@ body{margin:0;font-family:Cascadia Mono,JetBrains Mono,Source Code Pro,Menlo,Con
 .index a{text-decoration:none;color:inherit}
 .index a:hover{text-decoration:underline}
 .sidebar a.active{text-decoration:underline;text-transform:uppercase}
+.sidebar .contact {
+  margin-top: 24px;
+  font-size: 13px;
+  opacity: 0.8;
+}
+.sidebar .contact a {
+  text-decoration: none;
+}
+.sidebar .contact a:hover {
+  text-decoration: underline;
+}
+.contact-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 12px; /* same as sidebar */
+}
+
 
