@@ -1,105 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<meta charset="utf-8">
-		<title>Articles — Shamit</title>
+		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-
-		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/eb-garamond@latest/index.css">
-
+		<title>Articles</title>
 		<link rel="stylesheet" href="/style.css">
 	</head>
-
 	<body>
 
-		<header class="topbar">
-			<div class="container topbar-inner">
-				<div class="site-title">
-					<a href="/">Shamit</a>
-				</div>
+		<header class="site-header">
+			<div class="container">
+				<div class="site-title">Shamit</div>
 				<nav class="top-nav">
 					<a href="/">About</a>
 					<a href="/articles/">Articles</a>
-					<a href="/solutions/">Problems</a>
+					<a href="/problems/">Problems</a>
 					<a href="/projects/">Projects</a>
-					<a href="/cv.pdf" target="_blank" rel="noopener">CV</a>
+					<a href="/cv.pdf" target="_blank">CV</a>
 				</nav>
 			</div>
 		</header>
 
 		<main class="container">
-
 			<h1>Articles</h1>
-
 			<p class="muted">
-				A complete list of articles, problem solutions, and project write-ups.
+				Essays, write-ups, and technical notes.
 			</p>
 
-			<section class="article-list">
+			<article class="list-item">
+				<h2>Monte Carlo Integration Beyond Toy Examples</h2>
+				<p class="meta">Jan 2026 · 10 min read</p>
+				<p>
+					A rigorous treatment of Monte Carlo integration from first principles,
+					including variance analysis and convergence.
+				</p>
+			</article>
 
-				<!-- Articles -->
-				<h2>Expository Articles</h2>
-
-				<article>
-					<div class="meta">Jan 2026</div>
-					<h3>
-						<a href="/articles/monte-carlo.html">
-							Monte Carlo Integration Beyond Toy Examples
-						</a>
-					</h3>
-					<p>
-						Variance analysis, convergence guarantees, and practical considerations.
-					</p>
-				</article>
-
-				<!-- Projects -->
-				<h2>Projects</h2>
-
-				<article>
-					<div class="meta">Dec 2025</div>
-					<h3>
-						<a href="/projects/linux-scheduler.html">
-							Analyzing Linux CFS Under Mixed CPU Workloads
-						</a>
-					</h3>
-					<p>
-						Experimental evaluation of Linux’s Completely Fair Scheduler.
-					</p>
-				</article>
-
-				<!-- Problems -->
-				<h2>Problems & Solutions</h2>
-
-				<article>
-					<div class="meta">Putnam 2023 · A1</div>
-					<h3>
-						<a href="/solutions/putnam/2023-a1.html">
-							Putnam 2023 A1
-						</a>
-					</h3>
-					<p>
-						A combinatorial identity with a probabilistic interpretation.
-					</p>
-				</article>
-
-				<article>
-					<div class="meta">IMC · Probability</div>
-					<h3>
-						<a href="/solutions/imc/imc-prob-01.html">
-							IMC Probability Problem 1
-						</a>
-					</h3>
-					<p>
-						Estimation under uncertainty using conditioning and symmetry.
-					</p>
-				</article>
-			</section>
+			<article class="list-item">
+				<h2>Analyzing Linux CFS Under Mixed CPU Workloads</h2>
+				<p class="meta">Dec 2025 · 12 min read</p>
+				<p>
+					Experimental evaluation of Linux’s Completely Fair Scheduler
+					under heterogeneous workloads.
+				</p>
+			</article>
 		</main>
-
-		<footer class="container footer">
-			<p>
-				Undergraduate · Interested in applied statistics, quant research, and systems
-			</p>
-		</footer>
 	</body>
 </html>
