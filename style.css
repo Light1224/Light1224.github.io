@@ -1,0 +1,18 @@
+*{box-sizing:border-box}
+body{margin:0;font-family:Cascadia Mono,JetBrains Mono,Source Code Pro,Menlo,Consolas,monospace;background:#fff;color:#000}
+.layout{display:flex;min-height:100vh}
+.sidebar{width:180px;padding:24px;display:flex;flex-direction:column;gap:12px}
+.name{font-size:16px}
+.line{height:1px;background:#ccc;margin:4px 0}
+.sidebar a{text-decoration:none;color:inherit;font-size:14px}
+.sidebar a.active{text-decoration:underline}
+.content{flex:1;padding:24px;max-width:720px}
+.content h1{font-size:18px;margin:0 0 16px 0}
+.content p{font-size:14px;line-height:1.6;margin:0 0 12px 0}
+.content ul{padding-left:16px;margin:0}
+.content li{font-size:14px;line-height:1.6;margin:4px 0}
+.index{font-size:14px;line-height:1.8;white-space:pre}
+.index a{text-decoration:none;color:inherit}
+.index a:hover{text-decoration:underline}
+.sidebar a.active{text-decoration:underline;text-transform:uppercase}
+
