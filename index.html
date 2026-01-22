@@ -5,96 +5,84 @@
 		<title>Shamit — Mathematics & Systems</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 
-		<!-- Academic serif font -->
+		<!-- Serif font -->
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/eb-garamond@latest/index.css">
 
-		<!-- Site CSS -->
 		<link rel="stylesheet" href="style.css">
 
-		<!-- MathJax (remove if unused) -->
+		<!-- MathJax -->
 		<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 	</head>
 
 	<body>
-		<main>
 
-			<header>
+		<div class="container">
+
+			<!-- Sidebar -->
+			<aside class="sidebar">
 				<h1>Shamit</h1>
-				<div class="subtitle">
+				<p class="role">
 					Mathematics · Probability · Algorithms · Systems
-				</div>
+				</p>
 
-				<nav>
-					<a href="/">Home</a>
+				<p class="bio">
+					Undergraduate interested in applied statistics,
+					quant research, and systems.
+				</p>
+
+				<nav class="side-nav">
+					<a href="/">Articles</a>
 					<a href="/solutions/">Solutions</a>
 					<a href="/projects/">Projects</a>
 					<a href="/notes/">Notes</a>
 					<a href="/about/">About</a>
 				</nav>
-			</header>
 
-			<section>
-				<p>
-					I work on mathematically rigorous problems in
-					<strong>probability, statistics, and algorithms</strong>,
-					alongside <strong>systems-level projects</strong>
-					involving
-					performance, scheduling, and simulation.
-				</p>
-
-				<p>
-					This website serves as a curated archive of:
-				</p>
-
-				<ul>
-					<li>Putnam-style problem solutions</li>
-					<li>IMC / quant-style probability problems</li>
-					<li>Technical projects with experiments and analysis</li>
-					<li>Notes on probabilistic and algorithmic intuition</li>
-				</ul>
-			</section>
-
-			<section>
-				<h2>Solutions</h2>
-				<ul>
-					<li><a href="/solutions/putnam/">Putnam Problems</a></li>
-					<li><a href="/solutions/imc/">IMC / Quant-Style Problems</a></li>
-				</ul>
-			</section>
-
-			<section>
-				<h2>Projects</h2>
-				<ul>
-					<li>Systems & Performance</li>
-					<li>Monte Carlo Simulation</li>
-					<li>Distributed and Heterogeneous Systems</li>
-				</ul>
-			</section>
-
-			<section>
-				<h2>Recent Writing</h2>
-				<ul>
-					<li>
-						<a href="#">Monte Carlo Integration Beyond Toy Examples</a>
-						<span class="muted">— Jan 2026</span>
-					</li>
-					<li>
-						<a href="#">Analyzing Linux CFS Under Mixed CPU Workloads</a>
-						<span class="muted">— Dec 2025</span>
-					</li>
-				</ul>
-			</section>
-
-			<footer>
-				<div>
-					Undergraduate · Interested in applied statistics, quant research, and systems
-				</div>
-				<div>
+				<div class="links">
 					<a href="https://github.com/your-username">GitHub</a>
 					<a href="mailto:your-email@example.com">Email</a>
-					<a href="/cv.pdf">CV (PDF)</a>
+					<a href="/cv.pdf">CV</a>
 				</div>
-			</footer>
-		</main>
+			</aside>
+
+			<!-- Main content -->
+			<main class="content">
+
+				<article>
+					<div class="meta">Jan 2026 · 10 min read</div>
+					<h2>
+						<a href="#">Monte Carlo Integration Beyond Toy Examples</a>
+					</h2>
+					<p>
+						A rigorous look at Monte Carlo integration from first principles,
+						including variance analysis, convergence guarantees, and
+						practical implementation pitfalls.
+					</p>
+				</article>
+
+				<article>
+					<div class="meta">Dec 2025 · 12 min read</div>
+					<h2>
+						<a href="#">Analyzing Linux CFS Under Mixed CPU Workloads</a>
+					</h2>
+					<p>
+						An experimental study of Linux’s Completely Fair Scheduler under
+						heterogeneous workloads, focusing on latency, fairness,
+						and throughput trade-offs.
+					</p>
+				</article>
+
+				<article>
+					<div class="meta">Nov 2025 · 8 min read</div>
+					<h2>
+						<a href="#">Why Pseudorandomness Works in Practice</a>
+					</h2>
+					<p>
+						An explanation of why deterministic pseudorandom generators are
+						sufficient for Monte Carlo methods, and where they fail.
+					</p>
+				</article>
+			</main>
+		</div>
 	</body>
 </html>
