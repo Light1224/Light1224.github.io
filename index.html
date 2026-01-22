@@ -1,40 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<meta charset="UTF-8">
-		<title>Light1224 - ライト1224</title>
-		<style>
-			body { background: black; color: white; font-family: monospace; margin: 0; padding: 20px; text-align: center; }
-			h1 { font-size: 24px; color: #FF0000; border-bottom: 3px solid #FF0000; display: inline-block; }
-			table { border-collapse: collapse; margin: 20px auto; }
-			td { border: 2px solid white; padding: 10px; width: 200px; }
-			a { color: white; text-decoration: none; }
-			a:hover { color: #FF0000; }
-			.section { margin: 40px 0; }
-		</style>
+		<meta charset="utf-8">
+		<title>Shamit — Mathematics & Systems</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<!-- Academic serif font -->
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/eb-garamond@latest/index.css">
+
+		<!-- Site CSS -->
+		<link rel="stylesheet" href="style.css">
+
+		<!-- MathJax (remove if unused) -->
+		<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 	</head>
+
 	<body>
-		<h1>ようこそ / Welcome Light1224</h1>
-		<p><marquee>Project Showcase & Blog - プロジェクト & ブログ</marquee></p>
+		<main>
 
-		<div class="section">
-			<h2>プロジェクト / Projects</h2>
-			<table>
-				<tr><td><a href="projects/microwave-filter.html">Microwave Filter Design</a></td><td>CST Simulation</td></tr>
-				<tr><td><a href="projects/fractal-render.html">Fractal GPU Render</a></td><td>OpenGL C++</td></tr>
-				<tr><td><a href="projects/cp-solutions.html">CP Solutions</a></td><td>Codeforces Top</td></tr>
-			</table>
-		</div>
+			<header>
+				<h1>Shamit</h1>
+				<div class="subtitle">
+					Mathematics · Probability · Algorithms · Systems
+				</div>
 
-		<div class="section">
-			<h2>ブログ / Blog</h2>
-			<table>
-				<tr><td><a href="blog/putnam-stats.html">Putnam Probability</a></td><td>2026-01</td></tr>
-				<tr><td><a href="blog/quant-trading.html">Algo Trading Model</a></td><td>Options Backtest</td></tr>
-				<tr><td><a href="blog/webasm-multiplayer.html">WASM Multiplayer</a></td><td>Fullstack</td></tr>
-			</table>
-		</div>
+				<nav>
+					<a href="/">Home</a>
+					<a href="/solutions/">Solutions</a>
+					<a href="/projects/">Projects</a>
+					<a href="/notes/">Notes</a>
+					<a href="/about/">About</a>
+				</nav>
+			</header>
 
-		<p style="font-size: 12px;">© 2026 Light1224 | BITS Goa ECE | Stats @ Princeton?</p>
+			<section>
+				<p>
+					I work on mathematically rigorous problems in
+					<strong>probability, statistics, and algorithms</strong>,
+					alongside <strong>systems-level projects</strong>
+					involving
+					performance, scheduling, and simulation.
+				</p>
+
+				<p>
+					This website serves as a curated archive of:
+				</p>
+
+				<ul>
+					<li>Putnam-style problem solutions</li>
+					<li>IMC / quant-style probability problems</li>
+					<li>Technical projects with experiments and analysis</li>
+					<li>Notes on probabilistic and algorithmic intuition</li>
+				</ul>
+			</section>
+
+			<section>
+				<h2>Solutions</h2>
+				<ul>
+					<li><a href="/solutions/putnam/">Putnam Problems</a></li>
+					<li><a href="/solutions/imc/">IMC / Quant-Style Problems</a></li>
+				</ul>
+			</section>
+
+			<section>
+				<h2>Projects</h2>
+				<ul>
+					<li>Systems & Performance</li>
+					<li>Monte Carlo Simulation</li>
+					<li>Distributed and Heterogeneous Systems</li>
+				</ul>
+			</section>
+
+			<section>
+				<h2>Recent Writing</h2>
+				<ul>
+					<li>
+						<a href="#">Monte Carlo Integration Beyond Toy Examples</a>
+						<span class="muted">— Jan 2026</span>
+					</li>
+					<li>
+						<a href="#">Analyzing Linux CFS Under Mixed CPU Workloads</a>
+						<span class="muted">— Dec 2025</span>
+					</li>
+				</ul>
+			</section>
+
+			<footer>
+				<div>
+					Undergraduate · Interested in applied statistics, quant research, and systems
+				</div>
+				<div>
+					<a href="https://github.com/your-username">GitHub</a>
+					<a href="mailto:your-email@example.com">Email</a>
+					<a href="/cv.pdf">CV (PDF)</a>
+				</div>
+			</footer>
+		</main>
 	</body>
 </html>
