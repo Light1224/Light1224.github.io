@@ -111,3 +111,26 @@ a:hover {
   }
 }
 
+
+h1 {
+  font-size: 1.6rem;
+  font-weight: normal;
+  margin-bottom: 1.5rem;
+}
+
+h2 {
+  font-size: 1.3rem;
+  font-weight: normal;
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.article-list article {
+  margin-bottom: 2rem;
+}
+
+.muted {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
