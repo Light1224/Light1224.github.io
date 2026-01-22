@@ -12,7 +12,7 @@ TEMPLATE = """<!DOCTYPE html>
 <body>
 <div class="layout">
 <nav class="sidebar">
-<div class="name">Your Name</div>
+<div class="name">SHAMIT</div>
 <a href="index.html">About</a>
 <a href="projects.html"{projects_active}>Projects</a>
 <a href="putnam.html"{putnam_active}>Putnam</a>
