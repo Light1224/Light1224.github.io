@@ -5,13 +5,21 @@
 		<title>Mini RAG Agent</title>
 		<link rel="stylesheet" href="../style.css">
 
-		<!-- Image sizing override to ensure full visibility -->
 		<style>
+			.section {
+				margin-bottom: 48px;
+			}
+			
+			.subsection {
+				margin-top: 24px;
+				margin-bottom: 24px;
+			}
+			
 			.image-container {
 				width: 100%;
-				margin: 24px 0;
 				display: flex;
 				justify-content: center;
+				margin: 24px 0;
 			}
 			
 			.image-container img {
@@ -21,8 +29,9 @@
 				border-radius: 6px;
 			}
 			
-			.section {
-				margin-bottom: 40px;
+			ul ul {
+				margin-top: 8px;
+				margin-bottom: 8px;
 			}
 		</style>
 	</head>
@@ -40,236 +49,240 @@
 			</nav>
 
 			<main class="content">
-				<h1>Mini RAG Agent</h1>
+				<h2>Mini RAG Agent</h2>
 
+				<!-- WHAT THIS PROJECT IS -->
 				<div class="section">
-					<h2>What This Project Is</h2>
+					<h3>What This Project Is</h3>
 					<ul>
 						<li>Full Retrieval-Augmented Generation (RAG) system</li>
-						<li>Upload text documents and ask questions</li>
-						<li>Answers are generated strictly from uploaded documents</li>
-						<li>Not an API wrapper</li>
-						<li>Not a prompt-only demo</li>
-						<li>Complete system with ingestion, storage, embedding, retrieval, and generation</li>
-						<li>Designed to expose real-world edge cases</li>
+						<li>Allows uploading text documents and asking questions</li>
+						<li>Answers are generated strictly using uploaded documents</li>
+						<li>System composed of multiple interacting layers</li>
 					</ul>
 
-					<ul>
-						<li>Goal: understand modern AI systems end to end</li>
-						<li>Focus on LLM + vector search + database interaction</li>
-						<li>Explicit handling of bugs tutorials usually hide</li>
-					</ul>
+					<div class="subsection">
+						<h3>System Characteristics</h3>
+						<ul>
+							<li>Explicit ingestion layer</li>
+							<li>Persistent storage layer</li>
+							<li>Embedding pipeline</li>
+							<li>Vector-based retrieval</li>
+							<li>Constrained generation layer</li>
+						</ul>
+					</div>
+
+					<div class="subsection">
+						<h3>Primary Goal</h3>
+						<ul>
+							<li>Understand modern AI systems end to end</li>
+							<li>Study interaction between LLMs, vector search, and databases</li>
+							<li>Expose real-world edge cases tutorials usually hide</li>
+						</ul>
+					</div>
 				</div>
 
+				<!-- SYSTEM OVERVIEW -->
 				<div class="section">
-					<h2>System Overview (Mental Model)</h2>
+					<h2>System Overview</h2>
 					<ul>
-						<li>Documents enter the system (ingestion)</li>
-						<li>Documents are broken into chunks (processing)</li>
-						<li>Chunks are converted into vectors (embedding)</li>
-						<li>Questions are converted into vectors (query embedding)</li>
-						<li>Similar chunks are retrieved (retrieval)</li>
-						<li>LLM answers using only retrieved chunks (generation)</li>
+						<li>Pipeline-based design with strict boundaries</li>
+						<li>Each stage is explicit, isolated, and debuggable</li>
 					</ul>
 
-					<ul>
-						<li>Each stage is explicit</li>
-						<li>Each stage is isolated</li>
-						<li>Failures can be traced to exact layers</li>
-					</ul>
+					<div class="subsection">
+						<h3>Pipeline Stages</h3>
+						<ul>
+							<li>Documents enter the system (ingestion)</li>
+							<li>Documents are broken into chunks (processing)</li>
+							<li>Chunks are converted into vectors (embedding)</li>
+							<li>Questions are converted into vectors (query embedding)</li>
+							<li>Similar chunks are retrieved (retrieval)</li>
+							<li>LLM answers using only retrieved chunks (generation)</li>
+						</ul>
+					</div>
+
+					<div class="subsection">
+						<ul>
+							<li>If something breaks, the exact layer is identifiable</li>
+						</ul>
+					</div>
 
 					<div class="image-container">
 						<img src="minirag.png" alt="Mini RAG System Overview Mermaid Diagram">
 					</div>
 				</div>
 
+				<!-- TECH STACK -->
 				<div class="section">
-					<h2>Tech Stack (With Reasons)</h2>
-					<ul>
-						<li><strong>Backend Language:</strong>
-						Python 3.11</li>
-						<li>Strong AI ecosystem</li>
-						<li>Mature async support</li>
-						<li>Fast iteration over raw performance</li>
-					</ul>
+					<h2>Tech Stack</h2>
 
-					<ul>
-						<li><strong>Web Framework:</strong>
-						FastAPI</li>
-						<li>Strict request/response validation</li>
-						<li>Automatic OpenAPI documentation</li>
-						<li>Async-first design</li>
-						<li>Clean dependency injection for DB handling</li>
-					</ul>
+					<div class="subsection">
+						<h3>Backend</h3>
+						<ul>
+							<li><strong>Language:</strong>
+							Python 3.11
+							<ul>
+								<li>Strong AI ecosystem</li>
+								<li>Mature async support</li>
+								<li>Fast iteration prioritized over raw performance</li>
+							</ul></li>
 
-					<ul>
-						<li><strong>ORM:</strong>
-						SQLAlchemy</li>
-						<li>Full control over schema and constraints</li>
-						<li>Safe schema evolution</li>
-						<li>Ability to drop to raw SQL</li>
-					</ul>
+							<li><strong>Web Framework:</strong>
+							FastAPI
+							<ul>
+								<li>Strict request/response validation</li>
+								<li>Automatic OpenAPI documentation</li>
+								<li>Async-first design</li>
+								<li>Clean dependency injection</li>
+							</ul></li>
 
-					<ul>
-						<li><strong>Database:</strong>
-						PostgreSQL</li>
-						<li>No SQLite used</li>
-						<li>Production-like behavior</li>
-						<li>Real constraint, sequence, and transaction handling</li>
-					</ul>
+							<li><strong>Server:</strong>
+							Uvicorn
+							<ul>
+								<li>ASGI server</li>
+								<li>Simple setup with good async performance</li>
+							</ul></li>
+						</ul>
+					</div>
 
-					<ul>
-						<li><strong>Embeddings:</strong>
-						Ollama + nomic-embed-text</li>
-						<li>Local inference</li>
-						<li>No cloud APIs</li>
-						<li>Stable, high-quality embeddings</li>
-						<li>Easy model swapping</li>
-					</ul>
+					<div class="subsection">
+						<h3>Persistence</h3>
+						<ul>
+							<li><strong>Database:</strong>
+							PostgreSQL
+							<ul>
+								<li>Production-like behavior</li>
+								<li>Real constraint and transaction handling</li>
+							</ul></li>
 
-					<ul>
-						<li><strong>LLM for Generation:</strong>
-						Ollama (gemma2:2)</li>
-						<li>Fully local inference</li>
-						<li>No rate limits or API keys</li>
-						<li>No hidden latency or billing concerns</li>
-						<li>Model changes are configuration-only</li>
-					</ul>
+							<li><strong>ORM:</strong>
+							SQLAlchemy
+							<ul>
+								<li>Full schema and constraint control</li>
+								<li>Safe schema evolution</li>
+								<li>Ability to drop to raw SQL</li>
+							</ul></li>
+						</ul>
+					</div>
 
-					<ul>
-						<li><strong>Frontend:</strong>
-						HTML, CSS, Vanilla JavaScript</li>
-						<li>No React or frameworks</li>
-						<li>State bugs are visible</li>
-						<li>Focus on system behavior, not visuals</li>
-					</ul>
+					<div class="subsection">
+						<h3>ML Stack</h3>
+						<ul>
+							<li><strong>Embeddings:</strong>
+							Ollama + nomic-embed-text
+							<ul>
+								<li>Local inference</li>
+								<li>No cloud APIs</li>
+								<li>Stable, high-quality embeddings</li>
+							</ul></li>
 
-					<ul>
-						<li><strong>Server:</strong>
-						Uvicorn</li>
-						<li>ASGI server for FastAPI</li>
-						<li>Simple and performant</li>
-					</ul>
+							<li><strong>LLM:</strong>
+							Ollama (gemma2:2)
+							<ul>
+								<li>Fully local generation</li>
+								<li>No rate limits or API keys</li>
+								<li>Model swapping via configuration</li>
+							</ul></li>
+						</ul>
+					</div>
 
-					<ul>
-						<li><strong>Version Control:</strong>
-						Git + GitHub</li>
-						<li>Versioned from day one</li>
-						<li>Easy rollback and debugging</li>
-					</ul>
+					<div class="subsection">
+						<h3>Frontend</h3>
+						<ul>
+							<li><strong>Frontend:</strong>
+							HTML, CSS, Vanilla JavaScript
+							<ul>
+								<li>No React or frameworks</li>
+								<li>State bugs remain visible</li>
+							</ul></li>
+						</ul>
+					</div>
 				</div>
 
+				<!-- PHASES -->
 				<div class="section">
-					<h2>Phase 1: Document Ingestion</h2>
-					<ul>
-						<li>TXT files only</li>
-						<li>No PDFs, DOCs, or parsing libraries</li>
-						<li>Raw file bytes read</li>
-						<li>Explicit UTF-8 decoding</li>
-						<li>Immediate failure on decode errors</li>
-						<li>SHA-256 hash computed from content</li>
-					</ul>
+					<h2>System Phases</h2>
 
-					<ul>
-						<li>Prevents duplicate document pollution</li>
-						<li>Deduplication based on content hash</li>
-						<li>Hard UTF-8 validation with HTTP 400 errors</li>
-						<li>Ingestion is deterministic and predictable</li>
-					</ul>
+					<div class="subsection">
+						<h3>Phase 1: Document Ingestion</h3>
+						<ul>
+							<li>TXT files only</li>
+							<li>Raw file bytes read</li>
+							<li>Explicit UTF-8 decoding</li>
+							<li>SHA-256 hash computed from content</li>
+							<li>Deduplication via content hash</li>
+						</ul>
+					</div>
+
+					<div class="subsection">
+						<h3>Phase 2: Database Design</h3>
+						<ul>
+							<li>documents table</li>
+							<li>chunks table</li>
+							<li>Chunk-level retrieval</li>
+							<li>Exact traceability from answer to chunk</li>
+							<li>uploaded_by made nullable</li>
+							<li>Dedicated reset endpoint</li>
+							<li>Correct PostgreSQL sequence resets</li>
+						</ul>
+					</div>
+
+					<div class="subsection">
+						<h3>Phase 3: Chunking Strategy</h3>
+						<ul>
+							<li>Fixed-size chunks (~800 characters)</li>
+							<li>Sequential slicing</li>
+							<li>No overlap</li>
+							<li>Chunk boundaries may split ideas</li>
+							<li>Accepted intentionally</li>
+						</ul>
+					</div>
+
+					<div class="subsection">
+						<h3>Phase 4: Embedding Pipeline</h3>
+						<ul>
+							<li>Chunk text sent to embedding model</li>
+							<li>Vectors stored alongside chunks</li>
+							<li>Fully async pipeline</li>
+							<li>Strict length checks</li>
+							<li>Hard failure on mismatches</li>
+						</ul>
+					</div>
+
+					<div class="subsection">
+						<h3>Phase 5: Retrieval Logic</h3>
+						<ul>
+							<li>User question embedded</li>
+							<li>Similarity computed against chunk embeddings</li>
+							<li>Explicit filtering by document IDs</li>
+							<li>Top-k chunks returned</li>
+						</ul>
+					</div>
+
+					<div class="subsection">
+						<h3>Phase 6: Generation Layer</h3>
+						<ul>
+							<li>LLM instructed to use only provided context</li>
+							<li>Explicit “I don’t know” behavior</li>
+							<li>Hallucination prevention</li>
+							<li>Grounded, traceable answers</li>
+						</ul>
+					</div>
+
+					<div class="subsection">
+						<h3>Phase 7: Frontend & State Management</h3>
+						<ul>
+							<li>Upload up to 3 TXT files</li>
+							<li>Persistent document ID tracking</li>
+							<li>Continuous logs</li>
+							<li>Explicit reset button</li>
+							<li>Frontend state bugs surfaced clearly</li>
+						</ul>
+					</div>
 				</div>
 
-				<div class="section">
-					<h2>Phase 2: Database Design</h2>
-					<ul>
-						<li>documents table</li>
-						<li>chunks table</li>
-					</ul>
-
-					<ul>
-						<li><strong>documents:</strong>
-						id, filename, checksum, source_type, uploaded_by, created_at</li>
-						<li><strong>chunks:</strong>
-						id, document_id, chunk_index, content, embedding, metadata</li>
-					</ul>
-
-					<ul>
-						<li>Chunk-level retrieval</li>
-						<li>Exact traceability from answer to chunk</li>
-						<li>uploaded_by made nullable</li>
-						<li>Dedicated reset endpoint</li>
-						<li>Correct PostgreSQL sequence resets</li>
-					</ul>
-				</div>
-
-				<div class="section">
-					<h2>Phase 3: Chunking Strategy</h2>
-					<ul>
-						<li>Fixed-size chunks (~800 characters)</li>
-						<li>Sequential slicing</li>
-						<li>No overlap</li>
-						<li>Simple by design</li>
-					</ul>
-
-					<ul>
-						<li>Chunk boundaries may split ideas</li>
-						<li>Accepted intentionally</li>
-						<li>Future: sliding windows, sentence-aware, token-based chunking</li>
-					</ul>
-				</div>
-
-				<div class="section">
-					<h2>Phase 4: Embedding Pipeline</h2>
-					<ul>
-						<li>Chunk text sent to embedding model</li>
-						<li>Vector received and stored</li>
-						<li>Fully async pipeline</li>
-						<li>Strict length checks</li>
-						<li>Hard failure on mismatches</li>
-					</ul>
-				</div>
-
-				<div class="section">
-					<h2>Phase 5: Retrieval Logic</h2>
-					<ul>
-						<li>User question embedded</li>
-						<li>Similarity computed against chunk embeddings</li>
-						<li>Explicit filtering by document IDs</li>
-						<li>Top-k chunks returned</li>
-					</ul>
-
-					<ul>
-						<li>Prevents cross-document leakage</li>
-						<li>Forces frontend/backend state agreement</li>
-						<li>Similarity scores debugged directly</li>
-					</ul>
-				</div>
-
-				<div class="section">
-					<h2>Phase 6: Generation Layer</h2>
-					<ul>
-						<li>Explicit instruction to use only provided context</li>
-						<li>Explicit instruction to say “I don’t know”</li>
-						<li>Prevents hallucination</li>
-						<li>Grounded, traceable answers</li>
-					</ul>
-				</div>
-
-				<div class="section">
-					<h2>Phase 7: Frontend & State Management</h2>
-					<ul>
-						<li>Upload up to 3 TXT files</li>
-						<li>Persistent document ID tracking</li>
-						<li>Continuous logs</li>
-						<li>Explicit reset button</li>
-					</ul>
-
-					<ul>
-						<li>Document state never hidden</li>
-						<li>Logs appended, not overwritten</li>
-						<li>Most bugs were frontend state bugs</li>
-					</ul>
-				</div>
-
+				<!-- LIMITATIONS -->
 				<div class="section">
 					<h2>Known Limitations</h2>
 					<ul>
@@ -277,18 +290,7 @@
 						<li>No conversation memory</li>
 						<li>Simple chunking</li>
 						<li>No authentication</li>
-						<li>No ranking metrics UI</li>
-					</ul>
-				</div>
-
-				<div class="section">
-					<h2>What This Project Shows</h2>
-					<ul>
-						<li>Layered system design</li>
-						<li>Explicit state handling</li>
-						<li>Failure-driven debugging</li>
-						<li>Preference for clarity over abstraction</li>
-						<li>Deep understanding of RAG systems</li>
+						<li>Very barebones UI</li>
 					</ul>
 				</div>
 			</main>
