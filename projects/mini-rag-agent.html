@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Mini RAG Agent</title>
+		<link rel="stylesheet" href="../style.css">
+	</head>
+	<body>
+		<div class="layout">
+			<nav class="sidebar">
+				<div class="name">SHAMIT</div>
+				<div class="line"></div>
+				<a href="../index.html">About</a>
+				<a href="../projects.html" class="active">Projects</a>
+				<a href="../putnam.html">Putnam</a>
+				<a href="../imc.html">IMC</a>
+				<a href="../cv.pdf" target="_blank">CV</a>
+			</nav>
+
+			<main class="content">
+				<h1>Mini RAG Agent</h1>
+
+				<p>
+					Mini RAG Agent is a minimal, end-to-end implementation of a
+					Retrieval-Augmented Generation (RAG) system built to make every
+					stage of the pipeline explicit, inspectable, and persistent.
+				</p>
+
+				<h2>Motivation</h2>
+				<p>
+					Modern RAG systems are often hidden behind large frameworks that
+					abstract away core ideas such as chunking, retrieval, vector storage,
+					and grounding. This project was built to understand those mechanisms
+					from first principles by implementing a complete RAG pipeline with
+					no heavy abstractions and no black-box orchestration.
+				</p>
+
+				<h2>System Architecture</h2>
+				<p>
+					The system is organized into a small number of clearly separated
+					components, each with a single responsibility. The diagram below
+					shows the high-level data flow for both document ingestion and
+					query execution.
+				</p>
+
+				<img src="diagram.png" alt="Mini RAG Agent system architecture diagram" style="max-width: 100%; margin: 1.5em 0;">
+
+				<h2>Frontend</h2>
+				<p>
+					The frontend is a lightweight browser interface implemented using
+					plain HTML, CSS, and JavaScript. Its role is limited to user
+					interaction: uploading text documents, submitting questions, and
+					displaying responses. All application logic and state management
+					reside on the backend.
+				</p>
+
+				<h2>Backend Runtime</h2>
+				<p>
+					The backend is implemented as a FastAPI application served via
+					Uvicorn. Uvicorn provides the ASGI runtime responsible for request
+					handling and asynchronous execution, while FastAPI defines the
+					application layer that orchestrates ingestion, retrieval, and
+					model interaction.
+				</p>
+				<p>
+					The backend itself is stateless. Each request is handled
+					independently, and all persistent data is stored in the database.
+					This design keeps execution deterministic and restart-safe.
+				</p>
+
+				<h2>Persistent Storage</h2>
+				<p>
+					PostgreSQL is used as the system’s persistent storage layer. It
+					stores uploaded documents, chunked text segments, vector
+					embeddings, and metadata linking chunks to their source documents.
+				</p>
+				<p>
+					Instead of relying on a specialized vector database, PostgreSQL
+					was chosen to keep the storage model explicit and easy to inspect.
+					This prioritizes clarity and correctness over scalability, which
+					aligns with the project’s educational goals.
+				</p>
+
+				<h2>Model Runtime</h2>
+				<p>
+					Ollama is used as a local model runtime and serves two roles within
+					the system. First, it generates embeddings for both document
+					chunks and user queries. Second, it generates grounded answers
+					using retrieved context and the user’s question.
+				</p>
+				<p>
+					Ollama is treated as a pure computation service with no hidden
+					state. All orchestration, prompt construction, and retrieval logic
+					remain within the backend.
+				</p>
+
+				<h2>Execution Flow</h2>
+				<p>
+					The system operates in two primary phases. During document
+					ingestion, uploaded text files are chunked, embedded, and stored
+					persistently. During query execution, the user’s question is
+					embedded, relevant chunks are retrieved via vector similarity,
+					and a grounded response is generated using the retrieved context.
+				</p>
+				<p>
+					There is no conversational memory; each query is processed
+					independently to ensure predictable behavior.
+				</p>
+
+				<h2>Limitations</h2>
+				<ul>
+					<li>Supports plain text documents only</li>
+					<li>No advanced retrieval techniques such as reranking or hybrid search</li>
+					<li>No distributed or scalable vector storage</li>
+					<li>No authentication, observability, or production hardening</li>
+				</ul>
+
+				<h2>Status</h2>
+				<p>
+					Completed as a learning-focused system and reference
+					implementation.
+				</p>
+
+				<h2>Repository</h2>
+				<p>
+					<a href="https://github.com/Light1224/mini-rag-agent" target="_blank">
+						https://github.com/Light1224/mini-rag-agent
+					</a>
+				</p>
+			</main>
+		</div>
+	</body>
+</html>
