@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Regimes and Structural Validation</title>
+</head>
+<body>
+  <article>
+    <h1>Regimes and Structural Validation</h1>
+    <p><strong>This post moves from continuous time-series analysis to explicit state segmentation.</strong></p>
+
+    <p>Regimes are detected from factor-space composite signal using penalty scans with BIC-guided selection. The priority is not a single “correct” count, but persistent and interpretable segmentation that aligns with independent volatility and dispersion statistics.</p>
+
+    <h2>What appears in regime outputs</h2>
+    <p>Legacy-style runs produce higher segment counts, while strict runs compress to single-digit regimes. This is interpreted as expected sensitivity to sample strictness and objective constraints in nonstationary long-horizon systems, not as a contradiction.</p>
+
+    <p>The first figure group shows legacy context; the second shows phase-19 segmentation outputs and model-selection diagnostics.</p>
+
+    <p><img src="../images/p08_signal_change_points.png" alt="Signal change points legacy" /></p>
+    <p><img src="../images/p08_regime_timeline.png" alt="Regime timeline legacy" /></p>
+    <p><img src="../images/p08_regime_timeline_drawdowns.png" alt="Regime timeline drawdowns legacy" /></p>
+
+    <p><img src="../images/p19_01_signal_with_change_points.png" alt="Signal with detected change points" /></p>
+    <p><img src="../images/p19_02_regime_sequence_timeline.png" alt="Regime sequence timeline" /></p>
+    <p><img src="../images/p19_03_penalty_scan_bic.png" alt="Penalty scan BIC" /></p>
+    <p><img src="../images/p19_04_regime_mean_signal.png" alt="Regime mean signal" /></p>
+    <p><img src="../images/p19_05_regime_durations.png" alt="Regime durations" /></p>
+
+    <h2>Structural validation after segmentation</h2>
+    <p>Segmentation quality is validated by testing whether regime labels map to measurable shifts in market-volatility, dispersion, factor share, and drawdown burden. The regime-conditioned plots show clear divergence, which is the central validation criterion.</p>
+
+    <p><img src="../images/p20_01_mean_market_vol_by_regime.png" alt="Mean market volatility by regime" /></p>
+    <p><img src="../images/p20_02_dispersion_by_regime.png" alt="Dispersion by regime" /></p>
+    <p><img src="../images/p20_03_factor_variance_share_by_regime.png" alt="Factor variance share by regime" /></p>
+    <p><img src="../images/p20_04_drawdown_share_by_regime.png" alt="Drawdown share by regime" /></p>
+    <p><img src="../images/p20_05_regime_timeline_with_drawdowns.png" alt="Timeline with drawdowns" /></p>
+
+    <h2>Split robustness snapshot</h2>
+    <p>Split-level checks are used to avoid single-window overfit narratives. Across splits, PC1 remains stable while effective K varies, reinforcing the same hierarchy observed throughout the project: stable systemic core, flexible secondary geometry.</p>
+
+    <p><img src="../images/p21_01_k_signal_modes_by_split.png" alt="K by split" /></p>
+    <p><img src="../images/p21_02_pc1_stability_by_split.png" alt="PC1 stability by split" /></p>
+    <p><img src="../images/p21_04_top1_explained_by_split.png" alt="Top1 explained by split" /></p>
+
+    <h2>Shared reference</h2>
+    <p><strong>Dictionary:</strong> same terminology map used across all pages.</p>
+    <p><a href="dictionary.html">Open Dictionary</a></p>
+
+    <p><a href="falsification_and_reproducibility.html">Falsification and Reproducibility</a></p>
+  </article>
+</body>
+</html>

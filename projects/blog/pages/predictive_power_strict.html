@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="Shamit Sai Imandi - Electronics & Communication Engineering student at BITS Pilani building ML infrastructure, quantitative tools, and high-performance C++ systems">
+		<meta name="author" content="Shamit Sai Imandi">
+		<title>Predictive Power Strict</title>
+		<script>
+			(function(){
+				var savedTheme = localStorage.getItem("theme");
+				var theme = savedTheme === "light" || savedTheme === "dark" ? savedTheme : "dark";
+				document.documentElement.setAttribute("data-theme", theme);
+			})();
+		</script>
+		<link rel="stylesheet" href="../../../style.css">
+		
+		
+	</head>
+	<body>
+		<div class="layout">
+			<nav class="sidebar">
+				<div class="name">SHAMIT</div>
+				<div class="line"></div>
+				<a href="../../../index.html">ABOUT</a>
+				<a href="../../../projects.html" class="active">PROJECTS</a>
+				<a href="../../../cv.pdf" target="_blank">CV</a>
+				<div class="line"></div>
+				<div class="contact-buttons">
+					<a href="mailto:shamitsai0609@gmail.com" class="btn" target="_blank">EMAIL</a>
+					<a href="https://github.com/Light1224" class="btn" target="_blank">GITHUB</a>
+					<a href="https://www.linkedin.com/in/shamit-imandi-375499284/" class="btn" target="_blank">LINKEDIN</a>
+					<a href="https://codeforces.com/profile/lightcf12" class="btn" target="_blank">CODEFORCES</a>
+				</div>
+				<div class="line"></div>
+				<div class="theme-section">
+					<button id="theme-toggle" class="theme-toggle" type="button">DARK</button>
+				</div>
+			</nav>
+			<main class="content">
+				<article>
+    <h1>Predictive Power Strict</h1>
+    <p><strong>This post reports strict-causality predictive results with timing integrity prioritized over cosmetic in-sample fit.</strong></p>
+
+    <p>The strict setup enforces forward-only targets and walk-forward PCA so each timestamp uses only information available at that point. Event thresholds are fit on train data and applied unchanged to test data. This usually reduces headline fit, but it produces materially more credible evaluation.</p>
+
+    <h2>What survived strict setup</h2>
+    <p>Event classification remains strong for factor energy, with test AUC peaking near 0.90 around the 10-day horizon. Linear out-of-sample magnitude regression remains weak (negative R²). The interpretation is clear: ranking extreme-risk likelihood works better than point-value prediction in this feature/model class.</p>
+
+    <p>The figure set below shows legacy-to-strict transition, horizon sensitivity, and calibration-style views (scatter and decile lift).</p>
+
+    <p><img src="../images/p12_auc_by_horizon.png" alt="AUC legacy" /></p>
+    <p><img src="../images/p27_04_auc_by_horizon.png" alt="AUC strict" /></p>
+    <p><img src="../images/p27_03_test_r2_by_horizon.png" alt="Test R2 strict" /></p>
+    <p><img src="../images/p27_02_corr_by_horizon.png" alt="Correlation by horizon" /></p>
+    <p><img src="../images/p27_05_scatter_h5.png" alt="Scatter h5" /></p>
+    <p><img src="../images/p12_decile_lift_h5.png" alt="Decile lift legacy" /></p>
+    <p><img src="../images/p27_06_decile_lift_h5.png" alt="Decile lift strict" /></p>
+
+    <h2>Metrics captured from report files</h2>
+    <ul>
+      <li>aligned rows around 5,081 in strict predictive dataset</li>
+      <li>best strict AUC test ≈ 0.9007 (factor energy, 10-day)</li>
+      <li>best strict test R² ≈ -0.313 (linear magnitude fit remains weak)</li>
+      <li>train/test event shares differ, so naive threshold transfer assumptions are avoided</li>
+    </ul>
+
+    <h2>How this is interpreted without over-selling</h2>
+    <p>The model is stronger at identifying elevated event risk than estimating exact forward volatility magnitude. In practical terms, this supports triage and alerting workflows more than precision point forecasting.</p>
+
+    <h2>Shared reference</h2>
+    <p><strong>Dictionary:</strong> same terminology map used across all pages.</p>
+    <p><a href="dictionary.html">Open Dictionary</a></p>
+
+    <p><a href="math_pipeline.html">Next: Math Pipeline (full technical file)</a></p>
+  </article>
+			</main>
+		</div>
+		<script>
+			(function(){
+				var root = document.documentElement;
+				var button = document.getElementById("theme-toggle");
+				if (!button) return;
+
+				function currentTheme(){
+					var theme = root.getAttribute("data-theme");
+					return theme === "light" ? "light" : "dark";
+				}
+
+				function updateLabel(){
+					button.textContent = currentTheme().toUpperCase();
+				}
+
+				button.addEventListener("click", function(){
+					var next = currentTheme() === "dark" ? "light" : "dark";
+					root.setAttribute("data-theme", next);
+					localStorage.setItem("theme", next);
+					updateLabel();
+				});
+
+				updateLabel();
+			})();
+		</script>
+	</body>
+</html>
+

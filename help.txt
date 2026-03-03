@@ -1,0 +1,125 @@
+LIGHT1224.GITHUB.IO — MAINTENANCE NOTES
+=======================================
+
+Purpose
+-------
+This file explains how to safely add/edit content without breaking theme/layout.
+
+Important Rule
+--------------
+Do NOT edit generated pages directly if they are built from content + templates.
+Preferred workflow:
+1) Edit source in /content
+2) Run build script
+3) Check generated output in project root and /projects
+
+Quick Build
+-----------
+From project root:
+python3 scripts/build_index.py
+
+Then preview locally (optional):
+python3 -m http.server 8000
+Open: http://localhost:8000
+
+Project Structure (what to edit)
+--------------------------------
+- content/about.md
+  Source for About/Home content.
+
+- content/projects/
+  Source project pages (single-page projects).
+
+- content/projects/<project-name>/pages/
+  Source for multi-page project sections (if used by current build setup).
+
+- templates/base.html
+  Shared HTML wrapper (sidebar/theme/nav). Edit carefully.
+
+- style.css
+  Theme/styles. Avoid changing if you want visual consistency.
+
+Generated / Deployment Files (do not hand-edit)
+------------------------------------------------
+- index.html
+- projects.html
+- 404.html
+- projects/*.html
+- projects/<project-name>/pages/*.html
+
+How to Add a New Project (single page)
+--------------------------------------
+1) Create source file:
+   content/projects/my-new-project.html
+
+2) Add content using existing project page format:
+   - Title
+   - Short summary
+   - Stack
+   - Problem / Approach / Results
+   - Links (GitHub, demo, writeup)
+
+3) Rebuild:
+   python3 scripts/build_index.py
+
+4) Verify output exists:
+   projects/my-new-project.html
+
+5) Confirm it appears in:
+   projects.html
+
+How to Add Multi-Page Project Content
+-------------------------------------
+1) Create folder:
+   content/projects/my-topic/pages/
+
+2) Add ordered files with stable naming:
+   01_intro.html
+   02_method.html
+   03_results.html
+   ...
+
+3) Rebuild and verify generated mirror under:
+   projects/my-topic/pages/
+
+Naming Conventions
+------------------
+- Use lowercase + hyphens for file/folder names.
+- Keep page ordering with numeric prefixes for multi-page sections.
+- Avoid spaces and special characters in filenames.
+
+Before Deployment Checklist
+---------------------------
+[ ] Build runs without errors.
+[ ] index.html and projects.html render correctly.
+[ ] New project link opens from projects.html.
+[ ] No broken relative links.
+[ ] CV link works (cv.pdf).
+[ ] Theme toggle still works.
+[ ] Mobile check (narrow browser width).
+
+Git Workflow (recommended)
+--------------------------
+git add .
+git commit -m "Add/update portfolio content"
+git push
+
+Troubleshooting
+---------------
+- If project does not show up:
+  Check file location is under /content/projects and rerun build.
+
+- If styles look broken:
+  Check relative paths in generated HTML and ensure style.css exists in root.
+
+- If links 404:
+  Verify slug/name consistency between source filename and generated file.
+
+- If build script fails:
+  Run from repo root and check Python version:
+  python3 --version
+
+Last Note
+---------
+Keep source-of-truth in /content.
+Treat generated HTML as build output for deployment.

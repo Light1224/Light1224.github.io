@@ -2,28 +2,86 @@
 <html lang="en">
 	<head>
 		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="Shamit Sai Imandi - Electronics & Communication Engineering student at BITS Pilani building ML infrastructure, quantitative tools, and high-performance C++ systems">
+		<meta name="author" content="Shamit Sai Imandi">
 		<title>PROJECTS</title>
+		<script>
+			(function(){
+				var savedTheme = localStorage.getItem("theme");
+				var theme = savedTheme === "light" || savedTheme === "dark" ? savedTheme : "dark";
+				document.documentElement.setAttribute("data-theme", theme);
+			})();
+		</script>
 		<link rel="stylesheet" href="style.css">
-		<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+		
+		
 	</head>
 	<body>
 		<div class="layout">
 			<nav class="sidebar">
 				<div class="name">SHAMIT</div>
 				<div class="line"></div>
-				<a href="index.html">About</a>
-				<a href="projects.html" class="active">Projects</a>
-				<a href="putnam.html">Putnam</a>
-				<a href="imc.html">IMC</a>
+				<a href="index.html">ABOUT</a>
+				<a href="projects.html" class="active">PROJECTS</a>
 				<a href="cv.pdf" target="_blank">CV</a>
+				<div class="line"></div>
+				<div class="contact-buttons">
+					<a href="mailto:shamitsai0609@gmail.com" class="btn" target="_blank">EMAIL</a>
+					<a href="https://github.com/Light1224" class="btn" target="_blank">GITHUB</a>
+					<a href="https://www.linkedin.com/in/shamit-imandi-375499284/" class="btn" target="_blank">LINKEDIN</a>
+					<a href="https://codeforces.com/profile/lightcf12" class="btn" target="_blank">CODEFORCES</a>
+				</div>
+				<div class="line"></div>
+				<div class="theme-section">
+					<button id="theme-toggle" class="theme-toggle" type="button">DARK</button>
+				</div>
 			</nav>
 			<main class="content">
 				<h1>PROJECTS</h1>
-				<pre class="index">
-          <a href="projects/mercury.html">Mercury</a>  [systems / ml]
-          <a href="projects/mini-rag-agent.html">mini-rag-agent</a>  [LLM/ Infra]
+<p>Archive index of project pages.</p>
+<pre class="index">
+[01] BLOG
+    <a href="projects/blog/pages/dictionary.html">0101 Dictionary</a>
+    <a href="projects/blog/pages/factor_interpretation.html">0102 Factor Interpretation</a>
+    <a href="projects/blog/pages/falsification_and_reproducibility.html">0103 Falsification and Reproducibility</a>
+    <a href="projects/blog/pages/findings.html">0104 Findings</a>
+    <a href="projects/blog/pages/math_pipeline.html">0105 Math Pipeline</a>
+    <a href="projects/blog/pages/pipeline_and_preprocessing.html">0106 Pipeline and Preprocessing</a>
+    <a href="projects/blog/pages/predictive_power_strict.html">0107 Predictive Power Strict</a>
+    <a href="projects/blog/pages/regimes_and_structural_validation.html">0108 Regimes and Structural Validation</a>
+    <a href="projects/blog/pages/scope_and_data.html">0109 Scope and Data</a>
+    <a href="projects/blog/pages/spectrum_and_rmt.html">0110 Spectrum and RMT</a>
+    <a href="projects/blog/pages/stability_and_reconstruction.html">0111 Stability and Reconstruction</a>
+    <a href="projects/blog/artifacts.html">VIEW ARTIFACTS</a>
 </pre>
 			</main>
 		</div>
+		<script>
+			(function(){
+				var root = document.documentElement;
+				var button = document.getElementById("theme-toggle");
+				if (!button) return;
+
+				function currentTheme(){
+					var theme = root.getAttribute("data-theme");
+					return theme === "light" ? "light" : "dark";
+				}
+
+				function updateLabel(){
+					button.textContent = currentTheme().toUpperCase();
+				}
+
+				button.addEventListener("click", function(){
+					var next = currentTheme() === "dark" ? "light" : "dark";
+					root.setAttribute("data-theme", next);
+					localStorage.setItem("theme", next);
+					updateLabel();
+				});
+
+				updateLabel();
+			})();
+		</script>
 	</body>
 </html>
+

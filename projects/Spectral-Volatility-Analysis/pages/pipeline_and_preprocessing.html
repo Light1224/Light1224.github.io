@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="Shamit Sai Imandi - Electronics & Communication Engineering student at BITS Pilani building ML infrastructure, quantitative tools, and high-performance C++ systems">
+		<meta name="author" content="Shamit Sai Imandi">
+		<title>Pipeline and Preprocessing</title>
+		<script>
+			(function(){
+				var savedTheme = localStorage.getItem("theme");
+				var theme = savedTheme === "light" || savedTheme === "dark" ? savedTheme : "dark";
+				document.documentElement.setAttribute("data-theme", theme);
+			})();
+		</script>
+		<link rel="stylesheet" href="../../../style.css">
+		
+		
+	</head>
+	<body>
+		<div class="layout">
+			<nav class="sidebar">
+				<div class="name">SHAMIT</div>
+				<div class="line"></div>
+				<a href="../../../index.html">ABOUT</a>
+				<a href="../../../projects.html" class="active">PROJECTS</a>
+				<a href="../../../cv.pdf" target="_blank">CV</a>
+				<div class="line"></div>
+				<div class="contact-buttons">
+					<a href="mailto:shamitsai0609@gmail.com" class="btn" target="_blank">EMAIL</a>
+					<a href="https://github.com/Light1224" class="btn" target="_blank">GITHUB</a>
+					<a href="https://www.linkedin.com/in/shamit-imandi-375499284/" class="btn" target="_blank">LINKEDIN</a>
+					<a href="https://codeforces.com/profile/lightcf12" class="btn" target="_blank">CODEFORCES</a>
+				</div>
+				<div class="line"></div>
+				<div class="theme-section">
+					<button id="theme-toggle" class="theme-toggle" type="button">DARK</button>
+				</div>
+			</nav>
+			<main class="content">
+				<article>
+    <h1>Pipeline and Preprocessing</h1>
+    <p><strong>Entry: this is where I made the data shape trustworthy before touching PCA.</strong></p>
+
+    <p>I learned quickly that spectral analysis quality is mostly decided before eigen-decomposition. If the transformed panel is noisy in a preventable way, every downstream chart looks intelligent but means less than it seems. So I treated preprocessing like core research work, not setup boilerplate.</p>
+
+    <h2>My practical sequence</h2>
+    <p>I start from OHLC, construct realized volatility estimators, transform to log-vol, standardize by asset, then build panel variants (raw and smoothed windows). I compare estimator behavior in spectral space because if dimensionality depends entirely on estimator choice, the structure is weak.</p>
+
+    <p>From the estimator-sensitivity outputs I repeatedly saw that the core conclusions survive the RS vs GK swap. In one comparison set: K stays unchanged, regime counts stay unchanged, and only concentration metrics shift mildly upward under GK (around +0.012 top1 ratio and +0.015 signal mass share). That gave me confidence that the project isn’t just an estimator artifact.</p>
+
+    <p><img src="../images/p10_scree_estimator_comparison.png" alt="Estimator scree comparison" /></p>
+    <p><img src="../images/p22_02_top1_ratio_by_estimator.png" alt="Top1 ratio by estimator" /></p>
+    <p><img src="../images/p22_03_signal_mass_share_by_estimator.png" alt="Signal mass by estimator" /></p>
+
+    <h2>On smoothing variants</h2>
+    <p>I never treated smoothing as cosmetic. It changes geometry and can increase apparent signal concentration while also introducing PSD pathologies under pairwise estimation. That dual effect is why I always pair concentration plots with diagnostics instead of celebrating one metric in isolation.</p>
+
+    <p><img src="../images/p12_03_signal_count_by_variant.png" alt="Signal count by variant" /></p>
+    <p><img src="../images/p12_05_signal_concentration_by_variant.png" alt="Signal concentration by variant" /></p>
+    <p><img src="../images/p12_06_negative_eig_count_by_variant.png" alt="Negative eigenvalue count by variant" /></p>
+
+    <h2>What this phase taught me</h2>
+    <p>If I want model honesty, I need two habits: keep every transformation auditable and treat each “improvement” as a possible distortion until diagnostics say otherwise. This phase set that culture for the rest of the project.</p>
+
+    <h2>Shared reference</h2>
+    <p><strong>Dictionary:</strong> same terminology map used in every page.</p>
+    <p><a href="dictionary.html">Open Dictionary</a></p>
+
+    <p><a href="spectrum_and_rmt.html">Spectrum and RMT</a></p>
+  </article>
+			</main>
+		</div>
+		<script>
+			(function(){
+				var root = document.documentElement;
+				var button = document.getElementById("theme-toggle");
+				if (!button) return;
+
+				function currentTheme(){
+					var theme = root.getAttribute("data-theme");
+					return theme === "light" ? "light" : "dark";
+				}
+
+				function updateLabel(){
+					button.textContent = currentTheme().toUpperCase();
+				}
+
+				button.addEventListener("click", function(){
+					var next = currentTheme() === "dark" ? "light" : "dark";
+					root.setAttribute("data-theme", next);
+					localStorage.setItem("theme", next);
+					updateLabel();
+				});
+
+				updateLabel();
+			})();
+		</script>
+	</body>
+</html>
+

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="Shamit Sai Imandi - Electronics & Communication Engineering student at BITS Pilani building ML infrastructure, quantitative tools, and high-performance C++ systems">
+		<meta name="author" content="Shamit Sai Imandi">
+		<title>Dictionary</title>
+		<script>
+			(function(){
+				var savedTheme = localStorage.getItem("theme");
+				var theme = savedTheme === "light" || savedTheme === "dark" ? savedTheme : "dark";
+				document.documentElement.setAttribute("data-theme", theme);
+			})();
+		</script>
+		<link rel="stylesheet" href="../../../style.css">
+		
+		
+	</head>
+	<body>
+		<div class="layout">
+			<nav class="sidebar">
+				<div class="name">SHAMIT</div>
+				<div class="line"></div>
+				<a href="../../../index.html">ABOUT</a>
+				<a href="../../../projects.html" class="active">PROJECTS</a>
+				<a href="../../../cv.pdf" target="_blank">CV</a>
+				<div class="line"></div>
+				<div class="contact-buttons">
+					<a href="mailto:shamitsai0609@gmail.com" class="btn" target="_blank">EMAIL</a>
+					<a href="https://github.com/Light1224" class="btn" target="_blank">GITHUB</a>
+					<a href="https://www.linkedin.com/in/shamit-imandi-375499284/" class="btn" target="_blank">LINKEDIN</a>
+					<a href="https://codeforces.com/profile/lightcf12" class="btn" target="_blank">CODEFORCES</a>
+				</div>
+				<div class="line"></div>
+				<div class="theme-section">
+					<button id="theme-toggle" class="theme-toggle" type="button">DARK</button>
+				</div>
+			</nav>
+			<main class="content">
+				<article>
+    <h1>Dictionary</h1>
+    <p><strong>This dictionary is shared across all pages in this archive.</strong></p>
+
+    <h2>Core terms used across pages</h2>
+    <ul>
+      <li><strong>Systemic mode / PC1:</strong> the leading eigenmode; broad market-volatility co-movement backbone.</li>
+      <li><strong>Secondary mode / PC2:</strong> next retained structural mode; often sector-loaded and less stable.</li>
+      <li><strong>Signal modes:</strong> eigenmodes above MP upper bound in the selected setup.</li>
+      <li><strong>Noise bulk:</strong> eigenvalue region broadly consistent with random-matrix baseline.</li>
+      <li><strong>Factor energy:</strong> squared magnitude aggregate of retained factor coordinates.</li>
+      <li><strong>Principal angle:</strong> geometric rotation measure between subspaces across windows.</li>
+      <li><strong>Subspace overlap:</strong> directional alignment measure between current and reference subspaces.</li>
+      <li><strong>Reconstruction fidelity:</strong> closeness of filtered/low-rank matrix to raw matrix.</li>
+      <li><strong>Regime:</strong> contiguous segment detected from composite signal under penalty constraints.</li>
+      <li><strong>Strict-causality predictive setup:</strong> forward targets + walk-forward signal construction + train-only thresholding.</li>
+      <li><strong>Falsification test:</strong> randomization-based destruction test to assess whether structure is genuine.</li>
+      <li><strong>Audit-grade reproducibility:</strong> deterministic rerun with matching artifacts and hash checks.</li>
+    </ul>
+
+    <h2>Interpretive shorthand used throughout</h2>
+    <ul>
+      <li><strong>Anchor:</strong> stable component treated as structural.</li>
+      <li><strong>Warning light:</strong> unstable but informative component that can flag state change.</li>
+      <li><strong>Filter, not miracle:</strong> denoising helps, but does not perfectly recover full structure.</li>
+      <li><strong>Event strength over magnitude fit:</strong> good classification can coexist with weak linear R².</li>
+    </ul>
+
+    <p><a href="index.html">Back to logbook index</a></p>
+  </article>
+			</main>
+		</div>
+		<script>
+			(function(){
+				var root = document.documentElement;
+				var button = document.getElementById("theme-toggle");
+				if (!button) return;
+
+				function currentTheme(){
+					var theme = root.getAttribute("data-theme");
+					return theme === "light" ? "light" : "dark";
+				}
+
+				function updateLabel(){
+					button.textContent = currentTheme().toUpperCase();
+				}
+
+				button.addEventListener("click", function(){
+					var next = currentTheme() === "dark" ? "light" : "dark";
+					root.setAttribute("data-theme", next);
+					localStorage.setItem("theme", next);
+					updateLabel();
+				});
+
+				updateLabel();
+			})();
+		</script>
+	</body>
+</html>
+

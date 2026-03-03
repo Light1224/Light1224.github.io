@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Findings</title>
+</head>
+<body>
+  <article>
+    <h1>Findings</h1>
+    <p><strong>This is the exhaustive final findings page. It reflects repository outputs, phase exports, strict-vs-legacy validations, and final predictive diagnostics.</strong></p>
+
+    <h2>Repository-level findings coverage</h2>
+    <p>This synthesis is not built from a single notebook; it consolidates evidence from:</p>
+    <ul>
+      <li>Integrated findings files: <code>findings_report.md</code>, <code>findings_report_neat.md</code>, and related report variants.</li>
+      <li>Phase metric exports in <code>report/phase_*.txt</code>.</li>
+      <li>Cross-phase summaries in <code>report/all_phases_overview.txt</code> and <code>all_phases_metrics_heavy.txt</code>.</li>
+      <li>Artifact CSV trees under transformed/spectra/rmt/model/regimes/validation.</li>
+      <li>Plot trees under <code>artifacts/plots/phase*</code> and A/B strict-vs-legacy branches in <code>artifacts/regime_ab</code>.</li>
+      <li>Deterministic audit outputs from phase 26 and predictive strict outputs from phase 27.</li>
+    </ul>
+
+    <h2>Phase-by-phase findings ledger</h2>
+
+    <h3>Pre-phase and phases 1-8</h3>
+    <p>The early pipeline establishes transformed volatility panel quality and confirms the raw realized-vol distribution is right-skewed with heavy spikes, justifying transform/stabilization before spectral decomposition.</p>
+
+    <h3>Phase 9</h3>
+    <p>Correlation-matrix diagnostics confirm usable geometry: broad positive co-movement, valid symmetry behavior, and interpretable core/periphery structure with sector-coherent high-correlation groups. Full-period static anti-correlation blocks are absent in main static matrix view.</p>
+    <p><img src="../images/p06_raw_corr_heatmap.png" alt="Raw correlation" /></p>
+
+    <h3>Phase 10</h3>
+    <p>Eigenspectrum is concentrated but not one-factor complete. The first mode dominates strongly while residual dimensionality remains meaningful. Low-rank representation is useful compression, not full explanation. Rolling windows show stability improves with longer windows.</p>
+    <p><img src="../images/p03_cum_factor_variance.png" alt="Variance concentration" /></p>
+
+    <h3>Phase 11 and 12</h3>
+    <p>MP separation identifies a small significant set above upper edge and a broad bulk consistent with noise-like behavior. Variant sensitivity shows concentration gains with smoothing and lower-tail pathology risk in some settings. MP is used as robust heuristic with diagnostics, not blind theorem under all finite-sample conditions.</p>
+    <p><img src="../images/p02_rmt_scree_mp_bounds.png" alt="MP scree" /></p>
+    <p><img src="../images/p02_rmt_hist_mp_overlay.png" alt="MP histogram" /></p>
+
+    <h3>Phase 13 and 14</h3>
+    <p>Factor interpretation remains consistent with systemic-first hierarchy. The primary mode aligns strongly with market-wide volatility behavior; secondary mode carries conditional and sector-loaded behavior with weaker long-horizon invariance.</p>
+    <p><img src="../images/p04_factor_market_corr.png" alt="Factor market correlation" /></p>
+    <p><img src="../images/p14_05_sector_weight_heatmap.png" alt="Sector weights" /></p>
+
+    <h3>Phase 15 and 16</h3>
+    <p>Stability diagnostics repeatedly show PC1 as robust anchor and PC2 as rotation-sensitive mode. Outlier-drop checks do not invalidate PC1 stability conclusions. Filtered reconstruction improves matrix usability while preserving dominant structure.</p>
+    <p><img src="../images/p15_05_stability_score_dashboard.png" alt="Stability dashboard" /></p>
+    <p><img src="../images/p16_02_filtered_correlation_heatmap.png" alt="Filtered matrix" /></p>
+
+    <h3>Phase 17</h3>
+    <p>Low-rank model explains meaningful systematic share while leaving substantial idiosyncratic residual component, which is expected in real cross-sectional volatility. Residual matrix diagnostics confirm reduced common cross-correlation after factor removal.</p>
+    <p><img src="../images/p17_03_residual_correlation_heatmap.png" alt="Residual correlations" /></p>
+
+    <h3>Phase 18</h3>
+    <p>Feature engineering from factor trajectories yields sparse high-intensity stress episodes and interpretable regime pressure indicators suitable for segmentation stage.</p>
+    <p><img src="../images/p18_01_factor_energy_timeseries.png" alt="Energy" /></p>
+
+    <h3>Phase 19</h3>
+    <p>Change-point segmentation with BIC-guided penalty reveals persistent regime structure with penalty-sensitive complexity. Legacy and strict setups differ in regime count but preserve the core state-switching narrative.</p>
+    <p><img src="../images/p19_03_penalty_scan_bic.png" alt="Penalty scan" /></p>
+    <p><img src="../images/p19_02_regime_sequence_timeline.png" alt="Regime timeline" /></p>
+
+    <h3>Phase 20</h3>
+    <p>Regimes are not cosmetic labels: regime-level means for market-volatility, dispersion, factor-share, and drawdown burden diverge materially, validating structural significance of segmentation.</p>
+    <p><img src="../images/p20_01_mean_market_vol_by_regime.png" alt="Mean vol by regime" /></p>
+    <p><img src="../images/p20_04_drawdown_share_by_regime.png" alt="Drawdown share" /></p>
+
+    <h3>Phase 21</h3>
+    <p>Split robustness confirms strong persistence of the dominant systemic mode while effective K can vary by sample partition. This supports stable-core / flexible-secondary interpretation.</p>
+    <p><img src="../images/p21_02_pc1_stability_by_split.png" alt="PC1 split stability" /></p>
+
+    <h3>Phase 22</h3>
+    <p>Estimator sensitivity (RS vs GK) preserves core outcomes (signal dimensionality and regime-level conclusions) with modest shifts in concentration metrics. Core narrative is estimator-robust.</p>
+    <p><img src="../images/p22_01_k_by_estimator.png" alt="K by estimator" /></p>
+    <p><img src="../images/p22_04_regime_counts_by_estimator.png" alt="Regimes by estimator" /></p>
+
+    <h3>Phase 23</h3>
+    <p>Falsification tests show strong destruction under time randomization and nuanced behavior under stock-shuffle nulls. The mixed null profile is realistic for strongly coupled markets and was documented as such.</p>
+    <p><img src="../images/p23_01_top1_time_shuffle_hist.png" alt="Time shuffle" /></p>
+    <p><img src="../images/p23_02_top1_stock_shuffle_hist.png" alt="Stock shuffle" /></p>
+
+    <h3>Phase 24</h3>
+    <p>Reproducible stage-runner stack is complete and script-level command chain is documented for end-to-end replay.</p>
+
+    <h3>Phase 25</h3>
+    <p>Report drafting stage completed with section-locked structure and generated-table dependency.</p>
+
+    <h3>Phase 26</h3>
+    <p>Final hardening reports deterministic double-run pass with matching inventories/hashes and explicit caveat documentation.</p>
+
+    <h3>Phase 27 (strict causality)</h3>
+    <p>Strict predictive diagnostics preserve strong event discrimination while linear magnitude OOS fit remains weak. In report metrics: aligned rows around 5,081; best test AUC around 0.9007 (factor energy, 10-day); best test R² remains negative in linear OOS setup.</p>
+    <p><img src="../images/p27_04_auc_by_horizon.png" alt="AUC strict" /></p>
+    <p><img src="../images/p27_03_test_r2_by_horizon.png" alt="R2 strict" /></p>
+    <p><img src="../images/p27_06_decile_lift_h5.png" alt="Lift strict" /></p>
+
+    <h2>Consolidated findings retained</h2>
+    <ul>
+      <li>Volatility co-movement has persistent low-dimensional structure with a dominant systemic mode.</li>
+      <li>Secondary structure is real but less stable and more regime-sensitive.</li>
+      <li>Regime segmentation captures economically meaningful state differences.</li>
+      <li>Event-level predictive discrimination is strong under strict timing controls.</li>
+      <li>Exact linear magnitude prediction remains weak OOS in strict setup.</li>
+      <li>The full pipeline and outputs are reproducible under deterministic audit checks.</li>
+    </ul>
+
+    <h2>Consolidated findings not overstated</h2>
+    <ul>
+      <li>No claim is made for a single invariant K across all windows and strictness settings.</li>
+      <li>No claim is made for long-horizon point-forecast precision in this linear strict setup.</li>
+      <li>No claim is made for universality outside this dataset/process without rerun.</li>
+    </ul>
+
+    <h2>Everything this page reflects from the repo</h2>
+    <ul>
+      <li>Top-level code and data flow modules.</li>
+      <li>Script orchestration chain and audit scripts.</li>
+      <li>Phase-specific metrics files in <code>report/</code>.</li>
+      <li>Integrated narrative findings in <code>findings_report.md</code>.</li>
+      <li>Artifact CSV outputs across transformed/spectra/rmt/model/regimes/validation.</li>
+      <li>Plot outputs across all major phases and strict-vs-legacy branches.</li>
+    </ul>
+
+
+    <h2>Shared reference</h2>
+    <p><strong>Dictionary:</strong> same terminology map used in every page.</p>
+    <p><a href="dictionary.html">Open Dictionary</a></p>
+
+    <p><a href="index.html">Back to index</a></p>
+  </article>
+</body>
+</html>

@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="Shamit Sai Imandi - Electronics & Communication Engineering student at BITS Pilani building ML infrastructure, quantitative tools, and high-performance C++ systems">
+		<meta name="author" content="Shamit Sai Imandi">
+		<title>Math Pipeline</title>
+		<script>
+			(function(){
+				var savedTheme = localStorage.getItem("theme");
+				var theme = savedTheme === "light" || savedTheme === "dark" ? savedTheme : "dark";
+				document.documentElement.setAttribute("data-theme", theme);
+			})();
+		</script>
+		<link rel="stylesheet" href="../../../style.css">
+		
+		
+	</head>
+	<body>
+		<div class="layout">
+			<nav class="sidebar">
+				<div class="name">SHAMIT</div>
+				<div class="line"></div>
+				<a href="../../../index.html">ABOUT</a>
+				<a href="../../../projects.html" class="active">PROJECTS</a>
+				<a href="../../../cv.pdf" target="_blank">CV</a>
+				<div class="line"></div>
+				<div class="contact-buttons">
+					<a href="mailto:shamitsai0609@gmail.com" class="btn" target="_blank">EMAIL</a>
+					<a href="https://github.com/Light1224" class="btn" target="_blank">GITHUB</a>
+					<a href="https://www.linkedin.com/in/shamit-imandi-375499284/" class="btn" target="_blank">LINKEDIN</a>
+					<a href="https://codeforces.com/profile/lightcf12" class="btn" target="_blank">CODEFORCES</a>
+				</div>
+				<div class="line"></div>
+				<div class="theme-section">
+					<button id="theme-toggle" class="theme-toggle" type="button">DARK</button>
+				</div>
+			</nav>
+			<main class="content">
+				<article>
+        <h1>Math Pipeline</h1>
+        <p><strong>This page is the exhaustive technical record of the full project pipeline, including repository coverage, phase coverage, formulas, diagnostics, artifacts, and reproducibility closure.</strong></p>
+
+        <h2>Repository-wide coverage map</h2>
+        <p>The pipeline is implemented in a repository that includes modeling code, preprocessors, notebooks, scripts, tests, reports, and a large artifact tree. The top-level components reflected here are:</p>
+        <ul>
+            <li>Code packages: <code>estimators</code>, <code>preprocessing</code>, <code>spectral</code>, <code>rmt</code>, <code>model</code>, <code>regimes</code>, <code>validation</code>.</li>
+            <li>Execution scripts: <code>run_load_qa.py</code>, <code>run_preprocess.py</code>, <code>run_spectrum_rmt.py</code>, <code>run_regimes.py</code>, <code>run_validation.py</code>, <code>run_all_pipeline.py</code> plus audit/report scripts.</li>
+            <li>Artifacts root folders: <code>transformed</code>, <code>spectra</code>, <code>rmt</code>, <code>model</code>, <code>regimes</code>, <code>validation</code>, <code>plots</code>, <code>regime_ab</code>.</li>
+            <li>Reporting layer: <code>report/all_phases_overview.txt</code>, phase metric files, exhaustive compilation report, and integrated findings report.</li>
+        </ul>
+
+        <p>The <code>all_phases_overview</code> summary tracks 467 generated files and phase-specific output volumes. This matters because conclusions are tied to pipeline outputs, not a single notebook snapshot.</p>
+
+        <h2>Notation and core objects</h2>
+        <p>Assets are indexed by i = 1..N, time by t = 1..T. The project often peaks at N=76 in full-cross-section settings with varying effective T by strictness and windowing. Core symbols used throughout this page are:</p>
+        <ul>
+            <li>\(\sigma_{i,t}\): realized volatility proxy</li>
+            <li>\(x_{i,t}\): standardized log-vol panel entry</li>
+            <li>\(C\): correlation matrix</li>
+            <li>\(C = V \Lambda V^\top\): eigendecomposition</li>
+            <li>\(K\): retained mode count</li>
+            <li>\(F\): factor score matrix</li>
+            <li>\(B\): loading/eigenvector matrix</li>
+        </ul>
+
+        <h2>Full phase chain (from baseline through phase 27)</h2>
+
+        <h3>Baseline to phase 8: preprocessing base</h3>
+        <p>Pre-phase output establishes that raw realized volatility is right-skewed with occasional spikes, requiring transform/stabilization before spectral work.</p>
+
+        <h3>Phase 9: correlation geometry and QA</h3>
+        <p>Matrix diagnostics establish a valid decomposition target in strict full-sample form: symmetry error near zero, PSD checks passing in selected constructions, trace consistency, and broad positive co-movement structure. Group structure and connectivity profiles are extracted from pairwise behavior and cluster-like cohorts.</p>
+        <p><img src="../images/p06_raw_corr_heatmap.png" alt="Raw correlation heatmap" /></p>
+
+        <h3>Phase 10: eigenspectrum concentration and low-rank behavior</h3>
+        <p>Core spectral results: strong top-mode concentration with nontrivial residual dimensionality; low-rank projection stabilizes geometry but does not fully explain full matrix behavior. Rolling windows show improved stability with longer windows.</p>
+        <p><img src="../images/p03_cum_factor_variance.png" alt="Cumulative variance" /></p>
+
+        <h3>Phase 11 and 12: random-matrix separation</h3>
+        <p>Marchenko-Pastur support is used to classify outlier modes versus bulk. Under baseline settings, a small set of significant modes sits above MP edge while most eigenvalues remain in bulk-like range. Variant sensitivity confirms concentration shifts and lower-tail pathologies in some smoothed constructions.</p>
+        <pre>
+q = N/T
+lambda_min = (1 - sqrt(q))^2
+lambda_max = (1 + sqrt(q))^2
+        </pre>
+        <p><img src="../images/p02_rmt_scree_mp_bounds.png" alt="MP scree" /></p>
+        <p><img src="../images/p02_rmt_hist_mp_overlay.png" alt="MP histogram" /></p>
+
+        <h3>Phase 13 and 14: factor panel and interpretation</h3>
+        <p>Selected modes are projected into factor panel. Interpretation metrics include market-vol correlation, liquidity coupling, ACF persistence, and sector concentration (HHI). The first factor behaves as systemic anchor; second factor is more concentrated and conditional.</p>
+        <p><img src="../images/p13_01_factor_time_series.png" alt="Factor series" /></p>
+        <p><img src="../images/p14_05_sector_weight_heatmap.png" alt="Sector weights" /></p>
+
+        <h3>Phase 15 and 16: stability and filtered reconstruction</h3>
+        <p>Rolling overlap and principal angles show persistent stability hierarchy: PC1 high stability, PC2 lower stability with rotation episodes. Filtered reconstruction preserves structural core and improves numerical usability of matrix operations.</p>
+        <p><img src="../images/p15_01_rolling_overlap_by_factor.png" alt="Rolling overlap" /></p>
+        <p><img src="../images/p15_02_rolling_angle_by_factor.png" alt="Rolling angles" /></p>
+        <p><img src="../images/p16_02_filtered_correlation_heatmap.png" alt="Filtered matrix" /></p>
+
+        <h3>Phase 17: low-rank model residual anatomy</h3>
+        <p>Low-rank modeling quantifies systematic versus idiosyncratic share and verifies residual cross-correlation reduction. This stage clarifies what common factors can and cannot explain at asset level.</p>
+        <p><img src="../images/p17_01_variance_observed_vs_reconstructed.png" alt="Variance compare" /></p>
+        <p><img src="../images/p17_03_residual_correlation_heatmap.png" alt="Residual corr" /></p>
+
+        <h3>Phase 18, 19, 20, 21: regime feature engineering, segmentation, and validation</h3>
+        <p>Composite signal and feature construction feed change-point segmentation through penalty scan and BIC-guided selection. Segment usefulness is validated with regime-level volatility, dispersion, factor-share, and drawdown behavior, followed by split robustness checks.</p>
+        <p><img src="../images/p18_01_factor_energy_timeseries.png" alt="Energy" /></p>
+        <p><img src="../images/p19_03_penalty_scan_bic.png" alt="Penalty scan" /></p>
+        <p><img src="../images/p20_04_drawdown_share_by_regime.png" alt="Drawdown by regime" /></p>
+        <p><img src="../images/p21_02_pc1_stability_by_split.png" alt="PC1 split" /></p>
+
+        <h3>Phase 22 and 23: estimator sensitivity and falsification</h3>
+        <p>Estimator swap (RS vs GK) maintains core dimensionality and regime-level structure with mild concentration shifts. Randomization tests (time and stock shuffles) are used to challenge structural claims under null settings.</p>
+        <p><img src="../images/p22_01_k_by_estimator.png" alt="K estimator" /></p>
+        <p><img src="../images/p23_01_top1_time_shuffle_hist.png" alt="Time shuffle" /></p>
+        <p><img src="../images/p23_02_top1_stock_shuffle_hist.png" alt="Stock shuffle" /></p>
+
+        <h3>Phase 24, 25, 26: pipeline hardening and final reproducibility</h3>
+        <p>Script-level reproducibility checks confirm required runners exist and deterministic audit passes in documented outputs. Final reports are assembled from generated tables/figures rather than manually typed metrics.</p>
+
+        <h3>Phase 27: strict-causality predictive diagnostics</h3>
+        <p>This stage enforces timing-integrity constraints:</p>
+        <ul>
+            <li>strict forward target definition (future-only windows)</li>
+            <li>walk-forward PCA signal generation (no full-sample reuse at prediction time)</li>
+            <li>train-only event thresholding before test evaluation</li>
+        </ul>
+        <pre>
+Target_h(t) = mean( market_vol_{t+1}, ..., market_vol_{t+h} )
+Predictors_t = { factor_energy_t, rolling_angle_mean_t }
+        </pre>
+        <p>From report metrics: aligned rows ≈ 5,081, best test AUC ≈ 0.9007 (factor energy, horizon 10), best test R² remains negative in linear OOS fit (≈ -0.313 at best).</p>
+        <p><img src="../images/p27_04_auc_by_horizon.png" alt="AUC" /></p>
+        <p><img src="../images/p27_03_test_r2_by_horizon.png" alt="R2" /></p>
+        <p><img src="../images/p27_06_decile_lift_h5.png" alt="Lift" /></p>
+
+        <h2>Complete formula block used across stages</h2>
+        <pre>
+Rogers-Satchell:
+RS_t = sqrt( ln(H_t/C_t) ln(H_t/O_t) + ln(L_t/C_t) ln(L_t/O_t) )
+
+Garman-Klass:
+GK_t = sqrt( 0.5[ln(H_t/L_t)]^2 - (2ln2 - 1)[ln(C_t/O_t)]^2 )
+
+Log transform and z-score:
+y_{i,t} = ln(sigma_{i,t})
+x_{i,t} = (y_{i,t} - mu_i)/s_i
+
+Correlation:
+C_{ij} = corr_t(x_i, x_j)
+
+Eigendecomposition:
+C = V Lambda V^T
+
+Top-K reconstruction:
+C^(K) = sum_{k=1..K} lambda_k v_k v_k^T
+
+Reconstruction error:
+E_K = ||C - C^(K)||_F / ||C||_F
+
+MP bounds:
+q = N/T
+lambda_min = (1 - sqrt(q))^2
+lambda_max = (1 + sqrt(q))^2
+
+Factor projection:
+F = X B_K
+
+Rolling geometry:
+angle_t = arccos(|v_{1,t}^T v_{1,t-1}|)
+overlap_t = |v_{1,t}^T v_{1,t-1}|
+
+Low-rank model:
+X_t = B f_t + epsilon_t
+
+Factor energy:
+energy_t = sum_k f_{k,t}^2
+        </pre>
+
+        <h2>Everything tracked in artifacts/reports that this page reflects</h2>
+        <ul>
+            <li>Per-phase metrics in <code>report/phase_*.txt</code></li>
+            <li>Integrated summaries in <code>findings_report.md</code> and <code>findings_report_neat.md</code></li>
+            <li>Cross-phase overviews in <code>report/all_phases_overview.txt</code> and <code>all_phases_metrics_heavy.txt</code></li>
+            <li>Artifact CSV trees in transformed/spectra/rmt/model/regimes/validation</li>
+            <li>Plot trees in <code>artifacts/plots/phase*</code> and A/B strict-vs-legacy branches</li>
+            <li>Final deterministic audit files from phase 26</li>
+        </ul>
+
+        <h2>Final technical statement</h2>
+        <p>The project is complete as a full pipeline: estimation, transformation, spectral extraction, noise-aware filtering, factor interpretation, stability testing, regime segmentation, falsification, strict predictive evaluation, and reproducibility closure. This page documents the complete math path with each stage represented.</p>
+
+        <h2>Shared reference</h2>
+        <p><strong>Dictionary:</strong> same terminology map used in every page.</p>
+        <p><a href="dictionary.html">Open Dictionary</a></p>
+
+        <p><a href="findings.html">Next: Findings</a></p>
+    </article>
+			</main>
+		</div>
+		<script>
+			(function(){
+				var root = document.documentElement;
+				var button = document.getElementById("theme-toggle");
+				if (!button) return;
+
+				function currentTheme(){
+					var theme = root.getAttribute("data-theme");
+					return theme === "light" ? "light" : "dark";
+				}
+
+				function updateLabel(){
+					button.textContent = currentTheme().toUpperCase();
+				}
+
+				button.addEventListener("click", function(){
+					var next = currentTheme() === "dark" ? "light" : "dark";
+					root.setAttribute("data-theme", next);
+					localStorage.setItem("theme", next);
+					updateLabel();
+				});
+
+				updateLabel();
+			})();
+		</script>
+	</body>
+</html>
+

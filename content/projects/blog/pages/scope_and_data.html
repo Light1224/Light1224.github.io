@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Scope and Data</title>
+</head>
+<body>
+  <article>
+    <h1>Scope and Data</h1>
+    <p><strong>This post defines the project boundaries before any interpretation is attempted.</strong></p>
+
+    <p>The central question is straightforward: is cross-sectional volatility structure genuinely compressible and stable, or does it only appear meaningful because of sample noise? To answer that, the project is constrained by fixed panel construction rules, staged diagnostics, and full metric exports that allow each phase to fail independently.</p>
+
+    <p>The workload is not a small notebook run. Artifact inventory reports show hundreds of generated files, with phase tables ranging from moderate row counts to very large aggregate outputs. That scale matters because every narrative claim can be traced back to reproducible artifacts.</p>
+
+    <h2>What is treated as ground truth</h2>
+    <p>The target is not directional return prediction. The target is the geometry and evolution of realized-volatility structure across assets. Core objects are:</p>
+    <ul>
+      <li>standardized log-volatility panel</li>
+      <li>cross-sectional correlation matrix geometry</li>
+      <li>eigenspectrum shape and MP separation</li>
+      <li>factor dynamics, overlap drift, and angle rotation</li>
+      <li>regime segmentation quality and validation behavior</li>
+      <li>strict-causality predictive diagnostics for forward risk events</li>
+    </ul>
+
+    <h2>Primary report sources used in this write-up</h2>
+    <ul>
+      <li><code>report/all_phases_overview.txt</code> for global output scale</li>
+      <li><code>report/phase_15_metrics.txt</code> for stability stress and outlier-drop tests</li>
+      <li><code>report/phase_19_metrics.txt</code> for regime count/penalty diagnostics</li>
+      <li><code>report/phase_27_metrics.txt</code> for strict-causality predictive outcomes</li>
+      <li><code>findings_report.md</code> for full storyline and earlier interpretations</li>
+    </ul>
+
+    <h2>Data reality check</h2>
+    <p>The panel spans long history, but effective coverage varies by window and strictness setting. In strict phase-27 outputs, the aligned dataset has 5,081 rows while active asset counts still fluctuate by window. For that reason, conclusions are framed as persistent low-dimensional tendency with regime sensitivity, not as a single invariant dimensionality claim.</p>
+
+    <p>The first chart below shows strict predictor trajectories through time; the second provides a legacy factor-timeseries reference used for continuity with earlier phases.</p>
+
+    <p><img src="../images/p27_01_predictor_timeseries.png" alt="Predictor timeseries" /></p>
+    <p><img src="../images/p03_factor_timeseries.png" alt="Factor timeseries legacy visual" /></p>
+
+    <h2>Why this page matters</h2>
+    <p>Without scope discipline, downstream interpretation becomes story-first. This page keeps the project data-first: definitions are fixed early, traceability is explicit, and later claims remain auditable.</p>
+
+    <h2>Shared reference</h2>
+    <p><strong>Dictionary:</strong> terminology stays consistent across every page.</p>
+    <p><a href="dictionary.html">Open Dictionary</a></p>
+
+    <p><a href="pipeline_and_preprocessing.html">Pipeline and Preprocessing</a></p>
+  </article>
+</body>
+</html>

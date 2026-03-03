@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="Shamit Sai Imandi - Electronics & Communication Engineering student at BITS Pilani building ML infrastructure, quantitative tools, and high-performance C++ systems">
+		<meta name="author" content="Shamit Sai Imandi">
+		<title>Predictive Power Strict</title>
+		<script>
+			(function(){
+				var savedTheme = localStorage.getItem("theme");
+				var theme = savedTheme === "light" || savedTheme === "dark" ? savedTheme : "dark";
+				document.documentElement.setAttribute("data-theme", theme);
+			})();
+		</script>
+		<link rel="stylesheet" href="../../../style.css">
+		
+		
+	</head>
+	<body>
+		<div class="layout">
+			<nav class="sidebar">
+				<div class="name">SHAMIT</div>
+				<div class="line"></div>
+				<a href="../../../index.html">ABOUT</a>
+				<a href="../../../projects.html" class="active">PROJECTS</a>
+				<a href="../../../cv.pdf" target="_blank">CV</a>
+				<div class="line"></div>
+				<div class="contact-buttons">
+					<a href="mailto:shamitsai0609@gmail.com" class="btn" target="_blank">EMAIL</a>
+					<a href="https://github.com/Light1224" class="btn" target="_blank">GITHUB</a>
+					<a href="https://www.linkedin.com/in/shamit-imandi-375499284/" class="btn" target="_blank">LINKEDIN</a>
+					<a href="https://codeforces.com/profile/lightcf12" class="btn" target="_blank">CODEFORCES</a>
+				</div>
+				<div class="line"></div>
+				<div class="theme-section">
+					<button id="theme-toggle" class="theme-toggle" type="button">DARK</button>
+				</div>
+			</nav>
+			<main class="content">
+				<article>
+    <h1>Predictive Power Strict</h1>
+    <p><strong>Entry: this is the strict-causality version, where I care more about timing integrity than pretty in-sample fit.</strong></p>
+
+    <p>I upgraded this phase to strict forward targets and walk-forward PCA construction so every date only uses information available up to that date. Event thresholds are fit on train only and then applied to test. This makes the numbers less flattering in some places, but much more honest.</p>
+
+    <h2>What survived strict setup</h2>
+    <p>Event classification stayed strong for factor energy, peaking around AUC 0.90 at 10-day horizon in test metrics. Magnitude regression did not survive in linear OOS form; test R² is weak/negative. I consider that a useful boundary, not a failure: event ranking is strong, exact magnitude prediction is hard.</p>
+
+    <p><img src="../images/p12_auc_by_horizon.png" alt="AUC legacy" /></p>
+    <p><img src="../images/p27_04_auc_by_horizon.png" alt="AUC strict" /></p>
+    <p><img src="../images/p27_03_test_r2_by_horizon.png" alt="Test R2 strict" /></p>
+    <p><img src="../images/p27_02_corr_by_horizon.png" alt="Correlation by horizon" /></p>
+    <p><img src="../images/p27_05_scatter_h5.png" alt="Scatter h5" /></p>
+    <p><img src="../images/p12_decile_lift_h5.png" alt="Decile lift legacy" /></p>
+    <p><img src="../images/p27_06_decile_lift_h5.png" alt="Decile lift strict" /></p>
+
+    <h2>Metrics I wrote down from the report files</h2>
+    <ul>
+      <li>aligned rows around 5,081 in strict predictive dataset</li>
+      <li>best strict AUC test ≈ 0.9007 (factor energy, 10-day)</li>
+      <li>best strict test R² ≈ -0.313 (linear magnitude fit remains weak)</li>
+      <li>train/test event shares differ, so I avoid naive threshold transfer assumptions</li>
+    </ul>
+
+    <h2>How I interpret this without over-selling</h2>
+    <p>This model is better at saying “risk event likelihood is high” than “exact forward volatility number will be X.” For deployment framing, that means risk triage and alerting look stronger than pure point-forecasting claims.</p>
+
+    <h2>Shared reference</h2>
+    <p><strong>Dictionary:</strong> same terminology map used in every page.</p>
+    <p><a href="dictionary.html">Open Dictionary</a></p>
+
+    <p><a href="math_pipeline.html">Next: Math Pipeline (full technical file)</a></p>
+  </article>
+			</main>
+		</div>
+		<script>
+			(function(){
+				var root = document.documentElement;
+				var button = document.getElementById("theme-toggle");
+				if (!button) return;
+
+				function currentTheme(){
+					var theme = root.getAttribute("data-theme");
+					return theme === "light" ? "light" : "dark";
+				}
+
+				function updateLabel(){
+					button.textContent = currentTheme().toUpperCase();
+				}
+
+				button.addEventListener("click", function(){
+					var next = currentTheme() === "dark" ? "light" : "dark";
+					root.setAttribute("data-theme", next);
+					localStorage.setItem("theme", next);
+					updateLabel();
+				});
+
+				updateLabel();
+			})();
+		</script>
+	</body>
+</html>
+

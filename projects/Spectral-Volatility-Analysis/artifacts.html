@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="Shamit Sai Imandi - Electronics & Communication Engineering student at BITS Pilani building ML infrastructure, quantitative tools, and high-performance C++ systems">
+		<meta name="author" content="Shamit Sai Imandi">
+		<title>SPECTRAL VOLATILITY ANALYSIS ARTIFACTS</title>
+		<script>
+			(function(){
+				var savedTheme = localStorage.getItem("theme");
+				var theme = savedTheme === "light" || savedTheme === "dark" ? savedTheme : "dark";
+				document.documentElement.setAttribute("data-theme", theme);
+			})();
+		</script>
+		<link rel="stylesheet" href="../../style.css">
+		
+		
+	</head>
+	<body>
+		<div class="layout">
+			<nav class="sidebar">
+				<div class="name">SHAMIT</div>
+				<div class="line"></div>
+				<a href="../../index.html">ABOUT</a>
+				<a href="../../projects.html" class="active">PROJECTS</a>
+				<a href="../../cv.pdf" target="_blank">CV</a>
+				<div class="line"></div>
+				<div class="contact-buttons">
+					<a href="mailto:shamitsai0609@gmail.com" class="btn" target="_blank">EMAIL</a>
+					<a href="https://github.com/Light1224" class="btn" target="_blank">GITHUB</a>
+					<a href="https://www.linkedin.com/in/shamit-imandi-375499284/" class="btn" target="_blank">LINKEDIN</a>
+					<a href="https://codeforces.com/profile/lightcf12" class="btn" target="_blank">CODEFORCES</a>
+				</div>
+				<div class="line"></div>
+				<div class="theme-section">
+					<button id="theme-toggle" class="theme-toggle" type="button">DARK</button>
+				</div>
+			</nav>
+			<main class="content">
+				<h1>SPECTRAL VOLATILITY ANALYSIS ARTIFACTS</h1>
+<p>All project artifacts from the images folder.</p>
+<div class="artifact-toolbar">
+<input id="artifact-search" class="artifact-search" type="text" placeholder="Filter by filename or description..." aria-label="Filter artifacts">
+<span id="artifact-count" class="artifact-count"></span>
+</div>
+<div class="artifact-grid" id="artifact-grid">
+<button type="button" class="artifact-thumb" data-artifact-open="0" aria-label="Open p02_rmt_hist_mp_overlay.png">
+<img src="images/p02_rmt_hist_mp_overlay.png" alt="p02_rmt_hist_mp_overlay.png" loading="lazy">
+<span class="artifact-thumb-label">p02_rmt_hist_mp_overlay.png</span>
+</button>
+<button type="button" class="artifact-thumb" data-artifact-open="1" aria-label="Open p02_rmt_scree_mp_bounds.png">
+<img src="images/p02_rmt_scree_mp_bounds.png" alt="p02_rmt_scree_mp_bounds.png" loading="lazy">
+<span class="artifact-thumb-label">p02_rmt_scree_mp_bounds.png</span>
+</button>
+<button type="button" class="artifact-thumb" data-artifact-open="2" aria-label="Open p03_cum_factor_variance.png">
+<img src="images/p03_cum_factor_variance.png" alt="p03_cum_factor_variance.png" loading="lazy">
+<span class="artifact-thumb-label">p03_cum_factor_variance.png</span>
+</button>
+<button type="button" class="artifact-thumb" data-artifact-open="3" aria-label="Open p03_factor_timeseries.png">
+<img src="images/p03_factor_timeseries.png" alt="p03_factor_timeseries.png" loading="lazy">
+<span class="artifact-thumb-label">p03_factor_timeseries.png</span>
+</button>
+<button type="button" class="artifact-thumb" data-artifact-open="4" aria-label="Open p04_factor_market_corr.png">
+<img src="images/p04_factor_market_corr.png" alt="p04_factor_market_corr.png" loading="lazy">
+<span class="artifact-thumb-label">p04_factor_market_corr.png</span>
+</button>
+<button type="button" class="artifact-thumb" data-artifact-open="5" aria-label="Open p05_rolling_angle.png">
+<img src="images/p05_rolling_angle.png" alt="p05_rolling_angle.png" loading="lazy">
+<span class="artifact-thumb-label">p05_rolling_angle.png</span>
+</button>
+<button type="button" class="artifact-thumb" data-artifact-open="6" aria-label="Open p05_rolling_overlap.png">
+<img src="images/p05_rolling_overlap.png" alt="p05_rolling_overlap.png" loading="lazy">
+<span class="artifact-thumb-label">p05_rolling_overlap.png</span>
+</button>
+<button type="button" class="artifact-thumb" data-artifact-open="7" aria-label="Open p06_filtered_corr_heatmap.png">
+<img src="images/p06_filtered_corr_heatmap.png" alt="p06_filtered_corr_heatmap.png" loading="lazy">
+<span class="artifact-thumb-label">p06_filtered_corr_heatmap.png</span>
+</button>
+<button type="button" class="artifact-thumb" data-artifact-open="8" aria-label="Open p06_raw_corr_heatmap.png">
+<img src="images/p06_raw_corr_heatmap.png" alt="p06_raw_corr_heatmap.png" loading="lazy">
+<span class="artifact-thumb-label">p06_raw_corr_heatmap.png</span>
+</button>
+<button type="button" class="artifact-thumb" data-artifact-open="9" aria-label="Open p07_idio_share_by_asset.png">
+<img src="images/p07_idio_share_by_asset.png" alt="p07_idio_share_by_asset.png" loading="lazy">
+<span class="artifact-thumb-label">p07_idio_share_by_asset.png</span>
+</button>
+<button type="button" class="artifact-thumb" data-artifact-open="10" aria-label="Open p07_variance_observed_vs_recon.png">
+<img src="images/p07_variance_observed_vs_recon.png" alt="p07_variance_observed_vs_recon.png" loading="lazy">
+<span class="artifact-thumb-label">p07_variance_observed_vs_recon.png</span>
+</button>
+<button type="button" class="artifact-thumb" data-artifact-open="11" aria-label="Open p08_regime_timeline.png">
+<img src="images/p08_regime_timeline.png" alt="p08_regime_timeline.png" loading="lazy">
+<span class="artifact-thumb-label">p08_regime_timeline.png</span>
+</button>
+<button type="button" class="artifact-thumb" data-artifact-open="12" aria-label="Open p08_regime_timeline_drawdowns.png">
+<img src="images/p08_regime_timeline_drawdowns.png" alt="p08_regime_timeline_drawdowns.png" loading="lazy">
+<span class="artifact-thumb-label">p08_regime_timeline_drawdowns.png</span>
+</button>
+<button type="button" class="artifact-thumb" data-artifact-open="13" aria-label="Open p08_signal_change_points.png">
+<img src="images/p08_signal_change_points.png" alt="p08_signal_change_points.png" loading="lazy">
+<span class="artifact-thumb-label">p08_signal_change_points.png</span>
+</button>
+<button type="button" class="artifact-thumb" data-artifact-open="14" aria-label="Open p09_pc1_stability_by_split.png">
+<img src="images/p09_pc1_stability_by_split.png" alt="p09_pc1_stability_by_split.png" loading="lazy">
+<span class="artifact-thumb-label">p09_pc1_stability_by_split.png</span>
+</button>
+<button type="button" class="artifact-thumb" data-artifact-open="15" aria-label="Open p10_scree_estimator_comparison.png">
+<img src="images/p10_scree_estimator_comparison.png" alt="p10_scree_estimator_comparison.png" loading="lazy">
+<span class="artifact-thumb-label">p10_scree_estimator_comparison.png</span>
+</button>
+<button type="button" class="artifact-thumb" data-artifact-open="16" aria-label="Open p11_stock_shuffle_hist.png">
+<img src="images/p11_stock_shuffle_hist.png" alt="p11_stock_shuffle_hist.png" loading="lazy">
+<span class="artifact-thumb-label">p11_stock_shuffle_hist.png</span>
+</button>
+<button type="button" class="artifact-thumb" data-artifact-open="17" aria-label="Open p11_time_shuffle_hist.png">
+<img src="images/p11_time_shuffle_hist.png" alt="p11_time_shuffle_hist.png" loading="lazy">
+<span class="artifact-thumb-label">p11_time_shuffle_hist.png</span>
+</button>
+<button type="button" class="artifact-thumb" data-artifact-open="18" aria-label="Open p12_01_baseline_scree_mp_bounds.png">
+<img src="images/p12_01_baseline_scree_mp_bounds.png" alt="p12_01_baseline_scree_mp_bounds.png" loading="lazy">
+<span class="artifact-thumb-label">p12_01_baseline_scree_mp_bounds.png</span>
+</button>
+<button type="button" class="artifact-thumb" data-artifact-open="19" aria-label="Open p12_02_baseline_histogram_mp_overlay.png">
+<img src="images/p12_02_baseline_histogram_mp_overlay.png" alt="p12_02_baseline_histogram_mp_overlay.png" loading="lazy">
+<span class="artifact-thumb-label">p12_02_baseline_histogram_mp_overlay.png</span>
+</button>
+<button type="button" class="artifact-thumb" data-artifact-open="20" aria-label="Open p12_03_signal_count_by_variant.png">
+<img src="images/p12_03_signal_count_by_variant.png" alt="p12_03_signal_count_by_variant.png" loading="lazy">
+<span class="artifact-thumb-label">p12_03_signal_count_by_variant.png</span>
+</button>
+<button type="button" class="artifact-thumb" data-artifact-open="21" aria-label="Open p12_04_mp_bounds_by_variant.png">
+<img src="images/p12_04_mp_bounds_by_variant.png" alt="p12_04_mp_bounds_by_variant.png" loading="lazy">
+<span class="artifact-thumb-label">p12_04_mp_bounds_by_variant.png</span>
+</button>
+<button type="button" class="artifact-thumb" data-artifact-open="22" aria-label="Open p12_05_signal_concentration_by_variant.png">
+<img src="images/p12_05_signal_concentration_by_variant.png" alt="p12_05_signal_concentration_by_variant.png" loading="lazy">
+<span class="artifact-thumb-label">p12_05_signal_concentration_by_variant.png</span>
+</button>
+<button type="button" class="artifact-thumb" data-artifact-open="23" aria-label="Open p12_06_negative_eig_count_by_variant.png">
+<img src="images/p12_06_negative_eig_count_by_variant.png" alt="p12_06_negative_eig_count_by_variant.png" loading="lazy">
+<span class="artifact-thumb-label">p12_06_negative_eig_count_by_variant.png</span>
+</button>
+<button type="button" class="artifact-thumb" data-artifact-open="24" aria-label="Open p12_auc_by_horizon.png">
+<img src="images/p12_auc_by_horizon.png" alt="p12_auc_by_horizon.png" loading="lazy">
+<span class="artifact-thumb-label">p12_auc_by_horizon.png</span>
+</button>
+<button type="button" class="artifact-thumb" data-artifact-open="25" aria-label="Open p12_decile_lift_h5.png">
+<img src="images/p12_decile_lift_h5.png" alt="p12_decile_lift_h5.png" loading="lazy">
+<span class="artifact-thumb-label">p12_decile_lift_h5.png</span>
+</button>
+<button type="button" class="artifact-thumb" data-artifact-open="26" aria-label="Open p13_01_factor_time_series.png">
+<img src="images/p13_01_factor_time_series.png" alt="p13_01_factor_time_series.png" loading="lazy">
+<span class="artifact-thumb-label">p13_01_factor_time_series.png</span>
+</button>
+<button type="button" class="artifact-thumb" data-artifact-open="27" aria-label="Open p13_02_factor_correlation_heatmap.png">
+<img src="images/p13_02_factor_correlation_heatmap.png" alt="p13_02_factor_correlation_heatmap.png" loading="lazy">
+<span class="artifact-thumb-label">p13_02_factor_correlation_heatmap.png</span>
+</button>
+<button type="button" class="artifact-thumb" data-artifact-open="28" aria-label="Open p14_01_market_vol_corr_by_factor.png">
+<img src="images/p14_01_market_vol_corr_by_factor.png" alt="p14_01_market_vol_corr_by_factor.png" loading="lazy">
+<span class="artifact-thumb-label">p14_01_market_vol_corr_by_factor.png</span>
+</button>
+<button type="button" class="artifact-thumb" data-artifact-open="29" aria-label="Open p14_02_liquidity_corr_by_factor.png">
+<img src="images/p14_02_liquidity_corr_by_factor.png" alt="p14_02_liquidity_corr_by_factor.png" loading="lazy">
+<span class="artifact-thumb-label">p14_02_liquidity_corr_by_factor.png</span>
+</button>
+<button type="button" class="artifact-thumb" data-artifact-open="30" aria-label="Open p14_03_factor_persistence_acf.png">
+<img src="images/p14_03_factor_persistence_acf.png" alt="p14_03_factor_persistence_acf.png" loading="lazy">
+<span class="artifact-thumb-label">p14_03_factor_persistence_acf.png</span>
+</button>
+<button type="button" class="artifact-thumb" data-artifact-open="31" aria-label="Open p14_04_sector_hhi_by_factor.png">
+<img src="images/p14_04_sector_hhi_by_factor.png" alt="p14_04_sector_hhi_by_factor.png" loading="lazy">
+<span class="artifact-thumb-label">p14_04_sector_hhi_by_factor.png</span>
+</button>
+<button type="button" class="artifact-thumb" data-artifact-open="32" aria-label="Open p14_05_sector_weight_heatmap.png">
+<img src="images/p14_05_sector_weight_heatmap.png" alt="p14_05_sector_weight_heatmap.png" loading="lazy">
+<span class="artifact-thumb-label">p14_05_sector_weight_heatmap.png</span>
+</button>
+<button type="button" class="artifact-thumb" data-artifact-open="33" aria-label="Open p15_01_rolling_overlap_by_factor.png">
+<img src="images/p15_01_rolling_overlap_by_factor.png" alt="p15_01_rolling_overlap_by_factor.png" loading="lazy">
+<span class="artifact-thumb-label">p15_01_rolling_overlap_by_factor.png</span>
+</button>
+<button type="button" class="artifact-thumb" data-artifact-open="34" aria-label="Open p15_02_rolling_angle_by_factor.png">
+<img src="images/p15_02_rolling_angle_by_factor.png" alt="p15_02_rolling_angle_by_factor.png" loading="lazy">
+<span class="artifact-thumb-label">p15_02_rolling_angle_by_factor.png</span>
+</button>
+<button type="button" class="artifact-thumb" data-artifact-open="35" aria-label="Open p15_03_overlap_distribution_boxplot.png">
+<img src="images/p15_03_overlap_distribution_boxplot.png" alt="p15_03_overlap_distribution_boxplot.png" loading="lazy">
+<span class="artifact-thumb-label">p15_03_overlap_distribution_boxplot.png</span>
+</button>
+<button type="button" class="artifact-thumb" data-artifact-open="36" aria-label="Open p15_04_subsample_overlap_heatmap.png">
+<img src="images/p15_04_subsample_overlap_heatmap.png" alt="p15_04_subsample_overlap_heatmap.png" loading="lazy">
+<span class="artifact-thumb-label">p15_04_subsample_overlap_heatmap.png</span>
+</button>
+<button type="button" class="artifact-thumb" data-artifact-open="37" aria-label="Open p15_05_stability_score_dashboard.png">
+<img src="images/p15_05_stability_score_dashboard.png" alt="p15_05_stability_score_dashboard.png" loading="lazy">
+<span class="artifact-thumb-label">p15_05_stability_score_dashboard.png</span>
+</button>
+<button type="button" class="artifact-thumb" data-artifact-open="38" aria-label="Open p16_02_filtered_correlation_heatmap.png">
+<img src="images/p16_02_filtered_correlation_heatmap.png" alt="p16_02_filtered_correlation_heatmap.png" loading="lazy">
+<span class="artifact-thumb-label">p16_02_filtered_correlation_heatmap.png</span>
+</button>
+<button type="button" class="artifact-thumb" data-artifact-open="39" aria-label="Open p16_03_reconstruction_error_heatmap.png">
+<img src="images/p16_03_reconstruction_error_heatmap.png" alt="p16_03_reconstruction_error_heatmap.png" loading="lazy">
+<span class="artifact-thumb-label">p16_03_reconstruction_error_heatmap.png</span>
+</button>
+<button type="button" class="artifact-thumb" data-artifact-open="40" aria-label="Open p16_04_offdiag_raw_vs_filtered_scatter.png">
+<img src="images/p16_04_offdiag_raw_vs_filtered_scatter.png" alt="p16_04_offdiag_raw_vs_filtered_scatter.png" loading="lazy">
+<span class="artifact-thumb-label">p16_04_offdiag_raw_vs_filtered_scatter.png</span>
+</button>
+<button type="button" class="artifact-thumb" data-artifact-open="41" aria-label="Open p16_06_reconstruction_diagnostics_bars.png">
+<img src="images/p16_06_reconstruction_diagnostics_bars.png" alt="p16_06_reconstruction_diagnostics_bars.png" loading="lazy">
+<span class="artifact-thumb-label">p16_06_reconstruction_diagnostics_bars.png</span>
+</button>
+<button type="button" class="artifact-thumb" data-artifact-open="42" aria-label="Open p17_01_variance_observed_vs_reconstructed.png">
+<img src="images/p17_01_variance_observed_vs_reconstructed.png" alt="p17_01_variance_observed_vs_reconstructed.png" loading="lazy">
+<span class="artifact-thumb-label">p17_01_variance_observed_vs_reconstructed.png</span>
+</button>
+<button type="button" class="artifact-thumb" data-artifact-open="43" aria-label="Open p17_03_residual_correlation_heatmap.png">
+<img src="images/p17_03_residual_correlation_heatmap.png" alt="p17_03_residual_correlation_heatmap.png" loading="lazy">
+<span class="artifact-thumb-label">p17_03_residual_correlation_heatmap.png</span>
+</button>
+<button type="button" class="artifact-thumb" data-artifact-open="44" aria-label="Open p18_01_factor_energy_timeseries.png">
+<img src="images/p18_01_factor_energy_timeseries.png" alt="p18_01_factor_energy_timeseries.png" loading="lazy">
+<span class="artifact-thumb-label">p18_01_factor_energy_timeseries.png</span>
+</button>
+<button type="button" class="artifact-thumb" data-artifact-open="45" aria-label="Open p19_01_signal_with_change_points.png">
+<img src="images/p19_01_signal_with_change_points.png" alt="p19_01_signal_with_change_points.png" loading="lazy">
+<span class="artifact-thumb-label">p19_01_signal_with_change_points.png</span>
+</button>
+<button type="button" class="artifact-thumb" data-artifact-open="46" aria-label="Open p19_02_regime_sequence_timeline.png">
+<img src="images/p19_02_regime_sequence_timeline.png" alt="p19_02_regime_sequence_timeline.png" loading="lazy">
+<span class="artifact-thumb-label">p19_02_regime_sequence_timeline.png</span>
+</button>
+<button type="button" class="artifact-thumb" data-artifact-open="47" aria-label="Open p19_03_penalty_scan_bic.png">
+<img src="images/p19_03_penalty_scan_bic.png" alt="p19_03_penalty_scan_bic.png" loading="lazy">
+<span class="artifact-thumb-label">p19_03_penalty_scan_bic.png</span>
+</button>
+<button type="button" class="artifact-thumb" data-artifact-open="48" aria-label="Open p19_04_regime_mean_signal.png">
+<img src="images/p19_04_regime_mean_signal.png" alt="p19_04_regime_mean_signal.png" loading="lazy">
+<span class="artifact-thumb-label">p19_04_regime_mean_signal.png</span>
+</button>
+<button type="button" class="artifact-thumb" data-artifact-open="49" aria-label="Open p19_05_regime_durations.png">
+<img src="images/p19_05_regime_durations.png" alt="p19_05_regime_durations.png" loading="lazy">
+<span class="artifact-thumb-label">p19_05_regime_durations.png</span>
+</button>
+<button type="button" class="artifact-thumb" data-artifact-open="50" aria-label="Open p20_01_mean_market_vol_by_regime.png">
+<img src="images/p20_01_mean_market_vol_by_regime.png" alt="p20_01_mean_market_vol_by_regime.png" loading="lazy">
+<span class="artifact-thumb-label">p20_01_mean_market_vol_by_regime.png</span>
+</button>
+<button type="button" class="artifact-thumb" data-artifact-open="51" aria-label="Open p20_02_dispersion_by_regime.png">
+<img src="images/p20_02_dispersion_by_regime.png" alt="p20_02_dispersion_by_regime.png" loading="lazy">
+<span class="artifact-thumb-label">p20_02_dispersion_by_regime.png</span>
+</button>
+<button type="button" class="artifact-thumb" data-artifact-open="52" aria-label="Open p20_03_factor_variance_share_by_regime.png">
+<img src="images/p20_03_factor_variance_share_by_regime.png" alt="p20_03_factor_variance_share_by_regime.png" loading="lazy">
+<span class="artifact-thumb-label">p20_03_factor_variance_share_by_regime.png</span>
+</button>
+<button type="button" class="artifact-thumb" data-artifact-open="53" aria-label="Open p20_04_drawdown_share_by_regime.png">
+<img src="images/p20_04_drawdown_share_by_regime.png" alt="p20_04_drawdown_share_by_regime.png" loading="lazy">
+<span class="artifact-thumb-label">p20_04_drawdown_share_by_regime.png</span>
+</button>
+<button type="button" class="artifact-thumb" data-artifact-open="54" aria-label="Open p20_05_regime_timeline_with_drawdowns.png">
+<img src="images/p20_05_regime_timeline_with_drawdowns.png" alt="p20_05_regime_timeline_with_drawdowns.png" loading="lazy">
+<span class="artifact-thumb-label">p20_05_regime_timeline_with_drawdowns.png</span>
+</button>
+<button type="button" class="artifact-thumb" data-artifact-open="55" aria-label="Open p21_01_k_signal_modes_by_split.png">
+<img src="images/p21_01_k_signal_modes_by_split.png" alt="p21_01_k_signal_modes_by_split.png" loading="lazy">
+<span class="artifact-thumb-label">p21_01_k_signal_modes_by_split.png</span>
+</button>
+<button type="button" class="artifact-thumb" data-artifact-open="56" aria-label="Open p21_02_pc1_stability_by_split.png">
+<img src="images/p21_02_pc1_stability_by_split.png" alt="p21_02_pc1_stability_by_split.png" loading="lazy">
+<span class="artifact-thumb-label">p21_02_pc1_stability_by_split.png</span>
+</button>
+<button type="button" class="artifact-thumb" data-artifact-open="57" aria-label="Open p21_04_top1_explained_by_split.png">
+<img src="images/p21_04_top1_explained_by_split.png" alt="p21_04_top1_explained_by_split.png" loading="lazy">
+<span class="artifact-thumb-label">p21_04_top1_explained_by_split.png</span>
+</button>
+<button type="button" class="artifact-thumb" data-artifact-open="58" aria-label="Open p22_01_k_by_estimator.png">
+<img src="images/p22_01_k_by_estimator.png" alt="p22_01_k_by_estimator.png" loading="lazy">
+<span class="artifact-thumb-label">p22_01_k_by_estimator.png</span>
+</button>
+<button type="button" class="artifact-thumb" data-artifact-open="59" aria-label="Open p22_02_top1_ratio_by_estimator.png">
+<img src="images/p22_02_top1_ratio_by_estimator.png" alt="p22_02_top1_ratio_by_estimator.png" loading="lazy">
+<span class="artifact-thumb-label">p22_02_top1_ratio_by_estimator.png</span>
+</button>
+<button type="button" class="artifact-thumb" data-artifact-open="60" aria-label="Open p22_03_signal_mass_share_by_estimator.png">
+<img src="images/p22_03_signal_mass_share_by_estimator.png" alt="p22_03_signal_mass_share_by_estimator.png" loading="lazy">
+<span class="artifact-thumb-label">p22_03_signal_mass_share_by_estimator.png</span>
+</button>
+<button type="button" class="artifact-thumb" data-artifact-open="61" aria-label="Open p22_04_regime_counts_by_estimator.png">
+<img src="images/p22_04_regime_counts_by_estimator.png" alt="p22_04_regime_counts_by_estimator.png" loading="lazy">
+<span class="artifact-thumb-label">p22_04_regime_counts_by_estimator.png</span>
+</button>
+<button type="button" class="artifact-thumb" data-artifact-open="62" aria-label="Open p22_05_scree_top20_comparison.png">
+<img src="images/p22_05_scree_top20_comparison.png" alt="p22_05_scree_top20_comparison.png" loading="lazy">
+<span class="artifact-thumb-label">p22_05_scree_top20_comparison.png</span>
+</button>
+<button type="button" class="artifact-thumb" data-artifact-open="63" aria-label="Open p23_01_top1_time_shuffle_hist.png">
+<img src="images/p23_01_top1_time_shuffle_hist.png" alt="p23_01_top1_time_shuffle_hist.png" loading="lazy">
+<span class="artifact-thumb-label">p23_01_top1_time_shuffle_hist.png</span>
+</button>
+<button type="button" class="artifact-thumb" data-artifact-open="64" aria-label="Open p23_02_top1_stock_shuffle_hist.png">
+<img src="images/p23_02_top1_stock_shuffle_hist.png" alt="p23_02_top1_stock_shuffle_hist.png" loading="lazy">
+<span class="artifact-thumb-label">p23_02_top1_stock_shuffle_hist.png</span>
+</button>
+<button type="button" class="artifact-thumb" data-artifact-open="65" aria-label="Open p23_03_k_signal_boxplot.png">
+<img src="images/p23_03_k_signal_boxplot.png" alt="p23_03_k_signal_boxplot.png" loading="lazy">
+<span class="artifact-thumb-label">p23_03_k_signal_boxplot.png</span>
+</button>
+<button type="button" class="artifact-thumb" data-artifact-open="66" aria-label="Open p23_04_top1_ratio_boxplot.png">
+<img src="images/p23_04_top1_ratio_boxplot.png" alt="p23_04_top1_ratio_boxplot.png" loading="lazy">
+<span class="artifact-thumb-label">p23_04_top1_ratio_boxplot.png</span>
+</button>
+<button type="button" class="artifact-thumb" data-artifact-open="67" aria-label="Open p23_06_mean_offdiag_distribution.png">
+<img src="images/p23_06_mean_offdiag_distribution.png" alt="p23_06_mean_offdiag_distribution.png" loading="lazy">
+<span class="artifact-thumb-label">p23_06_mean_offdiag_distribution.png</span>
+</button>
+<button type="button" class="artifact-thumb" data-artifact-open="68" aria-label="Open p27_01_predictor_timeseries.png">
+<img src="images/p27_01_predictor_timeseries.png" alt="p27_01_predictor_timeseries.png" loading="lazy">
+<span class="artifact-thumb-label">p27_01_predictor_timeseries.png</span>
+</button>
+<button type="button" class="artifact-thumb" data-artifact-open="69" aria-label="Open p27_02_corr_by_horizon.png">
+<img src="images/p27_02_corr_by_horizon.png" alt="p27_02_corr_by_horizon.png" loading="lazy">
+<span class="artifact-thumb-label">p27_02_corr_by_horizon.png</span>
+</button>
+<button type="button" class="artifact-thumb" data-artifact-open="70" aria-label="Open p27_03_test_r2_by_horizon.png">
+<img src="images/p27_03_test_r2_by_horizon.png" alt="p27_03_test_r2_by_horizon.png" loading="lazy">
+<span class="artifact-thumb-label">p27_03_test_r2_by_horizon.png</span>
+</button>
+<button type="button" class="artifact-thumb" data-artifact-open="71" aria-label="Open p27_04_auc_by_horizon.png">
+<img src="images/p27_04_auc_by_horizon.png" alt="p27_04_auc_by_horizon.png" loading="lazy">
+<span class="artifact-thumb-label">p27_04_auc_by_horizon.png</span>
+</button>
+<button type="button" class="artifact-thumb" data-artifact-open="72" aria-label="Open p27_05_scatter_h5.png">
+<img src="images/p27_05_scatter_h5.png" alt="p27_05_scatter_h5.png" loading="lazy">
+<span class="artifact-thumb-label">p27_05_scatter_h5.png</span>
+</button>
+<button type="button" class="artifact-thumb" data-artifact-open="73" aria-label="Open p27_06_decile_lift_h5.png">
+<img src="images/p27_06_decile_lift_h5.png" alt="p27_06_decile_lift_h5.png" loading="lazy">
+<span class="artifact-thumb-label">p27_06_decile_lift_h5.png</span>
+</button>
+</div>
+<div class="artifact-modal" id="artifact-modal" hidden>
+<div class="artifact-modal-backdrop" data-artifact-close="1"></div>
+<div class="artifact-modal-content" role="dialog" aria-modal="true" aria-label="Artifact viewer">
+<button type="button" class="artifact-nav artifact-prev" data-artifact-prev="1" aria-label="Previous image">&#8592;</button>
+<div class="artifact-modal-stage">
+<img src="images/p02_rmt_hist_mp_overlay.png" alt="p02_rmt_hist_mp_overlay.png" class="artifact-modal-image" data-artifact-image-index="0" loading="lazy">
+<img src="images/p02_rmt_scree_mp_bounds.png" alt="p02_rmt_scree_mp_bounds.png" class="artifact-modal-image" data-artifact-image-index="1" loading="lazy">
+<img src="images/p03_cum_factor_variance.png" alt="p03_cum_factor_variance.png" class="artifact-modal-image" data-artifact-image-index="2" loading="lazy">
+<img src="images/p03_factor_timeseries.png" alt="p03_factor_timeseries.png" class="artifact-modal-image" data-artifact-image-index="3" loading="lazy">
+<img src="images/p04_factor_market_corr.png" alt="p04_factor_market_corr.png" class="artifact-modal-image" data-artifact-image-index="4" loading="lazy">
+<img src="images/p05_rolling_angle.png" alt="p05_rolling_angle.png" class="artifact-modal-image" data-artifact-image-index="5" loading="lazy">
+<img src="images/p05_rolling_overlap.png" alt="p05_rolling_overlap.png" class="artifact-modal-image" data-artifact-image-index="6" loading="lazy">
+<img src="images/p06_filtered_corr_heatmap.png" alt="p06_filtered_corr_heatmap.png" class="artifact-modal-image" data-artifact-image-index="7" loading="lazy">
+<img src="images/p06_raw_corr_heatmap.png" alt="p06_raw_corr_heatmap.png" class="artifact-modal-image" data-artifact-image-index="8" loading="lazy">
+<img src="images/p07_idio_share_by_asset.png" alt="p07_idio_share_by_asset.png" class="artifact-modal-image" data-artifact-image-index="9" loading="lazy">
+<img src="images/p07_variance_observed_vs_recon.png" alt="p07_variance_observed_vs_recon.png" class="artifact-modal-image" data-artifact-image-index="10" loading="lazy">
+<img src="images/p08_regime_timeline.png" alt="p08_regime_timeline.png" class="artifact-modal-image" data-artifact-image-index="11" loading="lazy">
+<img src="images/p08_regime_timeline_drawdowns.png" alt="p08_regime_timeline_drawdowns.png" class="artifact-modal-image" data-artifact-image-index="12" loading="lazy">
+<img src="images/p08_signal_change_points.png" alt="p08_signal_change_points.png" class="artifact-modal-image" data-artifact-image-index="13" loading="lazy">
+<img src="images/p09_pc1_stability_by_split.png" alt="p09_pc1_stability_by_split.png" class="artifact-modal-image" data-artifact-image-index="14" loading="lazy">
+<img src="images/p10_scree_estimator_comparison.png" alt="p10_scree_estimator_comparison.png" class="artifact-modal-image" data-artifact-image-index="15" loading="lazy">
+<img src="images/p11_stock_shuffle_hist.png" alt="p11_stock_shuffle_hist.png" class="artifact-modal-image" data-artifact-image-index="16" loading="lazy">
+<img src="images/p11_time_shuffle_hist.png" alt="p11_time_shuffle_hist.png" class="artifact-modal-image" data-artifact-image-index="17" loading="lazy">
+<img src="images/p12_01_baseline_scree_mp_bounds.png" alt="p12_01_baseline_scree_mp_bounds.png" class="artifact-modal-image" data-artifact-image-index="18" loading="lazy">
+<img src="images/p12_02_baseline_histogram_mp_overlay.png" alt="p12_02_baseline_histogram_mp_overlay.png" class="artifact-modal-image" data-artifact-image-index="19" loading="lazy">
+<img src="images/p12_03_signal_count_by_variant.png" alt="p12_03_signal_count_by_variant.png" class="artifact-modal-image" data-artifact-image-index="20" loading="lazy">
+<img src="images/p12_04_mp_bounds_by_variant.png" alt="p12_04_mp_bounds_by_variant.png" class="artifact-modal-image" data-artifact-image-index="21" loading="lazy">
+<img src="images/p12_05_signal_concentration_by_variant.png" alt="p12_05_signal_concentration_by_variant.png" class="artifact-modal-image" data-artifact-image-index="22" loading="lazy">
+<img src="images/p12_06_negative_eig_count_by_variant.png" alt="p12_06_negative_eig_count_by_variant.png" class="artifact-modal-image" data-artifact-image-index="23" loading="lazy">
+<img src="images/p12_auc_by_horizon.png" alt="p12_auc_by_horizon.png" class="artifact-modal-image" data-artifact-image-index="24" loading="lazy">
+<img src="images/p12_decile_lift_h5.png" alt="p12_decile_lift_h5.png" class="artifact-modal-image" data-artifact-image-index="25" loading="lazy">
+<img src="images/p13_01_factor_time_series.png" alt="p13_01_factor_time_series.png" class="artifact-modal-image" data-artifact-image-index="26" loading="lazy">
+<img src="images/p13_02_factor_correlation_heatmap.png" alt="p13_02_factor_correlation_heatmap.png" class="artifact-modal-image" data-artifact-image-index="27" loading="lazy">
+<img src="images/p14_01_market_vol_corr_by_factor.png" alt="p14_01_market_vol_corr_by_factor.png" class="artifact-modal-image" data-artifact-image-index="28" loading="lazy">
+<img src="images/p14_02_liquidity_corr_by_factor.png" alt="p14_02_liquidity_corr_by_factor.png" class="artifact-modal-image" data-artifact-image-index="29" loading="lazy">
+<img src="images/p14_03_factor_persistence_acf.png" alt="p14_03_factor_persistence_acf.png" class="artifact-modal-image" data-artifact-image-index="30" loading="lazy">
+<img src="images/p14_04_sector_hhi_by_factor.png" alt="p14_04_sector_hhi_by_factor.png" class="artifact-modal-image" data-artifact-image-index="31" loading="lazy">
+<img src="images/p14_05_sector_weight_heatmap.png" alt="p14_05_sector_weight_heatmap.png" class="artifact-modal-image" data-artifact-image-index="32" loading="lazy">
+<img src="images/p15_01_rolling_overlap_by_factor.png" alt="p15_01_rolling_overlap_by_factor.png" class="artifact-modal-image" data-artifact-image-index="33" loading="lazy">
+<img src="images/p15_02_rolling_angle_by_factor.png" alt="p15_02_rolling_angle_by_factor.png" class="artifact-modal-image" data-artifact-image-index="34" loading="lazy">
+<img src="images/p15_03_overlap_distribution_boxplot.png" alt="p15_03_overlap_distribution_boxplot.png" class="artifact-modal-image" data-artifact-image-index="35" loading="lazy">
+<img src="images/p15_04_subsample_overlap_heatmap.png" alt="p15_04_subsample_overlap_heatmap.png" class="artifact-modal-image" data-artifact-image-index="36" loading="lazy">
+<img src="images/p15_05_stability_score_dashboard.png" alt="p15_05_stability_score_dashboard.png" class="artifact-modal-image" data-artifact-image-index="37" loading="lazy">
+<img src="images/p16_02_filtered_correlation_heatmap.png" alt="p16_02_filtered_correlation_heatmap.png" class="artifact-modal-image" data-artifact-image-index="38" loading="lazy">
+<img src="images/p16_03_reconstruction_error_heatmap.png" alt="p16_03_reconstruction_error_heatmap.png" class="artifact-modal-image" data-artifact-image-index="39" loading="lazy">
+<img src="images/p16_04_offdiag_raw_vs_filtered_scatter.png" alt="p16_04_offdiag_raw_vs_filtered_scatter.png" class="artifact-modal-image" data-artifact-image-index="40" loading="lazy">
+<img src="images/p16_06_reconstruction_diagnostics_bars.png" alt="p16_06_reconstruction_diagnostics_bars.png" class="artifact-modal-image" data-artifact-image-index="41" loading="lazy">
+<img src="images/p17_01_variance_observed_vs_reconstructed.png" alt="p17_01_variance_observed_vs_reconstructed.png" class="artifact-modal-image" data-artifact-image-index="42" loading="lazy">
+<img src="images/p17_03_residual_correlation_heatmap.png" alt="p17_03_residual_correlation_heatmap.png" class="artifact-modal-image" data-artifact-image-index="43" loading="lazy">
+<img src="images/p18_01_factor_energy_timeseries.png" alt="p18_01_factor_energy_timeseries.png" class="artifact-modal-image" data-artifact-image-index="44" loading="lazy">
+<img src="images/p19_01_signal_with_change_points.png" alt="p19_01_signal_with_change_points.png" class="artifact-modal-image" data-artifact-image-index="45" loading="lazy">
+<img src="images/p19_02_regime_sequence_timeline.png" alt="p19_02_regime_sequence_timeline.png" class="artifact-modal-image" data-artifact-image-index="46" loading="lazy">
+<img src="images/p19_03_penalty_scan_bic.png" alt="p19_03_penalty_scan_bic.png" class="artifact-modal-image" data-artifact-image-index="47" loading="lazy">
+<img src="images/p19_04_regime_mean_signal.png" alt="p19_04_regime_mean_signal.png" class="artifact-modal-image" data-artifact-image-index="48" loading="lazy">
+<img src="images/p19_05_regime_durations.png" alt="p19_05_regime_durations.png" class="artifact-modal-image" data-artifact-image-index="49" loading="lazy">
+<img src="images/p20_01_mean_market_vol_by_regime.png" alt="p20_01_mean_market_vol_by_regime.png" class="artifact-modal-image" data-artifact-image-index="50" loading="lazy">
+<img src="images/p20_02_dispersion_by_regime.png" alt="p20_02_dispersion_by_regime.png" class="artifact-modal-image" data-artifact-image-index="51" loading="lazy">
+<img src="images/p20_03_factor_variance_share_by_regime.png" alt="p20_03_factor_variance_share_by_regime.png" class="artifact-modal-image" data-artifact-image-index="52" loading="lazy">
+<img src="images/p20_04_drawdown_share_by_regime.png" alt="p20_04_drawdown_share_by_regime.png" class="artifact-modal-image" data-artifact-image-index="53" loading="lazy">
+<img src="images/p20_05_regime_timeline_with_drawdowns.png" alt="p20_05_regime_timeline_with_drawdowns.png" class="artifact-modal-image" data-artifact-image-index="54" loading="lazy">
+<img src="images/p21_01_k_signal_modes_by_split.png" alt="p21_01_k_signal_modes_by_split.png" class="artifact-modal-image" data-artifact-image-index="55" loading="lazy">
+<img src="images/p21_02_pc1_stability_by_split.png" alt="p21_02_pc1_stability_by_split.png" class="artifact-modal-image" data-artifact-image-index="56" loading="lazy">
+<img src="images/p21_04_top1_explained_by_split.png" alt="p21_04_top1_explained_by_split.png" class="artifact-modal-image" data-artifact-image-index="57" loading="lazy">
+<img src="images/p22_01_k_by_estimator.png" alt="p22_01_k_by_estimator.png" class="artifact-modal-image" data-artifact-image-index="58" loading="lazy">
+<img src="images/p22_02_top1_ratio_by_estimator.png" alt="p22_02_top1_ratio_by_estimator.png" class="artifact-modal-image" data-artifact-image-index="59" loading="lazy">
+<img src="images/p22_03_signal_mass_share_by_estimator.png" alt="p22_03_signal_mass_share_by_estimator.png" class="artifact-modal-image" data-artifact-image-index="60" loading="lazy">
+<img src="images/p22_04_regime_counts_by_estimator.png" alt="p22_04_regime_counts_by_estimator.png" class="artifact-modal-image" data-artifact-image-index="61" loading="lazy">
+<img src="images/p22_05_scree_top20_comparison.png" alt="p22_05_scree_top20_comparison.png" class="artifact-modal-image" data-artifact-image-index="62" loading="lazy">
+<img src="images/p23_01_top1_time_shuffle_hist.png" alt="p23_01_top1_time_shuffle_hist.png" class="artifact-modal-image" data-artifact-image-index="63" loading="lazy">
+<img src="images/p23_02_top1_stock_shuffle_hist.png" alt="p23_02_top1_stock_shuffle_hist.png" class="artifact-modal-image" data-artifact-image-index="64" loading="lazy">
+<img src="images/p23_03_k_signal_boxplot.png" alt="p23_03_k_signal_boxplot.png" class="artifact-modal-image" data-artifact-image-index="65" loading="lazy">
+<img src="images/p23_04_top1_ratio_boxplot.png" alt="p23_04_top1_ratio_boxplot.png" class="artifact-modal-image" data-artifact-image-index="66" loading="lazy">
+<img src="images/p23_06_mean_offdiag_distribution.png" alt="p23_06_mean_offdiag_distribution.png" class="artifact-modal-image" data-artifact-image-index="67" loading="lazy">
+<img src="images/p27_01_predictor_timeseries.png" alt="p27_01_predictor_timeseries.png" class="artifact-modal-image" data-artifact-image-index="68" loading="lazy">
+<img src="images/p27_02_corr_by_horizon.png" alt="p27_02_corr_by_horizon.png" class="artifact-modal-image" data-artifact-image-index="69" loading="lazy">
+<img src="images/p27_03_test_r2_by_horizon.png" alt="p27_03_test_r2_by_horizon.png" class="artifact-modal-image" data-artifact-image-index="70" loading="lazy">
+<img src="images/p27_04_auc_by_horizon.png" alt="p27_04_auc_by_horizon.png" class="artifact-modal-image" data-artifact-image-index="71" loading="lazy">
+<img src="images/p27_05_scatter_h5.png" alt="p27_05_scatter_h5.png" class="artifact-modal-image" data-artifact-image-index="72" loading="lazy">
+<img src="images/p27_06_decile_lift_h5.png" alt="p27_06_decile_lift_h5.png" class="artifact-modal-image" data-artifact-image-index="73" loading="lazy">
+<div class="artifact-meta">
+<div class="artifact-meta-top">
+<span id="artifact-position"></span>
+</div>
+<div class="artifact-note" data-artifact-note-index="0">Empirical eigenvalue histogram overlaid with Marchenko-Pastur bulk to separate structural modes from noise-like spectrum mass.</div>
+<div class="artifact-note" data-artifact-note-index="1">Scree plot with MP bounds used to identify significant outlier eigenmodes versus random-matrix bulk.</div>
+<div class="artifact-note" data-artifact-note-index="2">Cumulative explained-variance curve showing how quickly volatility structure concentrates in top components.</div>
+<div class="artifact-note" data-artifact-note-index="3">Legacy factor-score time series used to inspect whether extracted factors align with stress episodes.</div>
+<div class="artifact-note" data-artifact-note-index="4">Correlation summary between retained factors and market-volatility proxy for systemic interpretation.</div>
+<div class="artifact-note" data-artifact-note-index="5">Legacy rolling principal-angle plot showing subspace rotation between adjacent windows.</div>
+<div class="artifact-note" data-artifact-note-index="6">Legacy rolling overlap plot showing persistence of dominant factor directions across windows.</div>
+<div class="artifact-note" data-artifact-note-index="7">Denoised correlation heatmap reconstructed from retained signal modes.</div>
+<div class="artifact-note" data-artifact-note-index="8">Raw correlation heatmap before filtering, used as baseline matrix view.</div>
+<div class="artifact-note" data-artifact-note-index="9">Asset-level idiosyncratic variance share after low-rank decomposition.</div>
+<div class="artifact-note" data-artifact-note-index="10">Observed-versus-reconstructed variance comparison for model fit sanity check.</div>
+<div class="artifact-note" data-artifact-note-index="11">Regime sequence timeline across sample history.</div>
+<div class="artifact-note" data-artifact-note-index="12">Regime timeline with drawdown overlay to show stress concentration by state.</div>
+<div class="artifact-note" data-artifact-note-index="13">Composite signal with detected change points marked.</div>
+<div class="artifact-note" data-artifact-note-index="14">Split-level stability summary for first principal component.</div>
+<div class="artifact-note" data-artifact-note-index="15">Scree comparison between RS and GK estimators to test dimensionality robustness.</div>
+<div class="artifact-note" data-artifact-note-index="16">Legacy stock-shuffle null histogram for falsification tests.</div>
+<div class="artifact-note" data-artifact-note-index="17">Legacy time-shuffle null histogram for falsification tests.</div>
+<div class="artifact-note" data-artifact-note-index="18">Baseline phase-12 scree with MP bounds from artifact pipeline output.</div>
+<div class="artifact-note" data-artifact-note-index="19">Baseline phase-12 eigenvalue histogram with MP overlay from artifact output.</div>
+<div class="artifact-note" data-artifact-note-index="20">Number of detected signal modes by preprocessing/smoothing variant.</div>
+<div class="artifact-note" data-artifact-note-index="21">Estimated MP edge values by variant to compare effective random bulk ranges.</div>
+<div class="artifact-note" data-artifact-note-index="22">Signal concentration metrics by variant for robustness comparison.</div>
+<div class="artifact-note" data-artifact-note-index="23">Negative eigenvalue count by variant to track PSD/pathology behavior.</div>
+<div class="artifact-note" data-artifact-note-index="24">Legacy AUC-by-horizon curve for event discrimination.</div>
+<div class="artifact-note" data-artifact-note-index="25">Legacy decile-lift chart at 5-day horizon.</div>
+<div class="artifact-note" data-artifact-note-index="26">Phase-13 factor score time series from selected retained modes.</div>
+<div class="artifact-note" data-artifact-note-index="27">Factor-to-factor correlation heatmap for dependence structure inspection.</div>
+<div class="artifact-note" data-artifact-note-index="28">Per-factor market-volatility correlation in interpretation stage.</div>
+<div class="artifact-note" data-artifact-note-index="29">Per-factor liquidity correlation in interpretation stage.</div>
+<div class="artifact-note" data-artifact-note-index="30">Factor persistence/autocorrelation diagnostic plot.</div>
+<div class="artifact-note" data-artifact-note-index="31">Sector concentration (HHI) by factor to assess loading localization.</div>
+<div class="artifact-note" data-artifact-note-index="32">Sector-weight heatmap of factor loadings.</div>
+<div class="artifact-note" data-artifact-note-index="33">Rolling overlap stability by retained factor.</div>
+<div class="artifact-note" data-artifact-note-index="34">Rolling principal-angle stability by retained factor.</div>
+<div class="artifact-note" data-artifact-note-index="35">Distribution of overlap scores across windows.</div>
+<div class="artifact-note" data-artifact-note-index="36">Subsample overlap heatmap for stability robustness.</div>
+<div class="artifact-note" data-artifact-note-index="37">Aggregated stability dashboard combining overlap/angle diagnostics.</div>
+<div class="artifact-note" data-artifact-note-index="38">Phase-16 filtered correlation matrix visualization.</div>
+<div class="artifact-note" data-artifact-note-index="39">Reconstruction error heatmap for low-rank filtering fidelity.</div>
+<div class="artifact-note" data-artifact-note-index="40">Off-diagonal raw-versus-filtered scatter for structure preservation check.</div>
+<div class="artifact-note" data-artifact-note-index="41">Bar diagnostics summarizing reconstruction quality metrics.</div>
+<div class="artifact-note" data-artifact-note-index="42">Phase-17 variance comparison under low-rank model.</div>
+<div class="artifact-note" data-artifact-note-index="43">Residual correlation heatmap after factor reconstruction.</div>
+<div class="artifact-note" data-artifact-note-index="44">Factor-energy time series used for stress/regime feature engineering.</div>
+<div class="artifact-note" data-artifact-note-index="45">Phase-19 composite signal with optimized change-point locations.</div>
+<div class="artifact-note" data-artifact-note-index="46">Phase-19 regime timeline output from segmentation model.</div>
+<div class="artifact-note" data-artifact-note-index="47">Penalty scan with BIC criterion for regime-count selection.</div>
+<div class="artifact-note" data-artifact-note-index="48">Mean composite signal level by detected regime.</div>
+<div class="artifact-note" data-artifact-note-index="49">Duration distribution/summary across detected regimes.</div>
+<div class="artifact-note" data-artifact-note-index="50">Regime-conditional mean market volatility.</div>
+<div class="artifact-note" data-artifact-note-index="51">Regime-conditional cross-sectional dispersion.</div>
+<div class="artifact-note" data-artifact-note-index="52">Regime-conditional factor variance share.</div>
+<div class="artifact-note" data-artifact-note-index="53">Regime-conditional drawdown burden share.</div>
+<div class="artifact-note" data-artifact-note-index="54">Regime timeline annotated with drawdown periods.</div>
+<div class="artifact-note" data-artifact-note-index="55">Effective signal-mode count by sample split.</div>
+<div class="artifact-note" data-artifact-note-index="56">PC1 stability comparison across split samples.</div>
+<div class="artifact-note" data-artifact-note-index="57">Top-1 explained variance share by split.</div>
+<div class="artifact-note" data-artifact-note-index="58">Effective K comparison between RS and GK estimators.</div>
+<div class="artifact-note" data-artifact-note-index="59">Top-1 variance ratio comparison between estimators.</div>
+<div class="artifact-note" data-artifact-note-index="60">Signal-mass share comparison between estimators.</div>
+<div class="artifact-note" data-artifact-note-index="61">Regime count comparison under estimator swap.</div>
+<div class="artifact-note" data-artifact-note-index="62">Top-20 scree comparison under estimator swap.</div>
+<div class="artifact-note" data-artifact-note-index="63">Top-1 concentration under time-shuffle null experiments.</div>
+<div class="artifact-note" data-artifact-note-index="64">Top-1 concentration under stock-shuffle null experiments.</div>
+<div class="artifact-note" data-artifact-note-index="65">Boxplot of signal-mode count under falsification runs.</div>
+<div class="artifact-note" data-artifact-note-index="66">Boxplot of top-1 ratio under falsification runs.</div>
+<div class="artifact-note" data-artifact-note-index="67">Distribution of mean off-diagonal correlation under null tests.</div>
+<div class="artifact-note" data-artifact-note-index="68">Strict phase-27 predictor time series used for forecasting diagnostics.</div>
+<div class="artifact-note" data-artifact-note-index="69">Strict test correlation between predictions and targets by horizon.</div>
+<div class="artifact-note" data-artifact-note-index="70">Strict out-of-sample R² by horizon.</div>
+<div class="artifact-note" data-artifact-note-index="71">Strict event-classification AUC by horizon.</div>
+<div class="artifact-note" data-artifact-note-index="72">Strict predicted-versus-actual scatter at 5-day horizon.</div>
+<div class="artifact-note" data-artifact-note-index="73">Strict decile-lift chart at 5-day horizon.</div>
+</div>
+</div>
+<button type="button" class="artifact-nav artifact-next" data-artifact-next="1" aria-label="Next image">&#8594;</button>
+<button type="button" class="artifact-close" data-artifact-close="1" aria-label="Close viewer">&#10005;</button>
+</div>
+</div>
+<script>
+(function(){
+var modal = document.getElementById('artifact-modal');
+var grid = document.getElementById('artifact-grid');
+var search = document.getElementById('artifact-search');
+var count = document.getElementById('artifact-count');
+if (!modal || !grid) return;
+var cards = Array.prototype.slice.call(grid.querySelectorAll('[data-artifact-open]'));
+var images = Array.prototype.slice.call(modal.querySelectorAll('[data-artifact-image-index]'));
+var notes = Array.prototype.slice.call(modal.querySelectorAll('[data-artifact-note-index]'));
+var position = document.getElementById('artifact-position');
+var visible = cards.map(function(_, i){ return i; });
+var active = 0;
+function updateCount(){ if (count) count.textContent = visible.length + ' / ' + cards.length + ' visible'; }
+function syncModal(){
+images.forEach(function(el, i){ el.style.display = i === active ? 'block' : 'none'; });
+notes.forEach(function(el, i){ el.style.display = i === active ? 'block' : 'none'; });
+if (position) position.textContent = (active + 1) + ' / ' + images.length;
+}
+function openAt(i){ if (!images.length) return; active = (i + images.length) % images.length; modal.hidden = false; document.body.style.overflow = 'hidden'; syncModal(); }
+function closeModal(){ modal.hidden = true; document.body.style.overflow = ''; }
+cards.forEach(function(card){ card.addEventListener('click', function(){ openAt(Number(card.getAttribute('data-artifact-open')) || 0); }); });
+modal.addEventListener('click', function(e){
+if (e.target.closest('[data-artifact-close]')) closeModal();
+if (e.target.closest('[data-artifact-prev]')) openAt(active - 1);
+if (e.target.closest('[data-artifact-next]')) openAt(active + 1);
+});
+document.addEventListener('keydown', function(e){
+if (modal.hidden) return;
+if (e.key === 'Escape') closeModal();
+if (e.key === 'ArrowLeft') openAt(active - 1);
+if (e.key === 'ArrowRight') openAt(active + 1);
+});
+if (search){
+search.addEventListener('input', function(){
+var q = search.value.trim().toLowerCase();
+visible = [];
+cards.forEach(function(card, idx){
+var txt = card.textContent.toLowerCase();
+var note = (notes[idx] && notes[idx].textContent || '').toLowerCase();
+var show = !q || txt.indexOf(q) >= 0 || note.indexOf(q) >= 0;
+card.style.display = show ? 'block' : 'none';
+if (show) visible.push(idx);
+});
+updateCount();
+});
+}
+updateCount();
+syncModal();
+})();
+</script>
+			</main>
+		</div>
+		<script>
+			(function(){
+				var root = document.documentElement;
+				var button = document.getElementById("theme-toggle");
+				if (!button) return;
+
+				function currentTheme(){
+					var theme = root.getAttribute("data-theme");
+					return theme === "light" ? "light" : "dark";
+				}
+
+				function updateLabel(){
+					button.textContent = currentTheme().toUpperCase();
+				}
+
+				button.addEventListener("click", function(){
+					var next = currentTheme() === "dark" ? "light" : "dark";
+					root.setAttribute("data-theme", next);
+					localStorage.setItem("theme", next);
+					updateLabel();
+				});
+
+				updateLabel();
+			})();
+		</script>
+	</body>
+</html>
+

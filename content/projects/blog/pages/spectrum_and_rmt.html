@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Spectrum and RMT</title>
+</head>
+<body>
+  <article>
+    <h1>Spectrum and RMT</h1>
+    <p><strong>This post focuses on separating structural eigenmodes from random-matrix bulk behavior.</strong></p>
+
+    <p>A scree curve alone can look persuasive in almost any high-dimensional dataset. The key step is to place MP bounds and histogram overlays next to that curve and test whether observed outliers are truly beyond finite-sample noise expectations.</p>
+
+    <p>Across baseline runs, the same pattern appears: one dominant mode, one meaningful secondary mode, and a long tail that mostly sits inside bulk-like range. Report metrics mirror this pattern through small signal-mode counts and concentrated signal mass near the top of the spectrum.</p>
+
+    <p>The first two figures are compact legacy references; the next two are baseline phase-12 exports from the artifact pipeline.</p>
+
+    <p><img src="../images/p02_rmt_scree_mp_bounds.png" alt="Scree with MP bounds" /></p>
+    <p><img src="../images/p02_rmt_hist_mp_overlay.png" alt="Histogram MP overlay" /></p>
+    <p><img src="../images/p12_01_baseline_scree_mp_bounds.png" alt="Baseline scree MP from artifacts" /></p>
+    <p><img src="../images/p12_02_baseline_histogram_mp_overlay.png" alt="Baseline histogram MP from artifacts" /></p>
+
+    <h2>Important caveat</h2>
+    <p>Pairwise-overlap estimation can produce indefinite sample matrices, so strict Wishart assumptions are not perfectly satisfied in every window. MP is therefore used as a robust filtering heuristic with diagnostics, not as a strict theorem claim in this empirical context.</p>
+
+    <p><img src="../images/p12_04_mp_bounds_by_variant.png" alt="MP bounds by variant" /></p>
+
+    <h2>How this changed the workflow</h2>
+    <p>After this stage, the workflow treats retained signal modes and bulk modes differently in every later step: interpretation, reconstruction, regime modeling, and predictive diagnostics.</p>
+
+    <h2>Shared reference</h2>
+    <p><strong>Dictionary:</strong> same terminology map used across all pages.</p>
+    <p><a href="dictionary.html">Open Dictionary</a></p>
+
+    <p><a href="factor_interpretation.html">Factor Interpretation</a></p>
+  </article>
+</body>
+</html>

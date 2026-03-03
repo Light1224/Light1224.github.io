@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pipeline and Preprocessing</title>
+</head>
+<body>
+  <article>
+    <h1>Pipeline and Preprocessing</h1>
+    <p><strong>This post covers the part of the project that determines whether downstream spectral analysis is trustworthy.</strong></p>
+
+    <p>Most eigen-analysis quality is decided before decomposition. If transformation and panel construction are unstable, later plots can look convincing while carrying weak signal. This phase therefore treats preprocessing as research work, not setup overhead.</p>
+
+    <h2>Practical sequence</h2>
+    <p>The workflow starts with OHLC data, builds realized-volatility estimators, applies log transform and asset-wise standardization, then constructs panel variants (raw and smoothed). Estimator behavior is compared in spectral space because a structure that disappears under estimator swap is not structurally reliable.</p>
+
+    <p>Estimator-sensitivity outputs repeatedly show the core conclusions surviving RS vs GK replacement. In the key comparison set, effective K and regime counts remain unchanged while concentration metrics shift only modestly under GK. This is a strong indication that the project is not an estimator artifact.</p>
+
+    <p>The three figures below summarize that robustness: scree shape consistency, top-1 ratio shift, and total signal-mass share shift.</p>
+
+    <p><img src="../images/p10_scree_estimator_comparison.png" alt="Estimator scree comparison" /></p>
+    <p><img src="../images/p22_02_top1_ratio_by_estimator.png" alt="Top1 ratio by estimator" /></p>
+    <p><img src="../images/p22_03_signal_mass_share_by_estimator.png" alt="Signal mass by estimator" /></p>
+
+    <h2>On smoothing variants</h2>
+    <p>Smoothing is not cosmetic in this pipeline. It can improve concentration while also introducing PSD pathologies under pairwise-overlap estimation. That dual effect is why concentration charts are interpreted jointly with matrix-health diagnostics.</p>
+
+    <p>The variant plots below are read together: one for signal count, one for concentration, and one for negative-eigenvalue behavior.</p>
+
+    <p><img src="../images/p12_03_signal_count_by_variant.png" alt="Signal count by variant" /></p>
+    <p><img src="../images/p12_05_signal_concentration_by_variant.png" alt="Signal concentration by variant" /></p>
+    <p><img src="../images/p12_06_negative_eig_count_by_variant.png" alt="Negative eigenvalue count by variant" /></p>
+
+    <h2>Key takeaway from this phase</h2>
+    <p>Two rules emerged and stayed in force for the rest of the project: keep every transformation auditable, and treat every apparent improvement as a potential distortion until diagnostics confirm otherwise.</p>
+
+    <h2>Shared reference</h2>
+    <p><strong>Dictionary:</strong> terminology map used across all pages.</p>
+    <p><a href="dictionary.html">Open Dictionary</a></p>
+
+    <p><a href="spectrum_and_rmt.html">Spectrum and RMT</a></p>
+  </article>
+</body>
+</html>

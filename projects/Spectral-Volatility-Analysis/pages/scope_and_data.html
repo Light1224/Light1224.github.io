@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="Shamit Sai Imandi - Electronics & Communication Engineering student at BITS Pilani building ML infrastructure, quantitative tools, and high-performance C++ systems">
+		<meta name="author" content="Shamit Sai Imandi">
+		<title>Scope and Data</title>
+		<script>
+			(function(){
+				var savedTheme = localStorage.getItem("theme");
+				var theme = savedTheme === "light" || savedTheme === "dark" ? savedTheme : "dark";
+				document.documentElement.setAttribute("data-theme", theme);
+			})();
+		</script>
+		<link rel="stylesheet" href="../../../style.css">
+		
+		
+	</head>
+	<body>
+		<div class="layout">
+			<nav class="sidebar">
+				<div class="name">SHAMIT</div>
+				<div class="line"></div>
+				<a href="../../../index.html">ABOUT</a>
+				<a href="../../../projects.html" class="active">PROJECTS</a>
+				<a href="../../../cv.pdf" target="_blank">CV</a>
+				<div class="line"></div>
+				<div class="contact-buttons">
+					<a href="mailto:shamitsai0609@gmail.com" class="btn" target="_blank">EMAIL</a>
+					<a href="https://github.com/Light1224" class="btn" target="_blank">GITHUB</a>
+					<a href="https://www.linkedin.com/in/shamit-imandi-375499284/" class="btn" target="_blank">LINKEDIN</a>
+					<a href="https://codeforces.com/profile/lightcf12" class="btn" target="_blank">CODEFORCES</a>
+				</div>
+				<div class="line"></div>
+				<div class="theme-section">
+					<button id="theme-toggle" class="theme-toggle" type="button">DARK</button>
+				</div>
+			</nav>
+			<main class="content">
+				<article>
+    <h1>Scope and Data</h1>
+    <p><strong>Entry: I set boundaries first so I don’t hallucinate conclusions later.</strong></p>
+
+    <p>I wrote this project to answer a practical question: is volatility structure in this universe actually compressible and stable enough to model, or am I just fitting noise with cool-looking eigenplots? To answer that honestly, I needed tight boundaries: fixed transformed panel logic, full metrics export, and phased diagnostics where each phase can fail independently.</p>
+
+    <p>I am working with a large artifact stack, not a tiny notebook toy. The artifact overview itself shows 467 files generated and phase-specific row counts that run into the tens of thousands in mid-pipeline stages and >500k in unassigned aggregates. That volume matters because it means I can verify claims against outputs rather than rely on memory.</p>
+
+    <h2>What I decided to treat as ground truth</h2>
+    <p>My ground truth here is not “price direction.” It is the behavior of market-wide realized volatility structure. That means the objects I care about are:</p>
+    <ul>
+      <li>standardized log-volatility panel</li>
+      <li>cross-sectional correlation matrix geometry</li>
+      <li>eigenspectrum shape and MP separation</li>
+      <li>factor dynamics, overlap drift, and angle rotation</li>
+      <li>regime segmentation quality and validation behavior</li>
+      <li>strict-causality predictive diagnostics for forward risk events</li>
+    </ul>
+
+    <h2>The report files I repeatedly checked while writing</h2>
+    <ul>
+      <li><code>report/all_phases_overview.txt</code> for global output scale</li>
+      <li><code>report/phase_15_metrics.txt</code> for stability stress and outlier-drop tests</li>
+      <li><code>report/phase_19_metrics.txt</code> for regime count/penalty diagnostics</li>
+      <li><code>report/phase_27_metrics.txt</code> for strict-causality predictive outcomes</li>
+      <li><code>findings_report.md</code> for full storyline and earlier interpretations</li>
+    </ul>
+
+    <h2>Data reality check I keep in mind</h2>
+    <p>The panel has long history but uneven coverage over time. In strict-causality phase-27 dataset outputs I saw 5,081 aligned rows with window-level asset counts that vary materially. So I avoid making fragile claims like “single fixed dimensionality always.” I instead frame it as persistent low-dimensional tendency with window-dependent behavior and regime sensitivity.</p>
+
+    <p><img src="../images/p27_01_predictor_timeseries.png" alt="Predictor timeseries" /></p>
+    <p><img src="../images/p03_factor_timeseries.png" alt="Factor timeseries legacy visual" /></p>
+
+    <h2>Why this page exists</h2>
+    <p>If I skip scope discipline, everything else collapses into story-first writing. This page is me forcing myself to stay data-first. The rest of the journal pages are built on that rule.</p>
+
+    <h2>Shared reference</h2>
+    <p><strong>Dictionary:</strong> same terminology map used in every page.</p>
+    <p><a href="dictionary.html">Open Dictionary</a></p>
+
+    <p><a href="pipeline_and_preprocessing.html">Pipeline and Preprocessing</a></p>
+  </article>
+			</main>
+		</div>
+		<script>
+			(function(){
+				var root = document.documentElement;
+				var button = document.getElementById("theme-toggle");
+				if (!button) return;
+
+				function currentTheme(){
+					var theme = root.getAttribute("data-theme");
+					return theme === "light" ? "light" : "dark";
+				}
+
+				function updateLabel(){
+					button.textContent = currentTheme().toUpperCase();
+				}
+
+				button.addEventListener("click", function(){
+					var next = currentTheme() === "dark" ? "light" : "dark";
+					root.setAttribute("data-theme", next);
+					localStorage.setItem("theme", next);
+					updateLabel();
+				});
+
+				updateLabel();
+			})();
+		</script>
+	</body>
+</html>
+

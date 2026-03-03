@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="Shamit Sai Imandi - Electronics & Communication Engineering student at BITS Pilani building ML infrastructure, quantitative tools, and high-performance C++ systems">
+		<meta name="author" content="Shamit Sai Imandi">
+		<title>Falsification and Reproducibility</title>
+		<script>
+			(function(){
+				var savedTheme = localStorage.getItem("theme");
+				var theme = savedTheme === "light" || savedTheme === "dark" ? savedTheme : "dark";
+				document.documentElement.setAttribute("data-theme", theme);
+			})();
+		</script>
+		<link rel="stylesheet" href="../../../style.css">
+		
+		
+	</head>
+	<body>
+		<div class="layout">
+			<nav class="sidebar">
+				<div class="name">SHAMIT</div>
+				<div class="line"></div>
+				<a href="../../../index.html">ABOUT</a>
+				<a href="../../../projects.html" class="active">PROJECTS</a>
+				<a href="../../../cv.pdf" target="_blank">CV</a>
+				<div class="line"></div>
+				<div class="contact-buttons">
+					<a href="mailto:shamitsai0609@gmail.com" class="btn" target="_blank">EMAIL</a>
+					<a href="https://github.com/Light1224" class="btn" target="_blank">GITHUB</a>
+					<a href="https://www.linkedin.com/in/shamit-imandi-375499284/" class="btn" target="_blank">LINKEDIN</a>
+					<a href="https://codeforces.com/profile/lightcf12" class="btn" target="_blank">CODEFORCES</a>
+				</div>
+				<div class="line"></div>
+				<div class="theme-section">
+					<button id="theme-toggle" class="theme-toggle" type="button">DARK</button>
+				</div>
+			</nav>
+			<main class="content">
+				<article>
+    <h1>Falsification and Reproducibility</h1>
+    <p><strong>Entry: this is where I tried to break my own signal and verify the package can be rerun cleanly.</strong></p>
+
+    <p>I always think this phase is where a project becomes either credible or decorative. If signals survive only in one handcrafted run with soft assumptions, I can’t trust them. So I used randomization tests, estimator swaps, and reproducibility audits as a deliberate “try to kill it” sequence.</p>
+
+    <h2>Randomization falsification</h2>
+    <p>Time-shuffle is the strongest kill switch in my outputs: structure collapses hard under temporal randomization. Stock-shuffle behaves differently and is less absolute, which I consider informative rather than embarrassing because it tells me there is strong global coupling that remains hard to erase under some null constructions.</p>
+
+    <p><img src="../images/p11_time_shuffle_hist.png" alt="Time shuffle histogram legacy" /></p>
+    <p><img src="../images/p11_stock_shuffle_hist.png" alt="Stock shuffle histogram legacy" /></p>
+    <p><img src="../images/p23_01_top1_time_shuffle_hist.png" alt="Top1 time shuffle" /></p>
+    <p><img src="../images/p23_02_top1_stock_shuffle_hist.png" alt="Top1 stock shuffle" /></p>
+    <p><img src="../images/p23_03_k_signal_boxplot.png" alt="K signal boxplot" /></p>
+    <p><img src="../images/p23_04_top1_ratio_boxplot.png" alt="Top1 ratio boxplot" /></p>
+    <p><img src="../images/p23_06_mean_offdiag_distribution.png" alt="Mean offdiag distribution" /></p>
+
+    <h2>Estimator robustness</h2>
+    <p>The RS vs GK rerun confirms the big-picture conclusions are stable: same effective signal count in baseline comparisons and small concentration shifts. I like this because it lowers model-risk dependence on one estimator definition.</p>
+
+    <p><img src="../images/p22_01_k_by_estimator.png" alt="K by estimator" /></p>
+    <p><img src="../images/p22_04_regime_counts_by_estimator.png" alt="Regime count by estimator" /></p>
+    <p><img src="../images/p22_05_scree_top20_comparison.png" alt="Top20 scree comparison" /></p>
+
+    <h2>Reproducibility hardening</h2>
+    <p>The deterministic double-run audit passed with fixed seed and matching inventories/hashes in documented checks. This matters to me because it means this project can be re-executed without hidden manual edits.</p>
+
+    <h2>My blunt summary</h2>
+    <p>I did not get a “perfect pass everywhere” fairy tale. I got a realistic empirical profile: strong temporal structure, robust systemic mode, harder edge cases for some nulls, and fully reproducible packaging. I trust that profile more than I would trust perfection.</p>
+
+    <h2>Shared reference</h2>
+    <p><strong>Dictionary:</strong> same terminology map used in every page.</p>
+    <p><a href="dictionary.html">Open Dictionary</a></p>
+
+    <p><a href="predictive_power_strict.html">Predictive Power (Strict)</a></p>
+  </article>
+			</main>
+		</div>
+		<script>
+			(function(){
+				var root = document.documentElement;
+				var button = document.getElementById("theme-toggle");
+				if (!button) return;
+
+				function currentTheme(){
+					var theme = root.getAttribute("data-theme");
+					return theme === "light" ? "light" : "dark";
+				}
+
+				function updateLabel(){
+					button.textContent = currentTheme().toUpperCase();
+				}
+
+				button.addEventListener("click", function(){
+					var next = currentTheme() === "dark" ? "light" : "dark";
+					root.setAttribute("data-theme", next);
+					localStorage.setItem("theme", next);
+					updateLabel();
+				});
+
+				updateLabel();
+			})();
+		</script>
+	</body>
+</html>
+

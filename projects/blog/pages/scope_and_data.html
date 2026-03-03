@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="Shamit Sai Imandi - Electronics & Communication Engineering student at BITS Pilani building ML infrastructure, quantitative tools, and high-performance C++ systems">
+		<meta name="author" content="Shamit Sai Imandi">
+		<title>Scope and Data</title>
+		<script>
+			(function(){
+				var savedTheme = localStorage.getItem("theme");
+				var theme = savedTheme === "light" || savedTheme === "dark" ? savedTheme : "dark";
+				document.documentElement.setAttribute("data-theme", theme);
+			})();
+		</script>
+		<link rel="stylesheet" href="../../../style.css">
+		
+		
+	</head>
+	<body>
+		<div class="layout">
+			<nav class="sidebar">
+				<div class="name">SHAMIT</div>
+				<div class="line"></div>
+				<a href="../../../index.html">ABOUT</a>
+				<a href="../../../projects.html" class="active">PROJECTS</a>
+				<a href="../../../cv.pdf" target="_blank">CV</a>
+				<div class="line"></div>
+				<div class="contact-buttons">
+					<a href="mailto:shamitsai0609@gmail.com" class="btn" target="_blank">EMAIL</a>
+					<a href="https://github.com/Light1224" class="btn" target="_blank">GITHUB</a>
+					<a href="https://www.linkedin.com/in/shamit-imandi-375499284/" class="btn" target="_blank">LINKEDIN</a>
+					<a href="https://codeforces.com/profile/lightcf12" class="btn" target="_blank">CODEFORCES</a>
+				</div>
+				<div class="line"></div>
+				<div class="theme-section">
+					<button id="theme-toggle" class="theme-toggle" type="button">DARK</button>
+				</div>
+			</nav>
+			<main class="content">
+				<article>
+    <h1>Scope and Data</h1>
+    <p><strong>This post defines the project boundaries before any interpretation is attempted.</strong></p>
+
+    <p>The central question is straightforward: is cross-sectional volatility structure genuinely compressible and stable, or does it only appear meaningful because of sample noise? To answer that, the project is constrained by fixed panel construction rules, staged diagnostics, and full metric exports that allow each phase to fail independently.</p>
+
+    <p>The workload is not a small notebook run. Artifact inventory reports show hundreds of generated files, with phase tables ranging from moderate row counts to very large aggregate outputs. That scale matters because every narrative claim can be traced back to reproducible artifacts.</p>
+
+    <h2>What is treated as ground truth</h2>
+    <p>The target is not directional return prediction. The target is the geometry and evolution of realized-volatility structure across assets. Core objects are:</p>
+    <ul>
+      <li>standardized log-volatility panel</li>
+      <li>cross-sectional correlation matrix geometry</li>
+      <li>eigenspectrum shape and MP separation</li>
+      <li>factor dynamics, overlap drift, and angle rotation</li>
+      <li>regime segmentation quality and validation behavior</li>
+      <li>strict-causality predictive diagnostics for forward risk events</li>
+    </ul>
+
+    <h2>Primary report sources used in this write-up</h2>
+    <ul>
+      <li><code>report/all_phases_overview.txt</code> for global output scale</li>
+      <li><code>report/phase_15_metrics.txt</code> for stability stress and outlier-drop tests</li>
+      <li><code>report/phase_19_metrics.txt</code> for regime count/penalty diagnostics</li>
+      <li><code>report/phase_27_metrics.txt</code> for strict-causality predictive outcomes</li>
+      <li><code>findings_report.md</code> for full storyline and earlier interpretations</li>
+    </ul>
+
+    <h2>Data reality check</h2>
+    <p>The panel spans long history, but effective coverage varies by window and strictness setting. In strict phase-27 outputs, the aligned dataset has 5,081 rows while active asset counts still fluctuate by window. For that reason, conclusions are framed as persistent low-dimensional tendency with regime sensitivity, not as a single invariant dimensionality claim.</p>
+
+    <p>The first chart below shows strict predictor trajectories through time; the second provides a legacy factor-timeseries reference used for continuity with earlier phases.</p>
+
+    <p><img src="../images/p27_01_predictor_timeseries.png" alt="Predictor timeseries" /></p>
+    <p><img src="../images/p03_factor_timeseries.png" alt="Factor timeseries legacy visual" /></p>
+
+    <h2>Why this page matters</h2>
+    <p>Without scope discipline, downstream interpretation becomes story-first. This page keeps the project data-first: definitions are fixed early, traceability is explicit, and later claims remain auditable.</p>
+
+    <h2>Shared reference</h2>
+    <p><strong>Dictionary:</strong> terminology stays consistent across every page.</p>
+    <p><a href="dictionary.html">Open Dictionary</a></p>
+
+    <p><a href="pipeline_and_preprocessing.html">Pipeline and Preprocessing</a></p>
+  </article>
+			</main>
+		</div>
+		<script>
+			(function(){
+				var root = document.documentElement;
+				var button = document.getElementById("theme-toggle");
+				if (!button) return;
+
+				function currentTheme(){
+					var theme = root.getAttribute("data-theme");
+					return theme === "light" ? "light" : "dark";
+				}
+
+				function updateLabel(){
+					button.textContent = currentTheme().toUpperCase();
+				}
+
+				button.addEventListener("click", function(){
+					var next = currentTheme() === "dark" ? "light" : "dark";
+					root.setAttribute("data-theme", next);
+					localStorage.setItem("theme", next);
+					updateLabel();
+				});
+
+				updateLabel();
+			})();
+		</script>
+	</body>
+</html>
+

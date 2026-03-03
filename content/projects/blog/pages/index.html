@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Overview</title>
+</head>
+<body>
+  <article>
+    <h1>Overview</h1>
+    <p><strong>This page is the front door to the full NIFTY-100 volatility structure project log.</strong></p>
+
+    <p>The write-up is structured as a technical blog series: each page explains one stage of the pipeline, what was measured, what held up under checks, and where the limits appeared. Instead of treating figures as decoration, every section ties conclusions to exported metrics and artifact plots.</p>
+
+    <p>The journey runs from transformed volatility panels to strict-causality predictive diagnostics. Along the way, it covers correlation geometry, eigenspectrum concentration, Marchenko-Pastur filtering, factor interpretation, stability testing, regime segmentation, falsification experiments, and reproducibility audits.</p>
+
+    <h2>How this blog is organized</h2>
+    <ul>
+      <li><a href="scope_and_data.html">Scope and Data</a></li>
+      <li><a href="pipeline_and_preprocessing.html">Pipeline and Preprocessing</a></li>
+      <li><a href="spectrum_and_rmt.html">Spectrum and RMT</a></li>
+      <li><a href="factor_interpretation.html">Factor Interpretation</a></li>
+      <li><a href="stability_and_reconstruction.html">Stability and Reconstruction</a></li>
+      <li><a href="regimes_and_structural_validation.html">Regimes and Structural Validation</a></li>
+      <li><a href="falsification_and_reproducibility.html">Falsification and Reproducibility</a></li>
+      <li><a href="predictive_power_strict.html">Predictive Power (Strict Causality)</a></li>
+      <li><a href="math_pipeline.html">Math Pipeline (single long technical file)</a></li>
+      <li><a href="findings.html">Findings (single long findings file)</a></li>
+      <li><a href="dictionary.html">Dictionary</a></li>
+    </ul>
+
+    <h2>Quick project pulse from final outputs</h2>
+    <ul>
+      <li>Phase 27 strict run: 5,081 aligned rows, walk-forward PCA enabled, train-only thresholding enabled.</li>
+      <li>Best strict test AUC: 0.9007 for factor energy at 10-day horizon.</li>
+      <li>Best strict test R²: -0.313 (magnitude regression remains weak OOS in linear form).</li>
+      <li>Legacy regime run: 32 segments over long history with selected penalty at 6.</li>
+      <li>Strict regime run: 7 segments in stricter sample, selected penalty at 8.</li>
+    </ul>
+
+    <p>The first figure below shows state transitions over time; the second shows how event-discrimination quality changes by horizon under strict timing controls.</p>
+
+    <p><img src="../images/p08_regime_timeline.png" alt="Regime timeline" /></p>
+    <p><img src="../images/p27_04_auc_by_horizon.png" alt="AUC by horizon strict" /></p>
+
+    <h2>Shared reference</h2>
+    <p><strong>Dictionary:</strong> common terms are centralized so every page uses the same definitions.</p>
+    <p><a href="dictionary.html">Open Dictionary</a></p>
+  </article>
+</body>
+</html>

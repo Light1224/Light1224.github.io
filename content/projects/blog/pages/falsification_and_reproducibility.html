@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Falsification and Reproducibility</title>
+</head>
+<body>
+  <article>
+    <h1>Falsification and Reproducibility</h1>
+    <p><strong>This post is the credibility gate: try to break the signal, then verify deterministic reruns.</strong></p>
+
+    <p>Robust projects survive hostile checks. This stage uses a deliberate stress sequence: randomization nulls, estimator swap tests, and reproducibility audits. If conclusions survive only one handcrafted run, they are not treated as reliable.</p>
+
+    <h2>Randomization falsification</h2>
+    <p>Time-shuffle is the strongest kill switch in the outputs: structure collapses under temporal randomization. Stock-shuffle is less absolute, which is informative in strongly coupled markets where some global structure persists even under cross-sectional reassignment.</p>
+
+    <p>The figure sequence moves from legacy null intuition to phase-23 distribution diagnostics.</p>
+
+    <p><img src="../images/p11_time_shuffle_hist.png" alt="Time shuffle histogram legacy" /></p>
+    <p><img src="../images/p11_stock_shuffle_hist.png" alt="Stock shuffle histogram legacy" /></p>
+    <p><img src="../images/p23_01_top1_time_shuffle_hist.png" alt="Top1 time shuffle" /></p>
+    <p><img src="../images/p23_02_top1_stock_shuffle_hist.png" alt="Top1 stock shuffle" /></p>
+    <p><img src="../images/p23_03_k_signal_boxplot.png" alt="K signal boxplot" /></p>
+    <p><img src="../images/p23_04_top1_ratio_boxplot.png" alt="Top1 ratio boxplot" /></p>
+    <p><img src="../images/p23_06_mean_offdiag_distribution.png" alt="Mean offdiag distribution" /></p>
+
+    <h2>Estimator robustness</h2>
+    <p>RS-versus-GK reruns preserve the main conclusions: comparable effective signal counts and only modest concentration shifts. This lowers dependence on any single estimator definition.</p>
+
+    <p><img src="../images/p22_01_k_by_estimator.png" alt="K by estimator" /></p>
+    <p><img src="../images/p22_04_regime_counts_by_estimator.png" alt="Regime count by estimator" /></p>
+    <p><img src="../images/p22_05_scree_top20_comparison.png" alt="Top20 scree comparison" /></p>
+
+    <h2>Reproducibility hardening</h2>
+    <p>The deterministic double-run audit passes with fixed seed and matching inventories/hashes in documented checks. This confirms that the full project can be re-executed without hidden manual edits.</p>
+
+    <h2>Blunt summary</h2>
+    <p>The result is not a perfect-pass narrative. It is a realistic profile: strong temporal structure, robust systemic signal, nuanced null behavior in edge cases, and reproducible packaging.</p>
+
+    <h2>Shared reference</h2>
+    <p><strong>Dictionary:</strong> same terminology map used across all pages.</p>
+    <p><a href="dictionary.html">Open Dictionary</a></p>
+
+    <p><a href="predictive_power_strict.html">Predictive Power (Strict)</a></p>
+  </article>
+</body>
+</html>

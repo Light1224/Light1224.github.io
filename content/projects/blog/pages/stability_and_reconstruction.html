@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Stability and Reconstruction</title>
+</head>
+<body>
+  <article>
+    <h1>Stability and Reconstruction</h1>
+    <p><strong>This post is where trust is tested: first for factor stability, then for reconstruction fidelity.</strong></p>
+
+    <p>The stage is split into two checks. Geometric stability evaluates overlap and angle behavior across windows and subsamples. Reconstruction fidelity evaluates how much structure survives filtering and whether numerical pathologies are reduced.</p>
+
+    <h2>Stability reality from phase outputs</h2>
+    <p>Across reruns, PC1 remains consistently stable while PC2 rotates more aggressively. In strict and audit contexts, PC1 overlap stays in a practical high-stability zone, and outlier-drop variants do not alter that conclusion in a material way.</p>
+
+    <p>The following sequence moves from legacy intuition charts to phase-15 stability diagnostics that quantify overlap distributions and split-level coherence.</p>
+
+    <p><img src="../images/p05_rolling_overlap.png" alt="Rolling overlap legacy" /></p>
+    <p><img src="../images/p05_rolling_angle.png" alt="Rolling angle legacy" /></p>
+    <p><img src="../images/p15_01_rolling_overlap_by_factor.png" alt="Rolling overlap by factor" /></p>
+    <p><img src="../images/p15_02_rolling_angle_by_factor.png" alt="Rolling angle by factor" /></p>
+    <p><img src="../images/p15_03_overlap_distribution_boxplot.png" alt="Overlap distribution" /></p>
+    <p><img src="../images/p15_04_subsample_overlap_heatmap.png" alt="Subsample overlap heatmap" /></p>
+    <p><img src="../images/p15_05_stability_score_dashboard.png" alt="Stability dashboard" /></p>
+
+    <h2>Reconstruction side</h2>
+    <p>Filtered reconstruction produces cleaner matrices with strong off-diagonal fidelity and improved numerical behavior. This is interpreted as controlled denoising, not full recovery of all raw structure.</p>
+
+    <p>The chart block below compares raw versus filtered geometry, then quantifies error and diagnostic behavior in phase-16 outputs.</p>
+
+    <p><img src="../images/p06_raw_corr_heatmap.png" alt="Raw correlation heatmap" /></p>
+    <p><img src="../images/p06_filtered_corr_heatmap.png" alt="Filtered correlation heatmap" /></p>
+    <p><img src="../images/p16_03_reconstruction_error_heatmap.png" alt="Reconstruction error heatmap" /></p>
+    <p><img src="../images/p16_04_offdiag_raw_vs_filtered_scatter.png" alt="Offdiag scatter raw vs filtered" /></p>
+    <p><img src="../images/p16_06_reconstruction_diagnostics_bars.png" alt="Reconstruction diagnostics" /></p>
+
+    <h2>Working interpretation</h2>
+    <p>PC1 functions as the anchor, PC2 as a warning signal, and reconstruction as a filter rather than a miracle estimator. That framing remains consistent with later regime and predictive stages.</p>
+
+    <h2>Shared reference</h2>
+    <p><strong>Dictionary:</strong> same terminology map used across all pages.</p>
+    <p><a href="dictionary.html">Open Dictionary</a></p>
+
+    <p><a href="regimes_and_structural_validation.html">Regimes and Structural Validation</a></p>
+  </article>
+</body>
+</html>

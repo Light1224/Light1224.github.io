@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Predictive Power Strict</title>
+</head>
+<body>
+  <article>
+    <h1>Predictive Power Strict</h1>
+    <p><strong>This post reports strict-causality predictive results with timing integrity prioritized over cosmetic in-sample fit.</strong></p>
+
+    <p>The strict setup enforces forward-only targets and walk-forward PCA so each timestamp uses only information available at that point. Event thresholds are fit on train data and applied unchanged to test data. This usually reduces headline fit, but it produces materially more credible evaluation.</p>
+
+    <h2>What survived strict setup</h2>
+    <p>Event classification remains strong for factor energy, with test AUC peaking near 0.90 around the 10-day horizon. Linear out-of-sample magnitude regression remains weak (negative R²). The interpretation is clear: ranking extreme-risk likelihood works better than point-value prediction in this feature/model class.</p>
+
+    <p>The figure set below shows legacy-to-strict transition, horizon sensitivity, and calibration-style views (scatter and decile lift).</p>
+
+    <p><img src="../images/p12_auc_by_horizon.png" alt="AUC legacy" /></p>
+    <p><img src="../images/p27_04_auc_by_horizon.png" alt="AUC strict" /></p>
+    <p><img src="../images/p27_03_test_r2_by_horizon.png" alt="Test R2 strict" /></p>
+    <p><img src="../images/p27_02_corr_by_horizon.png" alt="Correlation by horizon" /></p>
+    <p><img src="../images/p27_05_scatter_h5.png" alt="Scatter h5" /></p>
+    <p><img src="../images/p12_decile_lift_h5.png" alt="Decile lift legacy" /></p>
+    <p><img src="../images/p27_06_decile_lift_h5.png" alt="Decile lift strict" /></p>
+
+    <h2>Metrics captured from report files</h2>
+    <ul>
+      <li>aligned rows around 5,081 in strict predictive dataset</li>
+      <li>best strict AUC test ≈ 0.9007 (factor energy, 10-day)</li>
+      <li>best strict test R² ≈ -0.313 (linear magnitude fit remains weak)</li>
+      <li>train/test event shares differ, so naive threshold transfer assumptions are avoided</li>
+    </ul>
+
+    <h2>How this is interpreted without over-selling</h2>
+    <p>The model is stronger at identifying elevated event risk than estimating exact forward volatility magnitude. In practical terms, this supports triage and alerting workflows more than precision point forecasting.</p>
+
+    <h2>Shared reference</h2>
+    <p><strong>Dictionary:</strong> same terminology map used across all pages.</p>
+    <p><a href="dictionary.html">Open Dictionary</a></p>
+
+    <p><a href="math_pipeline.html">Next: Math Pipeline (full technical file)</a></p>
+  </article>
+</body>
+</html>
