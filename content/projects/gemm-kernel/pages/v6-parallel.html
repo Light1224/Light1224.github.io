@@ -1,44 +1,12 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<meta name="description" content="Shamit Sai Imandi - Electronics & Communication Engineering student at BITS Pilani building ML infrastructure, quantitative tools, and high-performance C++ systems">
-		<meta name="author" content="Shamit Sai Imandi">
-		<title>GEMM v6: Parallel Packed Execution</title>
-		<script>
-			(function(){
-				var savedTheme = localStorage.getItem("theme");
-				var theme = savedTheme === "light" || savedTheme === "dark" ? savedTheme : "dark";
-				document.documentElement.setAttribute("data-theme", theme);
-			})();
-		</script>
-		<link rel="stylesheet" href="../../../style.css">
-		
-		
-	</head>
-	<body>
-		<div class="layout">
-			<nav class="sidebar">
-				<div class="name">SHAMIT</div>
-				<div class="line"></div>
-				<a href="../../../index.html">ABOUT</a>
-				<a href="../../../projects.html" class="active">PROJECTS</a>
-				<a href="../../../cv.pdf" target="_blank">CV</a>
-				<div class="line"></div>
-				<div class="contact-buttons">
-					<a href="mailto:shamitsai0609@gmail.com" class="btn" target="_blank">EMAIL</a>
-					<a href="https://github.com/Light1224" class="btn" target="_blank">GITHUB</a>
-					<a href="https://www.linkedin.com/in/shamit-imandi-375499284/" class="btn" target="_blank">LINKEDIN</a>
-					<a href="https://codeforces.com/profile/lightcf12" class="btn" target="_blank">CODEFORCES</a>
-				</div>
-				<div class="line"></div>
-				<div class="theme-section">
-					<button id="theme-toggle" class="theme-toggle" type="button">DARK</button>
-				</div>
-			</nav>
-			<main class="content">
-				<main>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AIAtlas GEMM v6: Parallel Packed Execution</title>
+</head>
+<body>
+  <main>
     <h1>GEMM v6: Parallel Packed Execution</h1>
     <p>
       Version 6 (<code>gemm/v6_parallel.cpp</code>) parallelizes the packed kernel while preserving
@@ -88,33 +56,5 @@
       <p><a href="v5-packed-neon.html">Previous: v5 Packed + NEON</a> | <a href="v7-tuned-dispatch.html">Next: v7 Tuned Dispatch</a></p>
     </nav>
   </main>
-			</main>
-		</div>
-		<script>
-			(function(){
-				var root = document.documentElement;
-				var button = document.getElementById("theme-toggle");
-				if (!button) return;
-
-				function currentTheme(){
-					var theme = root.getAttribute("data-theme");
-					return theme === "light" ? "light" : "dark";
-				}
-
-				function updateLabel(){
-					button.textContent = currentTheme().toUpperCase();
-				}
-
-				button.addEventListener("click", function(){
-					var next = currentTheme() === "dark" ? "light" : "dark";
-					root.setAttribute("data-theme", next);
-					localStorage.setItem("theme", next);
-					updateLabel();
-				});
-
-				updateLabel();
-			})();
-		</script>
-	</body>
+</body>
 </html>
-
