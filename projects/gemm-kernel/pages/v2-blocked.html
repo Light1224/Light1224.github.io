@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AIAtlas GEMM v2: Cache-Blocked Kernel</title>
+</head>
+<body>
+  <main>
+    <h1>GEMM v2: Cache-Blocked Kernel</h1>
+    <p>
+      Version 2 (<code>gemm/v2_blocked.cpp</code>) introduces explicit macro blocking using
+      <code>BM</code>, <code>BN</code>, and <code>BK</code> from
+      <code>atlas_memory/include/atlas_memory/config_m2.hpp</code>. It preserves scalar inner math,
+      but constrains traversal so a bounded tile of A/B/C is reused before moving on.
+    </p>
+
+    <h2>Blocking strategy in code</h2>
+    <ul>
+      <li>Outer tile loops iterate <code>ii</code>, <code>kk</code>, then <code>jj</code>.</li>
+      <li>Tile boundaries use <code>std::min</code> for remainder-safe edges.</li>
+      <li>Inner body remains <code>a * b + c</code> scalar updates.</li>
+      <li><code>C</code> is zeroed before blocked accumulation begins.</li>
+    </ul>
+
+    <h2>Memory behavior differences from v1</h2>
+    <p>
+      v1 improves reuse at the row level, but still sweeps large address ranges as dimensions grow.
+      v2 bounds active subproblems by block sizes, reducing capacity and conflict pressure in cache.
+      This does not change arithmetic complexity, but it changes how often the same lines are reused
+      before eviction.
+    </p>
+
+    <h2>Design constraints</h2>
+    <ul>
+      <li>Block sizes are static constants, not runtime autotuned.</li>
+      <li>No packed buffers yet; source layout still drives loads.</li>
+      <li>No SIMD microkernel; scalar throughput remains a cap.</li>
+      <li>Control flow complexity increases versus v1.</li>
+    </ul>
+
+    <h2>Validation and measurement</h2>
+    <p>
+      <code>tests/benchmark_gemm_v2.cpp</code> applies the same scenario families as v1. The dump
+      confirms v2 tracks v1 closely on some regions and improves stability on larger regimes where
+      blocked reuse matters more. Correctness remains covered by shared GEMM tests and blocked-path
+      checks such as <code>test_basic_blocked_gemm</code>.
+    </p>
+
+    <h2>Transition significance</h2>
+    <p>
+      v2 is the first version that reflects production GEMM structure: explicit macro tiling and
+      predictable subproblem boundaries. v3 builds directly on this shape by introducing micro-tiles
+      inside each block.
+    </p>
+
+    <nav>
+      <p><a href="v1-loop-reorder.html">Previous: v1 Loop Reorder</a> | <a href="v3-scalar-tile.html">Next: v3 Scalar Tile</a></p>
+    </nav>
+  </main>
+</body>
+</html>
