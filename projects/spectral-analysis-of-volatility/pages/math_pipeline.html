@@ -14,7 +14,7 @@
 			})();
 		</script>
 		<link rel="stylesheet" href="../../../style.css">
-		
+		<script>window.MathJax={tex:{inlineMath:[["$","$"],["\\(","\\)"]],displayMath:[["$$","$$"],["\\[","\\]"]]}};</script><script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 		
 	</head>
 	<body>
@@ -40,10 +40,10 @@
 			<main class="content">
 				<article>
         <h1>Math Pipeline</h1>
-        <p><strong>This is the exhaustive technical record of everything I computed in this project, with repository coverage, phase coverage, formulas, diagnostics, artifacts, and reproducibility closure.</strong></p>
+        <p><strong>This page is the exhaustive technical record of the full project pipeline, including repository coverage, phase coverage, formulas, diagnostics, artifacts, and reproducibility closure.</strong></p>
 
         <h2>Repository-wide coverage map</h2>
-        <p>I built this pipeline inside a repo that includes modeling code, preprocessors, notebooks, scripts, tests, reports, and a large artifact tree. These are the top-level components I integrated into this pipeline narrative:</p>
+        <p>The pipeline is implemented in a repository that includes modeling code, preprocessors, notebooks, scripts, tests, reports, and a large artifact tree. The top-level components reflected here are:</p>
         <ul>
             <li>Code packages: <code>estimators</code>, <code>preprocessing</code>, <code>spectral</code>, <code>rmt</code>, <code>model</code>, <code>regimes</code>, <code>validation</code>.</li>
             <li>Execution scripts: <code>run_load_qa.py</code>, <code>run_preprocess.py</code>, <code>run_spectrum_rmt.py</code>, <code>run_regimes.py</code>, <code>run_validation.py</code>, <code>run_all_pipeline.py</code> plus audit/report scripts.</li>
@@ -51,10 +51,10 @@
             <li>Reporting layer: <code>report/all_phases_overview.txt</code>, phase metric files, exhaustive compilation report, and integrated findings report.</li>
         </ul>
 
-        <p>From <code>all_phases_overview</code>, I track 467 generated files overall and explicit phase-by-phase output volume. This matters because my conclusions are based on pipeline outputs, not one notebook snapshot.</p>
+        <p>The <code>all_phases_overview</code> summary tracks 467 generated files and phase-specific output volumes. This matters because conclusions are tied to pipeline outputs, not a single notebook snapshot.</p>
 
         <h2>Notation and core objects</h2>
-        <p>Assets are indexed by i = 1..N, time by t = 1..T. The project often peaks at N=76 in full-cross-section settings with varying effective T depending on strictness and windowing. I use:</p>
+        <p>Assets are indexed by i = 1..N, time by t = 1..T. The project often peaks at N=76 in full-cross-section settings with varying effective T by strictness and windowing. Core symbols used throughout this page are:</p>
         <ul>
             <li>\(\sigma_{i,t}\): realized volatility proxy</li>
             <li>\(x_{i,t}\): standardized log-vol panel entry</li>
@@ -100,12 +100,12 @@ lambda_max = (1 + sqrt(q))^2
         <p><img src="../images/p16_02_filtered_correlation_heatmap.png" alt="Filtered matrix" /></p>
 
         <h3>Phase 17: low-rank model residual anatomy</h3>
-        <p>Low-rank model quantifies systematic share versus idiosyncratic share and verifies residual cross-correlation reduction. This phase is where I measure what common factors can and cannot explain at asset level.</p>
+        <p>Low-rank modeling quantifies systematic versus idiosyncratic share and verifies residual cross-correlation reduction. This stage clarifies what common factors can and cannot explain at asset level.</p>
         <p><img src="../images/p17_01_variance_observed_vs_reconstructed.png" alt="Variance compare" /></p>
         <p><img src="../images/p17_03_residual_correlation_heatmap.png" alt="Residual corr" /></p>
 
         <h3>Phase 18, 19, 20, 21: regime feature engineering, segmentation, and validation</h3>
-        <p>Composite signal and feature-set construction feed change-point segmentation via penalty scan and BIC-guided selection. I validate segment usefulness by regime-level volatility, dispersion, factor-share, and drawdown behavior, then test split robustness for structural persistence.</p>
+        <p>Composite signal and feature construction feed change-point segmentation through penalty scan and BIC-guided selection. Segment usefulness is validated with regime-level volatility, dispersion, factor-share, and drawdown behavior, followed by split robustness checks.</p>
         <p><img src="../images/p18_01_factor_energy_timeseries.png" alt="Energy" /></p>
         <p><img src="../images/p19_03_penalty_scan_bic.png" alt="Penalty scan" /></p>
         <p><img src="../images/p20_04_drawdown_share_by_regime.png" alt="Drawdown by regime" /></p>
@@ -121,7 +121,7 @@ lambda_max = (1 + sqrt(q))^2
         <p>Script-level reproducibility checks confirm required runners exist and deterministic audit passes in documented outputs. Final reports are assembled from generated tables/figures rather than manually typed metrics.</p>
 
         <h3>Phase 27: strict-causality predictive diagnostics</h3>
-        <p>This is the timing-integrity upgrade stage. I enforce:</p>
+        <p>This stage enforces timing-integrity constraints:</p>
         <ul>
             <li>strict forward target definition (future-only windows)</li>
             <li>walk-forward PCA signal generation (no full-sample reuse at prediction time)</li>
@@ -189,8 +189,8 @@ energy_t = sum_k f_{k,t}^2
             <li>Final deterministic audit files from phase 26</li>
         </ul>
 
-        <h2>My final technical statement</h2>
-        <p>This project is complete as a full pipeline: estimation, transformation, spectral extraction, noise-aware filtering, factor interpretation, stability testing, regime segmentation, falsification, strict predictive evaluation, and reproducibility closure. This page is the complete math path I used, with every stage represented.</p>
+        <h2>Final technical statement</h2>
+        <p>The project is complete as a full pipeline: estimation, transformation, spectral extraction, noise-aware filtering, factor interpretation, stability testing, regime segmentation, falsification, strict predictive evaluation, and reproducibility closure. This page documents the complete math path with each stage represented.</p>
 
         <h2>Shared reference</h2>
         <p><strong>Dictionary:</strong> same terminology map used in every page.</p>
