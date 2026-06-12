@@ -1,0 +1,24 @@
+[
+  {
+    "title": "DC-UTPX",
+    "meta": "Jan 2026 – Feb 2026 · Independent",
+    "summary": "Userspace UDP transport protocol for data-center incast workloads in C++, combining DCTCP-style ECN feedback, delay/loss congestion control, and microburst pacing.",
+    "bullets": [
+      "99.97% delivery ratio and P99 RTT < 2.2 ms across 73 concurrent flows under 16-sender fan-in stress.",
+      "9× aggregate throughput vs. kernel TCP under synchronized incast (856 Mbps vs. 95 Mbps).",
+      "eBPF-based per-flow telemetry for RTT percentiles, congestion window trajectories, and ECN-mark fractions.",
+      "Jain fairness index ≥ 0.945 and goodput loss < 0.003% across all workload scenarios."
+    ]
+  },
+  {
+    "title": "GEMM Kernel",
+    "meta": "Dec 2025 – Jan 2026 · Independent",
+    "summary": "C++20 GEMM kernel on Apple M2, progressing from naive to cache-blocked, NEON-SIMD, packed, and multithreaded implementations.",
+    "bullets": [
+      "231 GFLOP/s (95% of OpenBLAS) — a 223× speedup over baseline.",
+      "Optimized 8×8 ARM NEON FMA microkernels, increasing performance from 16 to 42.7 GFLOP/s.",
+      "L2-tuned, SIMD-aligned memory packing with no dynamic allocation in hot paths (2.84× throughput gain).",
+      "Parallelized across 8 cores using std::thread, scaling from 43 to 231 GFLOP/s."
+    ]
+  }
+]

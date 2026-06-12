@@ -1,0 +1,26 @@
+[
+  
+  {
+    "title": "Selector AI",
+    "href": "https://www.selector.ai/",
+    "meta": "Software Engineering Intern · June 2026 – August 2026 · Bengaluru",
+    "bullets": [
+      "Developed MCP tools from scratch",
+      "Automated the MCP tools using Python and Bash scripts",
+      "Integrated the MCP tools with the existing infrastructure",
+      "Developed a new feature to automate the MCP tools",
+      "Developed a new feature to automate the MCP tools"
+    ]
+  },
+  {
+    "title": "Southern Regional Load Dispatch Center",
+    "href": "https://www.srldc.in/",
+    "meta": "Summer Intern · May 2025 – July 2025 · Bengaluru",
+    "bullets": [
+      "Designed and benchmarked production-grade time-series forecasting models (NNs, gradient-boosted trees, ensembles) for next-day grid demand prediction, achieving 92% accuracy and outperforming vendor forecasts.",
+      "Engineered temporal and weather-derived features (lag structures, rolling statistics) to improve robustness and predictive performance.",
+      "Built and deployed a Linux-based inference pipeline consuming minute-level PostgreSQL data, automated via cron to generate rolling forecasts every 15 minutes.",
+      "Integrated forecasts and evaluation metrics into Grafana dashboards for real-time monitoring."
+    ]
+  }
+]

@@ -1,0 +1,19 @@
+{
+  "name": "Shamit Sai",
+  "lastUpdated": "2026-06-13",
+  "nav": [
+    { "id": "about", "label": "About Me", "href": "index.html" },
+    { "id": "education", "label": "Education & Skills", "href": "education.html" },
+    { "id": "experience", "label": "Experience", "href": "experience.html" },
+    { "id": "projects", "label": "Projects", "href": "projects.html" },
+    { "id": "blog", "label": "Blog", "href": "blog.html" },
+    { "id": "reading", "label": "Reading List", "href": "reading.html" },
+    { "id": "contact", "label": "Contact", "href": "contact.html" }
+  ],
+  "external": [
+    { "label": "GitHub", "href": "https://github.com/Light1224" },
+    { "label": "LinkedIn", "href": "https://www.linkedin.com/in/shamit-sai" },
+    { "label": "Codeforces", "href": "https://codeforces.com/profile/lightcf12" },
+    { "label": "Resume (PDF)", "href": "resume.pdf" }
+  ]
+}

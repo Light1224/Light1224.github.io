@@ -1,0 +1,8 @@
+{
+  "body": [
+    {
+      "type": "paragraph",
+      "text": "AI has made the first draft of software cheap: boilerplate, tests, refactors, and glue code arrive faster than any human can type, which means transcription is rarely the rate limiter anymore. The constraint moved to specification (how precisely you define the problem), judgment (whether generated code is correct under load, adversarial input, and real invariants), system understanding (how a change fits deployment topology, observability, and team conventions the model never sees), and ownership (who gets paged when it breaks). Models excel at pattern completion over well-trodden tasks and fail quietly on ambiguity — especially in systems work, where a plausible congestion-control tweak or SIMD kernel still demands measurement, skepticism, and accountability. The job is less about producing lines and more about asking sharp questions, treating every draft as untrusted, and integrating changes into software you actually understand; teams that optimize for generation volume rather than verification quality will ship faster and learn slower."
+    }
+  ]
+}

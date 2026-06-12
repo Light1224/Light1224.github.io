@@ -1,0 +1,12 @@
+{
+  "title": "Blog",
+  "intro": "Notes on systems programming, networking, high-performance computing, and machine learning.",
+  "posts": [
+    {
+      "slug": "ai-software-engineering",
+      "title": "Writing Code Is No Longer the Bottleneck",
+      "date": "2026-06-13",
+      "summary": "First drafts are cheap now; specification, judgment, system fit, and ownership are the new bottlenecks."
+    }
+  ]
+}

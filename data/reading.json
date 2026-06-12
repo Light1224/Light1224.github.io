@@ -1,0 +1,12 @@
+{
+  "title": "Reading List",
+  "intro": "Books I find useful, revisit often, or think about when working on hard problems.",
+  "books": [
+    {
+      "title": "Thinking Strategically",
+      "author": "Avinash K. Dixit and Barry J. Nalebuff",
+      "href": "https://www.amazon.com/Thinking-Strategically-Business-Essays-Decision/dp/0062264715",
+      "note": "A book on strategic thinking and decision making."
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "title": "Contact",
+  "intro": "Open to internships, research collaborations, and project discussions. Email is the best way to reach me.",
+  "sections": [
+    {
+      "title": "Direct",
+      "items": [
+        {
+          "label": "Email",
+          "text": "shamitsai0609@gmail.com",
+          "href": "mailto:shamitsai0609@gmail.com",
+          "primary": true
+        },
+        {
+          "label": "Phone",
+          "text": "+91 89512 96699",
+          "href": "tel:+918951296699"
+        }
+      ]
+    },
+    {
+      "title": "Online",
+      "items": [
+        {
+          "label": "GitHub",
+          "text": "github.com/Light1224",
+          "href": "https://github.com/Light1224"
+        },
+        {
+          "label": "LinkedIn",
+          "text": "linkedin.com/in/shamit-sai",
+          "href": "https://www.linkedin.com/in/shamit-sai"
+        },
+        {
+          "label": "Codeforces",
+          "text": "codeforces.com/profile/lightcf12",
+          "href": "https://codeforces.com/profile/lightcf12"
+        }
+      ]
+    }
+  ],
+  "note": "Resume available via the sidebar link or on request by email."
+}

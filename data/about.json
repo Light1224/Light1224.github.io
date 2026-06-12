@@ -1,0 +1,12 @@
+{
+  "title": "About Me",
+  "intro": {
+    "name": "Shamit Sai",
+    "lines": [
+      "B.E. Electronics & Communications Engineering,",
+      { "text": "BITS Pilani, Goa Campus", "href": "https://www.bits-pilani.ac.in/goa/" },
+      "Minor in Data Science · CGPA 8.3/10 · Expected May 2027"
+    ],
+    "bio": "I work on systems programming, networking, high-performance computing, and applied machine learning."
+  }
+}

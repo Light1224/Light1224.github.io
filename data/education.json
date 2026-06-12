@@ -1,0 +1,47 @@
+{
+  "title": "Education & Skills",
+  "school": {
+    "title": "BITS Pilani, Goa Campus",
+    "lines": [
+      "B.E. in Electronics and Communications Engineering",
+      "Minor in Data Science · CGPA 8.3/10",
+      "Expected May 2027 · Goa, India"
+    ],
+    "coursework": [
+      "Machine Learning",
+      "Foundations of Data Science",
+      "Computer Architecture",
+      "Communication Networks",
+      "Object Oriented Programming",
+      "Information Theory and Coding",
+      "Signals and Systems",
+      "Probability and Statistics"
+    ]
+  },
+  "skills": [
+    {
+      "title": "Programming",
+      "lines": [
+        "Proficient: C++, Shell, Python",
+        "Intermediate: Java, Assembly x86, Git",
+        "Coursework: Vivado Xilinx, MATLAB"
+      ]
+    },
+    {
+      "title": "Competitive Programming",
+      "lines": [
+        "Codeforces peak rating 1547 (2025)",
+        "100+ problems solved on Codeforces and LeetCode"
+      ]
+    },
+    {
+      "title": "Examinations",
+      "lines": [
+        "JEE Mains — 99.1 percentile",
+        "JEE Advanced — rank 5811",
+        "KCET — rank 759 · ComedK — rank 57",
+        "12th Boards — 95/100"
+      ]
+    }
+  ]
+}
