@@ -186,9 +186,9 @@ function renderEducation(data) {
       ${education.school.coursework
         .map(
           (group) => `
-            <div class="coursework-stack">
-              <p class="coursework-stack-title"><b>${escapeHtml(group.title)}</b></p>
-              <ul class="coursework-list">
+            <div class="panel-stack">
+              <div class="panel-stack-header">${escapeHtml(group.title)}</div>
+              <ul class="panel-list">
                 ${group.courses.map((course) => `<li>${escapeHtml(course)}</li>`).join("")}
               </ul>
             </div>
@@ -198,23 +198,30 @@ function renderEducation(data) {
     </div>
   `;
 
-  const skillsHtml = education.skills
-    .map(
-      (group) => `
-        <div class="info-block">
-          <p><b>${escapeHtml(group.title)}</b><br>${group.lines.map((line) => escapeHtml(line)).join("<br>")}</p>
-        </div>
-      `
-    )
-    .join("");
+  const skillsHtml = `
+    <div class="skills-stacks">
+      ${education.skills
+        .map(
+          (group) => `
+            <div class="panel-stack ${group.title === "Examinations" ? "panel-stack--wide" : ""}">
+              <div class="panel-stack-header">${escapeHtml(group.title)}</div>
+              <ul class="panel-list">
+                ${group.lines.map((line) => `<li>${escapeHtml(line)}</li>`).join("")}
+              </ul>
+            </div>
+          `
+        )
+        .join("")}
+    </div>
+  `;
 
   return `
     <h1>${escapeHtml(education.title)}</h1>
     ${sectionBar("Education")}
-    <p>
-      <b>${escapeHtml(education.school.title)}</b><br>
-      ${schoolLines}
-    </p>
+    <div class="edu-panel">
+      <p class="edu-panel-title"><b>${escapeHtml(education.school.title)}</b></p>
+      <p class="edu-panel-body">${schoolLines}</p>
+    </div>
     ${sectionBar("Coursework")}
     ${courseworkHtml}
     ${sectionBar("Skills")}
