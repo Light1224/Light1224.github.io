@@ -28,6 +28,20 @@ Each file maps to one part of the site. Edit the file for the section you want t
 
 `href` is optional — omit it if the organization has no link.
 
+**Coursework** — edit `education.json` → `school.coursework`:
+
+```json
+{
+  "title": "Minor in Data Science",
+  "courses": [
+    "Machine Learning",
+    "Course Title — add here"
+  ]
+}
+```
+
+Add objects for each track (e.g. `Minor in Data Science`, `ECE`). Append course names to the `courses` array.
+
 **New project** — append to `projects.json`:
 
 ```json

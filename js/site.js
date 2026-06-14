@@ -180,7 +180,16 @@ function renderAbout(data) {
 function renderEducation(data) {
   const { education } = data;
   const schoolLines = education.school.lines.map((line) => escapeHtml(line)).join("<br>");
-  const coursework = education.school.coursework.join(", ");
+
+  const courseworkHtml = education.school.coursework
+    .map(
+      (group) => `
+        <div class="coursework-group">
+          <p><b>${escapeHtml(group.title)}</b><br>${group.courses.map((course) => escapeHtml(course)).join(", ")}</p>
+        </div>
+      `
+    )
+    .join("");
 
   const skillsHtml = education.skills
     .map(
@@ -199,7 +208,8 @@ function renderEducation(data) {
       <b>${escapeHtml(education.school.title)}</b><br>
       ${schoolLines}
     </p>
-    <p><b>Relevant coursework:</b><br>${escapeHtml(coursework)}</p>
+    ${sectionBar("Coursework")}
+    ${courseworkHtml}
     ${sectionBar("Skills")}
     ${skillsHtml}
   `;

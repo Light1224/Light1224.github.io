@@ -8,14 +8,32 @@
       "Expected May 2027 · Goa, India"
     ],
     "coursework": [
-      "Machine Learning",
-      "Foundations of Data Science",
-      "Computer Architecture",
-      "Communication Networks",
-      "Object Oriented Programming",
-      "Information Theory and Coding",
-      "Signals and Systems",
-      "Probability and Statistics"
+      {
+        "title": "Minor in Data Science",
+        "courses": [
+          "Machine Learning",
+          "Foundations of Data Science",
+          "Applied Statistical Methods",
+          "Nonlinear Optimization",
+          "Applied Stochastic Processes"
+        ]
+      },
+      {
+        "title": "ECE",
+        "courses": [
+          "Computer Architecture",
+          "Communication Networks",
+          "Object Oriented Programming",
+          "Information Theory and Coding",
+          "Signals and Systems",
+          "Probability and Statistics",
+          "Microprocessors and Interfacing", 
+          "Digital Signal Processing",
+          "Communication Networks",
+          "Combinatorial Mathematics",
+          "Game Theory"
+        ]
+      }
     ]
   },
   "skills": [
