@@ -265,6 +265,35 @@ hr {
   font-size: 12px;
 }
 
+.coursework-stacks {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.coursework-stack {
+  border: 1px solid var(--border);
+  background: var(--sidebar-bg);
+}
+
+.coursework-stack-title {
+  margin: 0;
+  padding: 6px 8px;
+  border-bottom: 1px solid var(--border);
+  background: var(--section-bar-bg);
+  font-size: 12px;
+}
+
+.coursework-list {
+  margin: 0;
+  padding: 8px 8px 8px 24px;
+}
+
+.coursework-list li + li {
+  margin-top: 4px;
+}
+
 .meta {
   color: var(--text-dim);
   font-size: 12px;
@@ -574,6 +603,10 @@ body[data-page="blog-post"] .article-list li::marker {
 }
 
 @media (max-width: 640px) {
+  .coursework-stacks {
+    grid-template-columns: 1fr;
+  }
+
   body[data-page="blog-post"] .main {
     padding-top: 12px;
     padding-bottom: 24px;

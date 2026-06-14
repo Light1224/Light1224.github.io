@@ -40,7 +40,7 @@ Each file maps to one part of the site. Edit the file for the section you want t
 }
 ```
 
-Add objects for each track (e.g. `Minor in Data Science`, `ECE`). Append course names to the `courses` array.
+Add objects for each track (`Minor in Data Science`, `ECE`). Append course names to the `courses` array — they render as a list, not comma-separated text.
 
 **New project** — append to `projects.json`:
 
