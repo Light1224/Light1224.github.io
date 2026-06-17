@@ -1,7 +1,18 @@
 [
   {
+    "title": "C++20 CPU Machine Learning Library",
+    "summary": "From-scratch CPU machine learning library in C++20 with MLP, CNN, and RNN support, a float32 tensor core, dual-path GEMM, and end-to-end MNIST training with benchmarks and CI.",
+    "bullets": [
+      "Built MLP, CNN, and RNN modules with manual forward/backward passes, a float32 tensor/allocator core, and reusable module APIs wired through all training binaries.",
+      "Implemented dual-path f32 GEMM using Apple Accelerate BLAS for large matmuls and custom ARM NEON blocked micro-kernels with autotuned tiling, multi-threaded execution, and dedicated weight-gradient kernels for linear, conv, and RNN layers.",
+      "Shipped convolution as an im2col-to-GEMM pipeline with NCHW layout transforms, parallel im2col/col2im, cached patch buffers for backward weight updates, and CPU-oriented fusion across the conv forward/backward hot path.",
+      "Trained MNIST to ~96% test accuracy in ~19s over 10 epochs on Apple Silicon (batch 128) using batched SGD and cross-entropy loss, with per-epoch timing, CSV metrics, and self-contained HTML training dashboards.",
+      "Added 13 CTest suites, GEMM reference equivalence tests, finite-difference gradient checks, GEMM/linear benchmarks, and macOS CI covering build, tests, example smoke runs, and benchmark smoke execution."
+    ]
+  },
+  {
     "title": "DC-UTPX",
-    "meta": "Jan 2026 – Feb 2026 · Independent",
+    "meta": "Jan 2026 – Feb 2026",
     "summary": "Userspace UDP transport protocol for data-center incast workloads in C++, combining DCTCP-style ECN feedback, delay/loss congestion control, and microburst pacing.",
     "bullets": [
       "99.97% delivery ratio and P99 RTT < 2.2 ms across 73 concurrent flows under 16-sender fan-in stress.",
@@ -12,7 +23,7 @@
   },
   {
     "title": "GEMM Kernel",
-    "meta": "Dec 2025 – Jan 2026 · Independent",
+    "meta": "Dec 2025 – Jan 2026",
     "summary": "C++20 GEMM kernel on Apple M2, progressing from naive to cache-blocked, NEON-SIMD, packed, and multithreaded implementations.",
     "bullets": [
       "231 GFLOP/s (95% of OpenBLAS) — a 223× speedup over baseline.",
