@@ -91,6 +91,15 @@ h3 {
   color: var(--text-strong);
 }
 
+h4 {
+  margin: 0 0 6px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--section-bar-text);
+}
+
 p {
   margin: 0 0 12px;
 }
@@ -263,6 +272,68 @@ hr {
 
 .entry-links {
   font-size: 12px;
+}
+
+.projects-intro {
+  color: var(--text-dim);
+  max-width: 46em;
+}
+
+.projects-menu {
+  margin: 0 0 16px;
+  border: 1px solid var(--border);
+  background: var(--sidebar-bg);
+}
+
+.projects-menu-title {
+  margin: 0;
+  padding: 6px 10px;
+  border-bottom: 1px solid var(--border);
+  background: var(--section-bar-bg);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--section-bar-text);
+}
+
+.projects-menu-group + .projects-menu-group {
+  border-top: 1px solid var(--border);
+}
+
+.projects-menu-label {
+  display: block;
+  padding: 6px 10px 4px;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text-dim);
+}
+
+.projects-menu-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding: 0 10px 8px;
+}
+
+.projects-menu-link {
+  display: inline-block;
+  padding: 3px 7px;
+  border: 1px solid var(--border);
+  background: var(--section-bar-bg);
+  text-decoration: none;
+}
+
+.project-entry {
+  scroll-margin-top: 10px;
+}
+
+.project-subsection + .project-subsection {
+  margin-top: 10px;
+}
+
+.project-subsection ul {
+  margin-bottom: 0;
 }
 
 .coursework-stacks,

@@ -13,10 +13,16 @@
   <nav class="sidebar" id="sidebar" aria-label="Site navigation"></nav>
 
   <div class="page">
-    <main class="main" id="main"></main>
+    <main class="main" id="main">
+      <p>Loading content...</p>
+      <p>If this page stays blank, serve the site over HTTP (for example: <code>python3 -m http.server 8000</code>).</p>
+    </main>
   </div>
 
   <footer class="page-footer" id="footer"></footer>
+  <noscript>
+    <p style="margin:12px 18px;">This site requires JavaScript enabled in your browser.</p>
+  </noscript>
   <script type="module" src="js/site.js"></script>
 </body>
 </html>

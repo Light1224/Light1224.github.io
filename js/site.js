@@ -239,10 +239,95 @@ function renderExperience(data) {
 }
 
 function renderProjects(data) {
-  const entries = data.projects.map((entry) => renderEntry(entry)).join("");
+  const categoryOrder = [];
+  const projectsByCategory = new Map();
+
+  for (const project of data.projects) {
+    const category = project.category || "Other";
+    if (!projectsByCategory.has(category)) {
+      projectsByCategory.set(category, []);
+      categoryOrder.push(category);
+    }
+    projectsByCategory.get(category).push(project);
+  }
+
+  const projectId = (project) =>
+    project.slug ||
+    project.title
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, "-")
+      .replace(/^-+|-+$/g, "");
+
+  const menuHtml = categoryOrder
+    .map((category) => {
+      const links = projectsByCategory
+        .get(category)
+        .map(
+          (project) =>
+            `<a href="#${escapeHtml(projectId(project))}" class="projects-menu-link">${escapeHtml(project.title)}</a>`
+        )
+        .join("");
+
+      return `
+        <div class="projects-menu-group">
+          <span class="projects-menu-label">${escapeHtml(category)}</span>
+          <div class="projects-menu-links">${links}</div>
+        </div>
+      `;
+    })
+    .join("");
+
+  const entries = data.projects
+    .map((project) => {
+      const id = projectId(project);
+      const contextHtml = project.context ? `<p class="entry-summary">${escapeHtml(project.context)}</p>` : "";
+      const architectureHtml = project.architecture?.length
+        ? `
+          <div class="project-subsection">
+            <h4>How it works</h4>
+            ${renderBullets(project.architecture)}
+          </div>
+        `
+        : "";
+      const outcomesHtml = project.outcomes?.length
+        ? `
+          <div class="project-subsection">
+            <h4>Results</h4>
+            ${renderBullets(project.outcomes)}
+          </div>
+        `
+        : "";
+
+      return `
+        <article class="entry project-entry" id="${escapeHtml(id)}">
+          <header class="entry-header">
+            ${renderEntryTitle(project.title, project.href)}
+            ${project.meta ? `<p class="meta">${escapeHtml(project.meta)}</p>` : ""}
+          </header>
+          ${project.summary ? `<p class="entry-summary">${escapeHtml(project.summary)}</p>` : ""}
+          ${contextHtml}
+          ${architectureHtml}
+          ${outcomesHtml}
+          ${project.links?.length
+            ? `<p class="entry-links">${project.links
+                .map(
+                  (link) =>
+                    `<a href="${escapeHtml(link.href)}"${externalAttrs(link.href)}>${escapeHtml(link.label)}</a>`
+                )
+                .join(" · ")}</p>`
+            : ""}
+        </article>
+      `;
+    })
+    .join("");
 
   return `
     <h1>Projects</h1>
+    <p class="projects-intro">Selected projects in performance systems, real-time media, graph intelligence, and applied learning.</p>
+    <nav class="projects-menu" aria-label="Projects jump menu">
+      <p class="projects-menu-title">Jump to a project</p>
+      ${menuHtml}
+    </nav>
     ${entries || "<p>No entries yet.</p>"}
   `;
 }

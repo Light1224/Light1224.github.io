@@ -1,35 +1,141 @@
 [
   {
     "title": "C++20 CPU Machine Learning Library",
-    "summary": "From-scratch CPU machine learning library in C++20 with MLP, CNN, and RNN support, a float32 tensor core, dual-path GEMM, and end-to-end MNIST training with benchmarks and CI.",
-    "bullets": [
-      "Built MLP, CNN, and RNN modules with manual forward/backward passes, a float32 tensor/allocator core, and reusable module APIs wired through all training binaries.",
-      "Implemented dual-path f32 GEMM using Apple Accelerate BLAS for large matmuls and custom ARM NEON blocked micro-kernels with autotuned tiling, multi-threaded execution, and dedicated weight-gradient kernels for linear, conv, and RNN layers.",
-      "Shipped convolution as an im2col-to-GEMM pipeline with NCHW layout transforms, parallel im2col/col2im, cached patch buffers for backward weight updates, and CPU-oriented fusion across the conv forward/backward hot path.",
-      "Trained MNIST to ~96% test accuracy in ~19s over 10 epochs on Apple Silicon (batch 128) using batched SGD and cross-entropy loss, with per-epoch timing, CSV metrics, and self-contained HTML training dashboards.",
-      "Added 13 CTest suites, GEMM reference equivalence tests, finite-difference gradient checks, GEMM/linear benchmarks, and macOS CI covering build, tests, example smoke runs, and benchmark smoke execution."
-    ]
-  },
-  {
-    "title": "DC-UTPX",
-    "meta": "Jan 2026 – Feb 2026",
-    "summary": "Userspace UDP transport protocol for data-center incast workloads in C++, combining DCTCP-style ECN feedback, delay/loss congestion control, and microburst pacing.",
-    "bullets": [
-      "99.97% delivery ratio and P99 RTT < 2.2 ms across 73 concurrent flows under 16-sender fan-in stress.",
-      "9× aggregate throughput vs. kernel TCP under synchronized incast (856 Mbps vs. 95 Mbps).",
-      "eBPF-based per-flow telemetry for RTT percentiles, congestion window trajectories, and ECN-mark fractions.",
-      "Jain fairness index ≥ 0.945 and goodput loss < 0.003% across all workload scenarios."
-    ]
+    "slug": "cpp20-cpu-ml-library",
+    "category": "Performance Systems",
+    "meta": "C++20 · Apple Silicon · CPU kernels · end-to-end training",
+    "summary": "From-scratch CPU deep-learning stack with a float32 tensor core, custom kernels, and end-to-end MNIST training.",
+    "context": "I built this to understand modern training systems from first principles: math kernels, memory layout, backward passes, and reproducible benchmarking.",
+    "architecture": [
+      "Implemented MLP, CNN, and RNN modules with explicit forward/backward paths and reusable module APIs.",
+      "Shipped a dual-path f32 GEMM backend: BLAS for large matrix multiplies and custom blocked ARM NEON micro-kernels for tuned hot paths.",
+      "Built convolution as im2col-to-GEMM with parallel im2col/col2im and cached patch buffers for faster backward weight updates."
+    ],
+    "outcomes": [
+      "Reached ~96% MNIST test accuracy in ~19s for 10 epochs on Apple Silicon (batch size 128).",
+      "Added 13 CTest suites, finite-difference gradient checks, GEMM reference equivalence tests, and benchmark smoke coverage in CI.",
+      "Produced per-epoch CSV metrics and standalone HTML dashboards for training analysis."
+    ],
+    "links": []
   },
   {
     "title": "GEMM Kernel",
-    "meta": "Dec 2025 – Jan 2026",
-    "summary": "C++20 GEMM kernel on Apple M2, progressing from naive to cache-blocked, NEON-SIMD, packed, and multithreaded implementations.",
-    "bullets": [
-      "231 GFLOP/s (95% of OpenBLAS) — a 223× speedup over baseline.",
-      "Optimized 8×8 ARM NEON FMA microkernels, increasing performance from 16 to 42.7 GFLOP/s.",
-      "L2-tuned, SIMD-aligned memory packing with no dynamic allocation in hot paths (2.84× throughput gain).",
-      "Parallelized across 8 cores using std::thread, scaling from 43 to 231 GFLOP/s."
+    "slug": "gemm-kernel",
+    "category": "Performance Systems",
+    "meta": "C++20 · ARM NEON · cache blocking · multithreading",
+    "summary": "Progressive optimization of matrix multiplication on Apple M2 from naive loops to packed, SIMD, multi-threaded kernels.",
+    "context": "This project is a full optimization journey: each version isolates one idea (loop order, blocking, vectorization, packing, threading) and measures its impact.",
+    "architecture": [
+      "Built v0→v6 kernel progression: naive, loop-reordered, blocked, scalar tiled, NEON micro-kernels, packed layout, and parallel execution.",
+      "Designed atlas_memory workspace primitives for aligned packed buffers and predictable memory access.",
+      "Integrated correctness tests against reference implementations and OpenBLAS comparison tests."
+    ],
+    "outcomes": [
+      "Measured up to 270.55 GFLOP/s on 1024^3 workloads on Apple M2.",
+      "Recorded a 200x speedup over naive baseline and outperformed tuned 8-thread OpenBLAS in local benchmark scenarios.",
+      "Documented architecture notes, blocking strategy, micro-kernel design, and profiling workflow."
+    ],
+    "links": [
+      { "label": "GitHub", "href": "https://github.com/Light1224/gemm-kernel" }
     ]
+  },
+  {
+    "title": "3D Audio",
+    "slug": "3daudio",
+    "category": "Audio + Real-Time Graphics",
+    "meta": "C++17 · miniaudio · GLFW · OpenGL · Dear ImGui",
+    "summary": "Interactive desktop spatial-audio workstation that simulates direction, depth, and height cues over stereo playback.",
+    "context": "The focus was perceptual realism under real-time callback constraints: useful audio cues, low latency, and a UI that stays in sync with DSP state.",
+    "architecture": [
+      "Implemented VBAP panning, Woodworth-style interaural time delays, rear-source filtering, and distance-aware attenuation.",
+      "Built a callback-driven 48 kHz float-stereo engine with fractional delay lines, three-band crossovers, and smoothed runtime parameters.",
+      "Added an OpenGL/ImGui editor for drag-and-drop source placement and listener orientation, synchronized with the audio thread."
+    ],
+    "outcomes": [
+      "Delivered click-free interactive control with parameter smoothing designed for live manipulation.",
+      "Simulated early room reflections (floor/ceiling paths) to improve height and space perception.",
+      "Shipped presets and direct coordinate controls for fast audition and repeatable scene setup."
+    ],
+    "links": [
+      { "label": "GitHub", "href": "https://github.com/Light1224/3daudio" }
+    ]
+  },
+  {
+    "title": "Polygraph",
+    "slug": "polygraph",
+    "category": "Data + Graph Intelligence",
+    "meta": "Python · SQLite/FTS5 · NetworkX · FastAPI · sentence-transformers",
+    "summary": "Prediction-market graph intelligence system that ingests public market data, infers typed edges, and serves an interactive explorer.",
+    "context": "I wanted a practical way to reason about market structure beyond isolated charts, with explicit provenance for every inferred relationship.",
+    "architecture": [
+      "Ingested ~45k markets/events/tags from public APIs into SQLite and built local FTS5 + vector retrieval.",
+      "Implemented a tiered inference pipeline for structural, temporal, semantic, and empirical relationship edges.",
+      "Exported GraphML and served an interactive web UI with neighborhood exploration, filtering, and market detail views."
+    ],
+    "outcomes": [
+      "Resolved 195k+ typed relationships across 38k+ connected markets with confidence/provenance metadata.",
+      "Enabled sub-millisecond keyword + semantic retrieval with an offline-built MiniLM embedding index.",
+      "Automated refresh flows (fetch/embed/prices/infer/build) for repeatable updates."
+    ],
+    "links": [
+      { "label": "GitHub", "href": "https://github.com/Light1224/polygraph" }
+    ]
+  },
+  {
+    "title": "Blackjack Engine",
+    "slug": "blackjack-engine",
+    "category": "Simulation + Applied RL",
+    "meta": "C++20 · TypeScript · React · CMake · Apple Accelerate",
+    "summary": "Casino-grade blackjack simulator with side bets, web terminal UI, and a C++ reinforcement-learning training stack.",
+    "context": "This project combines deterministic game-engine correctness with practical experimentation: simulation, strategy comparison, and training loops.",
+    "architecture": [
+      "Implemented American blackjack rules (6-deck shoe, hole card, peek, S17, insurance/even money) plus Perfect Pairs and 21+3 side bets.",
+      "Built a TypeScript server and React terminal-style frontend for interactive gameplay and settlement tracking.",
+      "Added a C++ RL module with MDP environment wrappers, state encoders, policy/value MLPs, and episodic training utilities."
+    ],
+    "outcomes": [
+      "Created a reproducible framework to compare random, heuristic, and learned strategies under identical game rules.",
+      "Kept engine and training components in a shared codebase to reduce divergence between simulation and learning environments.",
+      "Structured the project for both CLI and web workflows."
+    ],
+    "links": []
+  },
+  {
+    "title": "Noisegen",
+    "slug": "noisegen",
+    "category": "Audio + Rendering Pipeline",
+    "meta": "C/C++ · raylib · ffmpeg · CMake",
+    "summary": "Loopable long-form noise video pipeline with programmatic soundscapes, reactive visuals, and efficient duration scaling.",
+    "context": "The core idea is to render a short seamless loop once, then scale duration with stream-copy looping so 1-hour and 10-hour outputs have similar render cost.",
+    "architecture": [
+      "Generated stereo noise/soundscape loops (48 kHz) with crossfade-seam closure, voicing controls, and reverb that preserves loop periodicity.",
+      "Built a raylib visual renderer with deterministic phase-driven scenes and headless frame output for ffmpeg muxing.",
+      "Composed an end-to-end shell pipeline (audio synthesis → visualization → encode → long-duration loop)."
+    ],
+    "outcomes": [
+      "Supports multiple noise colors and procedural ambience presets (rain, ocean, wind, fire, stream, drone).",
+      "Produces long-duration outputs efficiently by looping encoded base clips rather than rerendering full timelines.",
+      "Provides both interactive preview and batch rendering workflows."
+    ],
+    "links": []
+  },
+  {
+    "title": "DC-UTPX",
+    "slug": "dc-utpx",
+    "category": "Network Systems",
+    "meta": "C++ · userspace transport · telemetry · congestion control",
+    "summary": "Userspace UDP transport protocol for data-center incast workloads with ECN-aware control and microburst pacing.",
+    "context": "Designed for fan-in congestion scenarios where tail latency and fairness collapse under synchronized bursts.",
+    "architecture": [
+      "Combined DCTCP-style ECN feedback with delay/loss signals for congestion control decisions.",
+      "Added pacing controls to smooth synchronized sender bursts under incast pressure.",
+      "Collected per-flow telemetry for RTT percentiles, congestion window trajectories, and ECN-mark fractions."
+    ],
+    "outcomes": [
+      "99.97% delivery ratio and P99 RTT under 2.2 ms across 73 concurrent flows in stress tests.",
+      "Measured 9x aggregate throughput over kernel TCP under synchronized incast (856 Mbps vs 95 Mbps).",
+      "Observed Jain fairness index >= 0.945 with goodput loss below 0.003% in tested scenarios."
+    ],
+    "links": []
   }
 ]
