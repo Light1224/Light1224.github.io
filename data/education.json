@@ -15,12 +15,10 @@
           "Foundations of Data Science",
           "Applied Statistical Methods",
           "Nonlinear Optimization",
-          "Applied Stochastic Processes",
           "Object Oriented Programming",
           "Computer Architecture",
           "Probability and Statistics",
-          "Combinatorial Mathematics",
-          "Game Theory"
+          "Artificial Intelligence"
         ]
       },
       {
@@ -30,7 +28,10 @@
           "Information Theory and Coding",
           "Communication Networks",
           "Microprocessors and Interfacing",
-          "Digital Signal Processing"
+          "Digital Signal Processing",
+          "Digital Image Processing",
+          "Digital Design",
+          "Microprocessors and Interfacing"
         ]
       }
     ]

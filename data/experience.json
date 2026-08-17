@@ -3,13 +3,12 @@
   {
     "title": "Selector AI",
     "href": "https://www.selector.ai/",
-    "meta": "Software Engineering Intern · June 2026 – August 2026 · Bengaluru",
+    "meta": "AI Engineering Intern · June 2026 – August 2026 · Bengaluru",
     "bullets": [
-      "Developed MCP tools from scratch",
-      "Automated the MCP tools using Python and Bash scripts",
-      "Integrated the MCP tools with the existing infrastructure",
-      "Developed a new feature to automate the MCP tools",
-      "Developed a new feature to automate the MCP tools"
+      "Built an agentic customer onboarding system using MCP and live infrastructure APIs to automate enterprise onboarding workflows and reduce manual operational coordination",
+      "Designed the governance layer for AI-driven production actions, using structured interfaces, permission checks, and approval gates to reduce risk before changes were executed",
+      "Translated manual onboarding knowledge into a reusable decision framework that handled deployment dependencies, failure modes, and customer-specific requirements in production contexts",
+      "Improved operational confidence by adding 165+ automated tests, offline simulation, compatibility fixes, and CI checks for routing, permissions, and deployment integrity"
     ]
   },
   {
@@ -17,10 +16,9 @@
     "href": "https://www.srldc.in/",
     "meta": "Summer Intern · May 2025 – July 2025 · Bengaluru",
     "bullets": [
-      "Designed and benchmarked production-grade time-series forecasting models (NNs, gradient-boosted trees, ensembles) for next-day grid demand prediction, achieving 92% accuracy and outperforming vendor forecasts.",
-      "Engineered temporal and weather-derived features (lag structures, rolling statistics) to improve robustness and predictive performance.",
-      "Built and deployed a Linux-based inference pipeline consuming minute-level PostgreSQL data, automated via cron to generate rolling forecasts every 15 minutes.",
-      "Integrated forecasts and evaluation metrics into Grafana dashboards for real-time monitoring."
+      "Engineered temporal and weather-driven features including lagged values and rolling statistics to improve model robustness under shifting demand patterns",
+      "Deployed a production forecasting workflow that ingested minute-level PostgreSQL data and refreshed rolling predictions every 15 minutes, enabling continuous operational monitoring",
+      "Operationalized model evaluation by publishing metrics to Grafana dashboards, giving stakeholders a real-time view of forecast quality and demand signals"
     ]
   }
 ]

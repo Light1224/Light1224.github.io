@@ -5,8 +5,9 @@
     "lines": [
       "B.E. Electronics & Communications Engineering,",
       { "text": "BITS Pilani, Goa Campus", "href": "https://www.bits-pilani.ac.in/goa/" },
-      "Minor in Data Science · CGPA 8.3/10 · Expected May 2027"
+      "Minor in Data Science · CGPA 7.33/10 · Expected May 2027",
+      "shamitsai0609@gmail.com"
     ],
-    "bio": "I work on systems programming, networking, high-performance computing, and applied machine learning."
+    "bio": "I build high-performance systems, optimize computational kernels, and develop practical ML applications. My work spans from bare-metal C++ optimization to neural network training pipelines, with a focus on measurable performance improvements."
   }
 }
